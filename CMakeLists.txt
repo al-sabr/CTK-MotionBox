@@ -488,6 +488,9 @@ ctk_lib_option(Widgets
                "Build the Widgets library" OFF
                CTK_ENABLE_Widgets OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES) OR CTK_USE_QTTESTING)
 
+ctk_lib_option(qtsingleapplication
+               "Build the MITK SingleApplication library" ON)
+               
 ctk_lib_option(DICOM/Core
                "Build the DICOM Core library" OFF
                CTK_ENABLE_DICOM OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES))
