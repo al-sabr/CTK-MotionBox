@@ -37,7 +37,7 @@ if(NOT DEFINED VTK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
                       GIT_TAG ${revision_tag})
   else()
-    set(location_args GIT_REPOSITORY "${EP_GIT_PROTOCOL}://github.com/Kitware/VTK/VTK.git"
+    set(location_args GIT_REPOSITORY "${EP_GIT_PROTOCOL}://github.com/Kitware/VTK"
                       GIT_TAG ${revision_tag})
   endif()
 
@@ -95,6 +95,9 @@ if(NOT DEFINED VTK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       -DVTK_USE_QT:BOOL=ON # VTK 5
       -DVTK_Group_Qt:BOOL=ON # VTK 6
       -DVTK_LEGACY_REMOVE:BOOL=ON
+      -DVTK_GROUP_ENABLE_StandAlone:STRING=DONT_WANT
+      -DVTK_GROUP_ENABLE_Rendering:STRING=DONT_WANT
+      -DVTK_GROUP_ENABLE_COMMON:STRING=DEFAULT
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
