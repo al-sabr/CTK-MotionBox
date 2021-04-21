@@ -25,7 +25,7 @@ endif()
 
 if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
 
-  set(revision_tag "v3.20.1")
+  set(revision_tag "v4.13.3")
   if(${proj}_REVISION_TAG)
     set(revision_tag ${${proj}_REVISION_TAG})
   endif()
@@ -37,7 +37,7 @@ if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
                       GIT_TAG ${revision_tag})
   else()
-    set(location_args GIT_REPOSITORY "${EP_GIT_PROTOCOL}://itk.org/ITK.git"
+    set(location_args GIT_REPOSITORY "${EP_GIT_PROTOCOL}://github.com/InsightSoftwareConsortium/ITK"
                       GIT_TAG ${revision_tag})
   endif()
 
@@ -66,6 +66,13 @@ if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       -DITK_USE_CENTERED_PIXEL_COORDINATES_CONSISTENTLY:BOOL=ON
       -DITK_USE_TRANSFORM_IO_FACTORIES:BOOL=ON
       -DITK_LEGACY_REMOVE:BOOL=ON
+      -DITK_BUILD_DEFAULT_MODULES:BOOL=OFF
+      -DITKGroup_Core:BOOL=ON
+      -DBUILD_TESTING:BOOL=OFF
+      -DINSTALL_GTEST:BOOL=OFF
+      -DGDCM_HAVE_GETTIMEOFDAY:BOOL=OFF
+      -DHAVE_GETTIMEOFDAY:BOOL=OFF
+      -DH5_HAVE_GETRUSAGE:BOOL=OFF
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
