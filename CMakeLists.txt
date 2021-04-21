@@ -951,6 +951,7 @@ set(CTK_DEPENDENCIES
   OpenIGTLink
   ITK
   QtTesting
+  CppMicroServices
   )
 
 if(BUILD_TESTING)
