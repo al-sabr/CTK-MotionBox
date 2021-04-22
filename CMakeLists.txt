@@ -491,6 +491,10 @@ ctk_lib_option(Widgets
 ctk_lib_option(qtsingleapplication
                "Build the MITK SingleApplication library" ON)
                
+ctk_lib_option(mbilog
+               "Build the mbilog port from MITK framework" OFF
+               CTK_ENABLE_mbilog)
+               
 ctk_lib_option(DICOM/Core
                "Build the DICOM Core library" OFF
                CTK_ENABLE_DICOM OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES))
@@ -950,6 +954,7 @@ set(CTK_DEPENDENCIES
   OpenIGTLink
   ITK
   QtTesting
+  CppMicroServices
   )
 
 if(BUILD_TESTING)
