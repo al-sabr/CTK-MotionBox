@@ -732,8 +732,13 @@ set(plugin_list
   org.commontk.eventadmin
   org.commontk.log
   org.commontk.metatype
-  org.blueberry.core.runtime
   )
+
+if(CTK_USE_BLUEBERRY)
+  list(APPEND plugin_list
+    org.blueberry.core.runtime
+  )
+endif()
 
 if(CTK_QT_VERSION VERSION_LESS "5")
   list(APPEND plugin_list org.commontk.log4qt)
