@@ -55,7 +55,7 @@ endif()
 # START OF BLUEBERRY FRAMEWORK MACROS
 # =====================================
 # =====================================
-include(ctkFunctionCreateBlueBerryApplication)
+include(mitkFunctionCreateBlueBerryApplication)
 
 option(BLUEBERRY_DEBUG_SMARTPOINTER "Enable code for debugging smart pointers" OFF)
 mark_as_advanced(BLUEBERRY_DEBUG_SMARTPOINTER)

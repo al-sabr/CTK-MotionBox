@@ -7,8 +7,6 @@
 set(target_libraries
   CTKPluginFramework
   CTKmbilog
-  #mbilog_
-  #mbilog
   QT_LIBRARIES
   Poco::Foundation Poco::Util Poco::XML
 )
