@@ -741,6 +741,7 @@ if(CTK_USE_BLUEBERRY)
     org.blueberry.core.commands
     org.blueberry.core.expressions
     org.blueberry.ui.qt
+    org.blueberry.ui.qt.help
   )
 endif()
 
