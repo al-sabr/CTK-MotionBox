@@ -60,7 +60,7 @@ include(mitkFunctionCreateBlueBerryApplication)
 option(BLUEBERRY_DEBUG_SMARTPOINTER "Enable code for debugging smart pointers" OFF)
 mark_as_advanced(BLUEBERRY_DEBUG_SMARTPOINTER)
 
-if(USE_BLUEBERRY)
+if(CTK_USE_BLUEBERRY)
 
   find_package(Poco CONFIG REQUIRED Foundation)
   
@@ -104,7 +104,7 @@ if(USE_BLUEBERRY)
   endif()
 endif()
 
-if(USE_BLUEBERRY)
+if(CTK_USE_BLUEBERRY)
 
   set(BLUEBERRY_XPDOC_OUTPUT_DIR "${DOXYGEN_OUTPUT_DIR}/html/extension-points/html/")
   execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${BLUEBERRY_XPDOC_OUTPUT_DIR})
@@ -379,6 +379,11 @@ if(BUILD_TESTING)
         }
       ")
 endif()
+
+#-----------------------------------------------------------------------------
+# BLUEBERRY FRAMEWORK
+#
+option(CTK_USE_BLUEBERRY "Build the BlueBerry platform" ON)
 
 #-----------------------------------------------------------------------------
 # QtTesting
