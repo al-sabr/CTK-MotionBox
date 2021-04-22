@@ -112,6 +112,11 @@ set(${ZMQ_enabling_variable}_LIBRARY_DIRS ZMQ_LIBRARY_DIRS)
 set(${ZMQ_enabling_variable}_INCLUDE_DIRS ZMQ_INCLUDE_DIRS)
 set(${ZMQ_enabling_variable}_FIND_PACKAGE_CMD ZMQ)
 
+set(CppMicroServices_enabling_variable CppMicroServices_LIBRARIES)
+set(${CppMicroServices_enabling_variable}_LIBRARY_DIRS CppMicroServices_LIBRARY_DIRS)
+set(${CppMicroServices_enabling_variable}_INCLUDE_DIRS CppMicroServices_INCLUDE_DIRS)
+set(${CppMicroServices_enabling_variable}_FIND_PACKAGE_CMD CppMicroServices)
+
 macro(superbuild_is_external_project_includable possible_proj output_var)
   if(DEFINED ${possible_proj}_enabling_variable)
     ctkMacroShouldAddExternalProject(${${possible_proj}_enabling_variable} ${output_var})
