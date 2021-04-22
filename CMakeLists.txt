@@ -743,6 +743,7 @@ if(CTK_USE_BLUEBERRY)
     org.blueberry.ui.qt
     org.blueberry.ui.qt.help
     org.blueberry.ui.qt.log
+    org.blueberry.ui.qt.objectinspector
   )
 endif()
 
