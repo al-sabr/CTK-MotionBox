@@ -28,7 +28,7 @@
 #! \ingroup CMakeAPI
 macro(ctkMacroBuildLib)
   ctkMacroParseArguments(MY
-    "NAME;EXPORT_DIRECTIVE;SRCS;MOC_SRCS;GENERATE_MOC_SRCS;UI_FORMS;INCLUDE_DIRECTORIES;TARGET_LIBRARIES;RESOURCES;LIBRARY_TYPE;EXPORT_CUSTOM_CONTENT_FROM_VARIABLE"
+    "NAME;EXPORT_DIRECTIVE;SRCS;MOC_SRCS;GENERATE_MOC_SRCS;UI_FORMS;INCLUDE_DIRECTORIES;TARGET_LIBRARIES;RESOURCES;LIBRARY_TYPE;EXPORT_CUSTOM_CONTENT_FROM_VARIABLE;BYPASS_REGEX;GENERATE_EXPORT_HEADER;EXPORT_HEADER_NAME"
     "ENABLE_QTTESTING"
     ${ARGN}
     )
@@ -86,9 +86,16 @@ macro(ctkMacroBuildLib)
     ${my_library_dirs}
     )
 
+  set(MY_LIBRARY_EXPORT_HEADER_NAME ${MY_EXPORT_HEADER_NAME})
   set(MY_LIBRARY_EXPORT_DIRECTIVE ${MY_EXPORT_DIRECTIVE})
   set(MY_EXPORT_HEADER_PREFIX ${MY_NAME})
-  string(REGEX REPLACE "^CTK" "ctk" MY_EXPORT_HEADER_PREFIX ${MY_EXPORT_HEADER_PREFIX})
+  # Added a new way to bypass the renaming of header file.
+  if(NOT DEFINED MY_BYPASS_REGEX AND NOT DEFINED MY_EXPORT_HEADER_NAME)
+    string(REGEX REPLACE "^CTK" "ctk" MY_EXPORT_HEADER_PREFIX ${MY_EXPORT_HEADER_PREFIX})
+  else()
+    string(REGEX REPLACE "^CTK" "" MY_EXPORT_HEADER_PREFIX ${MY_EXPORT_HEADER_PREFIX})
+  endif()
+
   set(MY_LIBNAME ${lib_name})
 
   set(CTK_EXPORT_CUSTOM_CONTENT "")
@@ -101,12 +108,19 @@ ${${MY_EXPORT_CUSTOM_CONTENT_FROM_VARIABLE}}
     endif()
   endif()
 
+  set(MY_EXPORT_HEADER_SUFFIX "Export.h")
+  
+  if(MY_EXPORT_HEADER_NAME)
+    set(MY_EXPORT_HEADER_SUFFIX ""}
+    set(MY_EXPORT_HEADER_PREFIX ${MY_LIBRARY_EXPORT_HEADER_NAME})
+  endif()
+
   configure_file(
     ${CTK_SOURCE_DIR}/Libs/ctkExport.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/${MY_EXPORT_HEADER_PREFIX}Export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/${MY_EXPORT_HEADER_PREFIX}${MY_EXPORT_HEADER_SUFFIX}
     )
   set(dynamicHeaders
-    "${dynamicHeaders};${CMAKE_CURRENT_BINARY_DIR}/${MY_EXPORT_HEADER_PREFIX}Export.h")
+    "${dynamicHeaders};${CMAKE_CURRENT_BINARY_DIR}/${MY_EXPORT_HEADER_PREFIX}${MY_EXPORT_HEADER_SUFFIX}")
 
   # Make sure variable are cleared
   set(MY_MOC_CPP)
@@ -210,6 +224,24 @@ ${${MY_EXPORT_CUSTOM_CONTENT_FROM_VARIABLE}}
     ${dynamicHeaders}
     DESTINATION ${CTK_INSTALL_INCLUDE_DIR} COMPONENT Development
     )
+
+  # MBILOG
+  # So that mbilog can work normally:
+  include(GenerateExportHeader)
+
+  # 1) the connection between MITK\CMake\mitkFunctionCreateModule.cmake#line#593 has to be incorporated in this macro.
+  if (DEFINED MY_GENERATE_EXPORT_HEADER)
+    generate_export_header(${lib_name} #${_export_macro_names}
+      EXPORT_FILE_NAME ${MY_EXPORT_HEADER_PREFIX}Export.h
+    )
+  endif()
+
+  # 2) the connection between MITK\CMake\mitkFunctionCreateModule.cmake#line#482 and #line#515 have to be incorporated in this macro.
+
+  # Adding the US_MODULE_NAME connected with the CTK\Libs\mbilog\mbilogConfig.h.in template file
+  target_compile_definitions(${lib_name} PRIVATE US_MODULE_NAME=${MY_NAME})
+
+  set_property(TARGET ${lib_name} PROPERTY US_MODULE_NAME ${MY_NAME})
 
 endmacro()
 
