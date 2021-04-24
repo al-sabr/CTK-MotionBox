@@ -5,8 +5,8 @@
 // The __@MY_EXPORT_HEADER_PREFIX@Export captures some system differences between Unix
 // and Windows operating systems. 
 
-#ifndef __@MY_EXPORT_HEADER_PREFIX@Export_h
-#define __@MY_EXPORT_HEADER_PREFIX@Export_h
+#ifndef __@MY_EXPORT_HEADER_PREFIX@@MY_EXPORT_HEADER_SUFFIX@_h
+#define __@MY_EXPORT_HEADER_PREFIX@@MY_EXPORT_HEADER_SUFFIX@_h
 
 #include "ctkCompatibility_p.h"
 #include "ctkCompilerDetections_p.h"
