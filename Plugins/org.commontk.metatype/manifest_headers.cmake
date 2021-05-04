@@ -1,1 +1,0 @@
-set(Plugin-ActivationPolicy "eager")
