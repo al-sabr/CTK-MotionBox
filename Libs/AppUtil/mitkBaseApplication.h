@@ -13,12 +13,12 @@ found in the LICENSE file.
 #ifndef mitkBaseApplication_h
 #define mitkBaseApplication_h
 
-#include <MitkAppUtilExports.h>
+#include <ctkAppUtilExport.h>
 
 #include <Poco/Util/Application.h>
 
-#include <QString>
-#include <QVariant>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
 
 class ctkPluginContext;
 class ctkPluginFramework;
@@ -37,10 +37,10 @@ namespace mitk
    * org.blueberry.osgi.applications extension point.
    *
    * This class contains many convenience methods to:
-   *  - Put the application in <em>safe mode</em> which catches unhandled
+   *  - Put the application in \emph{safe mode} which catches unhandled
    *    exceptions thrown in the Qt event loop and displays an error
    *    message.
-   *  - Put the application in <em>single mode</em> which by default
+   *  - Put the application in \emph{single mode} which by default
    *    sends the command line arguments to an already running instance
    *    of the same application instead of creating a second instance.
    *  - Add a list of library names which should be pre-loaded at
@@ -58,7 +58,7 @@ namespace mitk
    *  - getQApplication() to provide a custom QCoreApplication instance
    *
    * A simple but complete example:
-   * \code
+   * <code>
    * #include <mitkBaseApplication.h>
    *
    * int main(int argc, char* argv[])
@@ -70,9 +70,9 @@ namespace mitk
    *   // Run the workbench
    *   return app.run();
    * }
-   * \endcode
+   * </code>
    */
-  class MITKAPPUTIL_EXPORT BaseApplication : public Poco::Util::Application
+  class CTK_APPUTIL_EXPORT BaseApplication : public Poco::Util::Application
   {
   public:
     // Command line arguments
@@ -95,7 +95,6 @@ namespace mitk
     static const QString ARG_SPLASH_IMAGE;
     static const QString ARG_STORAGE_DIR;
     static const QString ARG_XARGS;
-    static const QString ARG_LOG_QT_MESSAGES;
 
     // BlueBerry specific plugin framework properties
 
@@ -193,10 +192,10 @@ namespace mitk
      * Set the path to the provisioning file.
      *
      * By default a provisioning file located in the same directory
-     * as the executable and named \<executable\>.provisioning
+     * as the executable and named <executable>.provisioning
      * is loaded if it exists. To disable parsing of provisioning
      * files, use an empty string as the argument. Use a
-     * null QString (\c QString::null ) to reset to the
+     * null QString (<code>QString::null</code>) to reset to the
      * default behaviour.
      *
      * @param filePath An absolute file path to the provisioning file.
@@ -276,7 +275,7 @@ namespace mitk
      * then the command line arguments used in starting the platform, and not consumed
      * by the platform code, are passed to the application as a <code>QStringList</code>.
      * </p>
-     * @param args the argument passed to the application. May be <code>invalid</code>
+     * @param argument the argument passed to the application. May be <code>invalid</code>
      * @return the result of running the application
      * @throws std::exception if anything goes wrong
      */

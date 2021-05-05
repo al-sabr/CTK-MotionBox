@@ -13,12 +13,12 @@ found in the LICENSE file.
 #ifndef QMITKSAFEAPPLICATION_H
 #define QMITKSAFEAPPLICATION_H
 
-#include <MitkAppUtilExports.h>
+#include <ctkAppUtilExport.h>
 
-#include <QApplication>
-#include <QMessageBox>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMessageBox>
 
-class MITKAPPUTIL_EXPORT QmitkSafeApplication : public QApplication
+class CTK_APPUTIL_EXPORT QmitkSafeApplication : public QApplication
 {
 public:
   QmitkSafeApplication(int &argc, char **argv, bool safeMode = true);

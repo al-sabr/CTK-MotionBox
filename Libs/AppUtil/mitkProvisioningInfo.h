@@ -13,10 +13,10 @@ found in the LICENSE file.
 #ifndef MITKPROVISIONINGINFO_H
 #define MITKPROVISIONINGINFO_H
 
-#include <QSet>
-#include <QString>
-#include <QStringList>
-#include <QUrl>
+#include <QtCore/QSet>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QUrl>
 
 namespace mitk
 {

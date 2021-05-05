@@ -14,10 +14,10 @@ found in the LICENSE file.
 
 #include <mitkLogMacros.h>
 
-#include <QCoreApplication>
-#include <QFile>
-#include <QFileInfo>
-#include <QTextStream>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
+#include <QtCore/QTextStream>
 
 namespace mitk
 {

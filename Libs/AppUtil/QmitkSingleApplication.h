@@ -13,13 +13,13 @@ found in the LICENSE file.
 #ifndef QMITKSINGLEAPPLICATION_H
 #define QMITKSINGLEAPPLICATION_H
 
-#include <MitkAppUtilExports.h>
+#include <ctkAppUtilExport.h>
 
 #include <qtsingleapplication.h>
 
 #include "QmitkSafeNotify.h"
 
-class MITKAPPUTIL_EXPORT QmitkSingleApplication : public QtSingleApplication
+class CTK_APPUTIL_EXPORT QmitkSingleApplication : public QtSingleApplication
 {
 public:
   QmitkSingleApplication(int &argc, char **argv, bool safeMode = true);

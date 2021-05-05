@@ -12,7 +12,7 @@ found in the LICENSE file.
 
 #include <mitkBaseApplication.h>
 
-#include <mitkExceptionMacro.h>
+#include <mitkExceptionMacros.h>
 #include <mitkLogMacros.h>
 #include <mitkProvisioningInfo.h>
 
@@ -25,19 +25,21 @@ found in the LICENSE file.
 #include <ctkPluginFramework_global.h>
 #include <ctkPluginFrameworkLauncher.h>
 
-#include <usModuleSettings.h>
+//#include <usModuleSettings.h>
 
+/*
 #include <vtkOpenGLRenderWindow.h>
-#include <QVTKOpenGLNativeWidget.h>
+include <QVTKOpenGLWidget.h>
+*/
 
-#include <QCoreApplication>
-#include <QDir>
-#include <QFileInfo>
-#include <QRunnable>
-#include <QSplashScreen>
-#include <QStandardPaths>
-#include <QTime>
-#include <QWebEngineUrlScheme>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QRunnable>
+#include <QtWidgets/QSplashScreen>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QTime>
+#include <QtWebEngineCore/QWebEngineUrlScheme>
 
 namespace
 {
@@ -94,7 +96,6 @@ namespace mitk
   const QString BaseApplication::ARG_SPLASH_IMAGE = "BlueBerry.splashscreen";
   const QString BaseApplication::ARG_STORAGE_DIR = "BlueBerry.storageDir";
   const QString BaseApplication::ARG_XARGS = "xargs";
-  const QString BaseApplication::ARG_LOG_QT_MESSAGES = "Qt.logMessages";
 
   const QString BaseApplication::PROP_APPLICATION = "blueberry.application";
   const QString BaseApplication::PROP_FORCE_PLUGIN_INSTALL = BaseApplication::ARG_FORCE_PLUGIN_INSTALL;
@@ -144,8 +145,6 @@ namespace mitk
     QSplashScreen *m_Splashscreen;
     SplashCloserCallback *m_SplashscreenClosingCallback;
 
-    bool m_LogQtMessages;
-
     QStringList m_PreloadLibs;
     QString m_ProvFile;
 
@@ -158,28 +157,25 @@ namespace mitk
         m_SingleMode(false),
         m_SafeMode(true),
         m_Splashscreen(nullptr),
-        m_SplashscreenClosingCallback(nullptr),
-        m_LogQtMessages(false)
+        m_SplashscreenClosingCallback(nullptr)
     {
 #ifdef Q_OS_MAC
       /* On macOS the process serial number is passed as an command line argument (-psn_<NUMBER>)
          in certain circumstances. This option causes a Poco exception. We remove it, if present. */
 
-      m_Argv_macOS.reserve(argc + 1);
+      m_Argv_macOS.reserve(argc);
 
       const char psn[] = "-psn";
 
-      for (int i = 0; i < argc; ++i)
+      for (decltype(argc) i = 0; i < argc; ++i)
       {
-        if (0 == strncmp(argv[i], psn, sizeof(psn) - 1))
+        if (0 == strncmp(argv[i], psn, sizeof(psn)))
           continue;
 
         m_Argv_macOS.push_back(argv[i]);
       }
 
-      m_Argv_macOS.push_back(nullptr);
-
-      m_Argc = static_cast<decltype(m_Argc)>(m_Argv_macOS.size() - 1);
+      m_Argc = static_cast<decltype(m_Argc)>(m_Argv_macOS.size());
       m_Argv = m_Argv_macOS.data();
 #endif
     }
@@ -202,12 +198,6 @@ namespace mitk
 
     void handleBooleanOption(const std::string &name, const std::string &)
     {
-      if (ARG_LOG_QT_MESSAGES.toStdString() == name)
-      {
-        m_LogQtMessages = true;
-        return;
-      }
-
       auto fwKey = QString::fromStdString(name);
 
       // Translate some keys to proper framework properties
@@ -315,7 +305,7 @@ namespace mitk
 
           auto pluginUrlsToStart = provInfo.getPluginsToStart();
 
-          for (const auto& url : qAsConst(pluginUrlsToStart))
+          for (const auto& url : pluginUrlsToStart)
             pluginsToStart.push_back(url.toString());
         }
       }
@@ -520,8 +510,7 @@ namespace mitk
     this->setOrganizationName(orgName);
     this->setOrganizationDomain(orgDomain);
 
-    if (d->m_LogQtMessages)
-      qInstallMessageHandler(outputQtMessage);
+    qInstallMessageHandler(outputQtMessage);
 
     QWebEngineUrlScheme qtHelpScheme("qthelp");
     qtHelpScheme.setFlags(QWebEngineUrlScheme::LocalScheme | QWebEngineUrlScheme::LocalAccessAllowed);
@@ -640,20 +629,23 @@ namespace mitk
   void BaseApplication::initializeCppMicroServices()
   {
     auto storageDir = this->getProperty(ctkPluginConstants::FRAMEWORK_STORAGE).toString();
-
-    if (!storageDir.isEmpty())
-      us::ModuleSettings::SetStoragePath((storageDir + "us" + QDir::separator()).toStdString());
+    
+    //if (!storageDir.isEmpty())
+      //us::ModuleSettings::SetStoragePath((storageDir + "us" + QDir::separator()).toStdString());
+    
   }
 
   QCoreApplication *BaseApplication::getQApplication() const
   {
     if (nullptr == qApp)
     {
+      /*
       vtkOpenGLRenderWindow::SetGlobalMaximumNumberOfMultiSamples(0);
 
-      auto defaultFormat = QVTKOpenGLNativeWidget::defaultFormat();
+      auto defaultFormat = QVTKOpenGLWidget::defaultFormat();
       defaultFormat.setSamples(0);
       QSurfaceFormat::setDefaultFormat(defaultFormat);
+      */
 
 #ifdef Q_OS_OSX
       QCoreApplication::setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
@@ -696,7 +688,7 @@ namespace mitk
     // Walk one directory up and add bin and lib sub-dirs; this might be redundant
     appDir.cdUp();
 
-    for (const auto& suffix : qAsConst(suffixes))
+    for (const auto& suffix : suffixes)
       ctkPluginFrameworkLauncher::addSearchPath(appDir.absoluteFilePath(suffix));
   }
 
@@ -784,10 +776,6 @@ namespace mitk
     Poco::Util::Option xargsOption(ARG_XARGS.toStdString(), "", "Extended argument list");
     xargsOption.argument("<args>").binding(ARG_XARGS.toStdString());
     options.addOption(xargsOption);
-
-    Poco::Util::Option logQtMessagesOption(ARG_LOG_QT_MESSAGES.toStdString(), "", "log Qt messages");
-    logQtMessagesOption.callback(Poco::Util::OptionCallback<Impl>(d, &Impl::handleBooleanOption));
-    options.addOption(logQtMessagesOption);
 
     Poco::Util::Application::defineOptions(options);
   }

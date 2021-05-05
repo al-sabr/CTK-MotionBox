@@ -1,6 +1,10 @@
-file(GLOB_RECURSE H_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/include/*")
+set(KIT_MOC_SRCS
+  mitkBaseApplication.h
+  QmitkSafeApplication.h
+  QmitkSingleApplication.h
+)
 
-set(CPP_FILES
+set(KIT_SRCS
   mitkBaseApplication.cpp
   mitkProvisioningInfo.cpp
   QmitkSafeApplication.cpp

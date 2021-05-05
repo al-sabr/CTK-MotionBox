@@ -16,7 +16,7 @@ found in the LICENSE file.
 #include <mitkException.h>
 #include <mitkLogMacros.h>
 
-#include <QMessageBox>
+#include <QtWidgets/QMessageBox>
 
 template <class A>
 bool QmitkSafeNotify(A *app, QObject *receiver, QEvent *event)
