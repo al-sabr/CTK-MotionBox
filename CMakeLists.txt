@@ -495,7 +495,7 @@ ctk_lib_option(Widgets
 ctk_lib_option(Scripting/Python/Widgets
                "Build the Python Widgets library" OFF)
 
-ctk_lib_option(AppLib
+ctk_lib_option(AppUtil
                "Build the AppLib library port from MITK" ON)
 
 # Save enabled CTK libraries in the cache to ensure expected player and translator
