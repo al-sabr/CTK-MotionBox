@@ -488,7 +488,14 @@ ctk_lib_option(Widgets
                "Build the Widgets library" OFF
                CTK_ENABLE_Widgets OR CTK_USE_QTTESTING)
 
-               ctk_lib_option(Scripting/Python/Core
+ctk_lib_option(qtsingleapplication
+               "Build the MITK SingleApplication library" ON)
+               
+ctk_lib_option(mbilog
+               "Build the mbilog port from MITK framework" OFF
+               CTK_ENABLE_mbilog)
+
+ctk_lib_option(Scripting/Python/Core
                "Build the Python Core library" OFF
                CTK_ENABLE_Python_Wrapping)
 
@@ -762,6 +769,7 @@ set(CTK_DEPENDENCIES
   OpenIGTLink
   ITK
   QtTesting
+  CppMicroServices
   )
 
 if(BUILD_TESTING)
