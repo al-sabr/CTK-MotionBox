@@ -486,55 +486,17 @@ ctk_lib_option(PluginFramework
 
 ctk_lib_option(Widgets
                "Build the Widgets library" OFF
-               CTK_ENABLE_Widgets OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES) OR CTK_USE_QTTESTING)
+               CTK_ENABLE_Widgets OR CTK_USE_QTTESTING)
 
-ctk_lib_option(DICOM/Core
-               "Build the DICOM Core library" OFF
-               CTK_ENABLE_DICOM OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES))
-
-ctk_lib_option(DICOM/Widgets
-               "Build the DICOM Widgets library" OFF
-               CTK_ENABLE_DICOM AND CTK_ENABLE_Widgets OR (CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES))
-
-ctk_lib_option(ImageProcessing/ITK/Core
-               "Build the ITK Core library" OFF)
-
-ctk_lib_option(Scripting/Python/Core
+               ctk_lib_option(Scripting/Python/Core
                "Build the Python Core library" OFF
                CTK_ENABLE_Python_Wrapping)
 
 ctk_lib_option(Scripting/Python/Widgets
                "Build the Python Widgets library" OFF)
 
-ctk_lib_option(Visualization/VTK/Core
-               "Build the VTK Core library" OFF)
-
-ctk_lib_option(Visualization/VTK/Widgets
-               "Build the VTK Widgets library" OFF)
-
-ctk_lib_option(CommandLineModules/Core
-               "Build the Command Line Module core library" OFF)
-
-ctk_lib_option(CommandLineModules/Frontend/QtWebKit
-               "Build the QtWebKit based Command Line Module front-end" OFF)
-
-ctk_lib_option(CommandLineModules/Frontend/QtGui
-               "Build the QtGui based Command Line Module front-end" OFF)
-
-ctk_lib_option(CommandLineModules/Backend/XMLChecker
-               "Build the Command Line Module back-end for checking XML" OFF)
-
-ctk_lib_option(CommandLineModules/Backend/LocalProcess
-               "Build the Command Line Module back-end for local processes" OFF)
-
-ctk_lib_option(CommandLineModules/Backend/FunctionPointer
-               "Build the Command Line Module back-end for function pointers" OFF)
-
-ctk_lib_option(XNAT/Core
-               "Build the XNAT Core library" OFF)
-
-ctk_lib_option(XNAT/Widgets
-               "Build the XNAT Widgets library" OFF)
+ctk_lib_option(AppLib
+               "Build the AppLib library port from MITK" ON)
 
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
@@ -546,60 +508,6 @@ foreach(_lib ${CTK_LIBS})
 endforeach()
 set(CTK_ENABLED_LIBS ${_enabled_libs} CACHE INTERNAL "" FORCE)
 
-#-----------------------------------------------------------------------------
-# CTK Applications - Use ON or OFF to indicate if the application should be built by default
-#
-
-ctk_app_option(ctkDICOM
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-
-ctk_app_option(ctkDICOM2
-               "Build the new DICOM example application (experimental)" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMIndexer
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMDemoSCU
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMQuery
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMRetrieve
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMQueryRetrieve
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMHost
-               "Build the DICOM application host example application" OFF
-               CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkExampleHost
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkExampleHostedApp
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOMApplicationHosting AND CTK_BUILD_EXAMPLES)
-
-if(CTK_QT_VERSION VERSION_LESS "5")
-ctk_app_option(ctkEventBusDemo
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_PluginFramework AND CTK_BUILD_EXAMPLES)
-endif()
-
-ctk_app_option(ctkCommandLineModuleExplorer
-               "Build the Command Line Module Explorer" OFF
-               CTK_BUILD_EXAMPLES)
 
 # We use the CTKWidgets library together with the Qt Designer plug-in
 # in ctkCommandLineModuleExplorer, so enabling the options here.
@@ -615,32 +523,6 @@ if(CTK_APP_ctkCommandLineModuleExplorer)
     endif()
   endforeach()
 endif()
-
-ctk_app_option(ctkPluginBrowser
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_PluginFramework AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkPluginGenerator
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_PluginFramework AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkDICOMObjectViewer
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
-
-ctk_app_option(ctkSimplePythonShell
-               "Build the DICOM example application" OFF
-               CTK_ENABLE_Python_Wrapping AND CTK_BUILD_EXAMPLES)
-
-if(CTK_USE_QTTESTING AND CTK_QT_VERSION VERSION_LESS "5")
-  ctk_app_option(ctkQtTesting
-                "Build the ctkQtTesting example application" OFF
-                CTK_BUILD_EXAMPLES)
-endif()
-
-ctk_app_option(ctkXnatTreeBrowser
-               "Build the XNAT Tree Browser application" OFF
-               CTK_BUILD_EXAMPLES)
 
 # Save the set of enabled apps in a cache file
 set(_enabled_apps)
@@ -658,10 +540,7 @@ set(CTK_ENABLED_APPS ${_enabled_apps} CACHE INTERNAL "" FORCE)
 # Plugins in the list below are not build by default
 set(plugin_list
   # Optional plug-ins implementings interfaces in PluginFramework/service/
-  org.commontk.configadmin
-  org.commontk.eventadmin
-  org.commontk.log
-  org.commontk.metatype
+
   )
 
 if(CTK_QT_VERSION VERSION_LESS "5")
@@ -672,49 +551,6 @@ foreach(_plugin ${plugin_list})
   ctk_plugin_option(${_plugin} "Build the ${_plugin} plugin." OFF)
 endforeach()
 
-# Plug-ins related to the PluginGenerator application
-ctk_plugin_option(org.commontk.plugingenerator.core "Build the org.commontk.plugingenerator.core plugin." OFF)
-ctk_plugin_option(org.commontk.plugingenerator.ui
-                  "Build the org.commontk.plugingenerator.ui plugin." OFF
-                  CTK_APP_ctkPluginGenerator)
-
-# Plug-ins related to DICOM WG23 (Application Hosting)
-ctk_plugin_option(org.commontk.dah.core "Build the org.commontk.dah.core plugin." OFF)
-ctk_plugin_option(org.commontk.dah.hostedapp "Build the org.commontk.dah.hostedapp plugin." OFF
-                  CTK_ENABLE_DICOMApplicationHosting)
-ctk_plugin_option(org.commontk.dah.host "Build the org.commontk.dah.host plugin." OFF
-                  CTK_ENABLE_DICOMApplicationHosting)
-
-ctk_plugin_option(org.commontk.dah.exampleapp
-                  "Build the org.commontk.dah.exampleapp plugin." OFF
-                  CTK_APP_ctkExampleHostedApp)
-
-ctk_plugin_option(org.commontk.dah.cmdlinemoduleapp
-                  "Build the org.commontk.dah.cmdlinemoduleapp plugin." OFF
-                  CTK_APP_ctkCommandLineModuleApp)
-
-ctk_plugin_option(org.commontk.dah.examplehost
-                  "Build the org.commontk.dah.examplehost plugin." OFF
-                  CTK_APP_ctkExampleHost)
-
-# Plug-ins related to the EventBus demo application
-if(CTK_QT_VERSION VERSION_LESS "5")
-ctk_plugin_option(org.commontk.eventbus
-                  "Build the org.commontk.eventbus plugin." OFF
-                  CTK_APP_ctkEventBusDemo)
-endif()
-
-# Add the PluginsContrib repo to the build system
-option(CTK_USE_CONTRIBUTED_PLUGINS OFF "Use CTK plug-ins from the PluginsContrib repository")
-mark_as_advanced(CTK_USE_CONTRIBUTED_PLUGINS)
-mark_as_superbuild(CTK_USE_CONTRIBUTED_PLUGINS)
-if(CTK_USE_CONTRIBUTED_PLUGINS)
-  ctkFunctionAddPluginRepo(NAME PluginsContrib
-                           GIT_URL github.com/commontk/PluginsContrib.git
-                           GIT_TAG f016d35
-                          )
-  mark_as_superbuild(PluginsContrib_DIR:PATH)
-endif()
 
 #-----------------------------------------------------------------------------
 # High-Level CTK options
@@ -722,17 +558,6 @@ endif()
 # The ctk_enable_option macro expects a logical expression after the first
 # three arguments. This expression should only contain build option names
 # which belong to leafs in the required dependency tree.
-
-# The CTK infrastructure for high-level DICOM support. This includes
-# DICOM indexing, networking, and GUI widgets.
-ctk_enable_option(DICOM "Enable default DICOM support" OFF
-                  CTK_LIB_DICOM/Widgets)
-
-# The CTK infrastructure for building a DICOM Part 19 compliant application
-# host and/or hosted application. This will not enable any example plugins
-# or executables (enable CTK_ENABLE_EXAMPLES for that).
-ctk_enable_option(DICOMApplicationHosting "Enable DICOM Part 19 Application Hosting support" OFF
-                  CTK_PLUGIN_org.commontk.dah.host AND CTK_PLUGIN_org.commontk.dah.hostedapp)
 
 # The CTK Qt Widgets. This will enable the Qt Widget library only.
 # It might trigger the enabling of other widget libraries in combination
@@ -820,7 +645,7 @@ if(CTK_USE_QTTESTING)
   list(APPEND target_directories "${CMAKE_CURRENT_SOURCE_DIR}/Libs/QtTesting^^CTK_LIB_QtTesting")
 endif()
 
-#message(STATUS target_directories:${target_directories})
+message(STATUS target_directories:${target_directories})
 
 #-----------------------------------------------------------------------------
 # Compile DGraph - An application allowing to check for cycle in DAG and also obtain the
@@ -852,9 +677,6 @@ set(CTKQtTesting_OPTIONAL_DEPENDENCIES)
 if(CTK_LIB_Widgets)
   list(APPEND CTKQtTesting_OPTIONAL_DEPENDENCIES CTKWidgets)
 endif()
-if(CTK_LIB_Visualization/VTK/Widgets)
-  list(APPEND CTKQtTesting_OPTIONAL_DEPENDENCIES CTKVisualizationVTKWidgets)
-endif()
 
 #-----------------------------------------------------------------------------
 # Let's make sure the enabled/disabled libraries, plugins or applications are coherent
@@ -877,13 +699,6 @@ if((${logical_expr}) AND NOT CTK_LIB_Scripting/Python/Core)
   message("Enabling [CTK_LIB_Scripting/Python/Core] because of [${enabling_msg}] evaluates to True")
 endif()
 
-set(logical_expr CTK_LIB_Scripting/Python/Core AND CTK_LIB_Scripting/Python/Core_PYTHONQT_USE_VTK)
-if(${logical_expr} AND NOT CTK_LIB_Visualization/VTK/Core)
-  set(CTK_LIB_Visualization/VTK/Core ON CACHE BOOL "Build the VTK Core library" FORCE)
-  set(enabling_msg)
-  ctk_option_logical_expression_to_message(enabling_msg "${logical_expr}")
-  message("Enabling [CTK_LIB_Visualization/VTK/Core] because of [${enabling_msg}] evaluates to True")
-endif()
 
 # Check if dependencies are satisfied
 if(CTK_LIB_Scripting/Python/Core)
