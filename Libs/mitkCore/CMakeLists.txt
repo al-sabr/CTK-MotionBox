@@ -2,8 +2,6 @@ project(CTKmitkCore)
 
 include(files.cmake)
 
-set(KIT_export_directive "MITKCORE_EXPORT")
-
 # Target libraries - See CMake/ctkFunctionGetTargetLibraries.cmake
 # The following macro will read the target libraries from the file 'target_libraries.cmake'
 
@@ -29,10 +27,12 @@ ctkMacroBuildLib(
   EXPORT_HEADER_NAME "MitkCoreExports"
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/DataManagement)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/Interactions)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/IO)
+include_directories(include)
+
+#target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+#target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/DataManagement)
+#target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/Interactions)
+#target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/IO)
 
 if(NOT TARGET ${PROJECT_NAME})
   message(SEND_ERROR "Core target ${PROJECT_NAME} does not exist")

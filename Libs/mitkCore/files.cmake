@@ -7,62 +7,321 @@ set(CPP_FILES
   src/mitkCoreServices.cpp
   src/mitkException.cpp
 
+  src/Algorithms/mitkBaseDataSource.cpp
+  src/Algorithms/mitkClippedSurfaceBoundsCalculator.cpp
+  src/Algorithms/mitkCompareImageDataFilter.cpp
+  src/Algorithms/mitkCompositePixelValueToString.cpp
+  src/Algorithms/mitkConvert2Dto3DImageFilter.cpp
+  src/Algorithms/mitkDataNodeSource.cpp
+  src/Algorithms/mitkExtractSliceFilter.cpp
+  src/Algorithms/mitkExtractSliceFilter2.cpp
+  src/Algorithms/mitkHistogramGenerator.cpp
+  src/Algorithms/mitkImageChannelSelector.cpp
+  src/Algorithms/mitkImageSliceSelector.cpp
+  src/Algorithms/mitkImageSource.cpp
+  src/Algorithms/mitkImageTimeSelector.cpp
+  src/Algorithms/mitkImageToImageFilter.cpp
+  src/Algorithms/mitkImageToSurfaceFilter.cpp
+  src/Algorithms/mitkMultiComponentImageDataComparisonFilter.cpp
+  src/Algorithms/mitkPlaneGeometryDataToSurfaceFilter.cpp
+  src/Algorithms/mitkPointSetSource.cpp
+  src/Algorithms/mitkPointSetToPointSetFilter.cpp
+  src/Algorithms/mitkRGBToRGBACastImageFilter.cpp
+  src/Algorithms/mitkSubImageSelector.cpp
+  src/Algorithms/mitkSurfaceSource.cpp
+  src/Algorithms/mitkSurfaceToImageFilter.cpp
+  src/Algorithms/mitkSurfaceToSurfaceFilter.cpp
+  src/Algorithms/mitkUIDGenerator.cpp
+  src/Algorithms/mitkVolumeCalculator.cpp
+  src/Algorithms/mitkTemporalJoinImagesFilter.cpp
+
+  src/Controllers/mitkBaseController.cpp
+  src/Controllers/mitkCallbackFromGUIThread.cpp
+  src/Controllers/mitkCameraController.cpp
+  src/Controllers/mitkCameraRotationController.cpp
+  src/Controllers/mitkLimitedLinearUndo.cpp
+  src/Controllers/mitkOperationEvent.cpp
+  src/Controllers/mitkPlanePositionManager.cpp
+  src/Controllers/mitkProgressBar.cpp
+  src/Controllers/mitkRenderingManager.cpp
+  src/Controllers/mitkSliceNavigationController.cpp
+  src/Controllers/mitkSlicesCoordinator.cpp
+  src/Controllers/mitkStatusBar.cpp
+  src/Controllers/mitkStepper.cpp
+  src/Controllers/mitkTestManager.cpp
+  src/Controllers/mitkUndoController.cpp
+  src/Controllers/mitkVerboseLimitedLinearUndo.cpp
+  src/Controllers/mitkVtkLayerController.cpp
+
+  src/DataManagement/mitkAnatomicalStructureColorPresets.cpp
+  src/DataManagement/mitkArbitraryTimeGeometry.cpp
+  src/DataManagement/mitkAbstractTransformGeometry.cpp
+  src/DataManagement/mitkAnnotationProperty.cpp
+  src/DataManagement/mitkApplicationCursor.cpp
   src/DataManagement/mitkApplyTransformMatrixOperation.cpp
   src/DataManagement/mitkBaseData.cpp
   src/DataManagement/mitkBaseGeometry.cpp
   src/DataManagement/mitkBaseProperty.cpp
   src/DataManagement/mitkChannelDescriptor.cpp
+  src/DataManagement/mitkClippingProperty.cpp
   src/DataManagement/mitkColorProperty.cpp
   src/DataManagement/mitkDataNode.cpp
   src/DataManagement/mitkDataStorage.cpp
+  src/DataManagement/mitkEnumerationProperty.cpp
+  src/DataManagement/mitkFloatPropertyExtension.cpp
   src/DataManagement/mitkGeometry3D.cpp
+  src/DataManagement/mitkGeometryData.cpp
   src/DataManagement/mitkGeometryTransformHolder.cpp
+  src/DataManagement/mitkGroupTagProperty.cpp
+  src/DataManagement/mitkGenericIDRelationRule.cpp
   src/DataManagement/mitkIdentifiable.cpp
   src/DataManagement/mitkImageAccessorBase.cpp
+  src/DataManagement/mitkImageCaster.cpp
+  src/DataManagement/mitkImageCastPart1.cpp
+  src/DataManagement/mitkImageCastPart2.cpp
+  src/DataManagement/mitkImageCastPart3.cpp
+  src/DataManagement/mitkImageCastPart4.cpp
+  src/DataManagement/mitkImage.cpp
   src/DataManagement/mitkImageDataItem.cpp
   src/DataManagement/mitkImageDescriptor.cpp
+  src/DataManagement/mitkImageReadAccessor.cpp
+  src/DataManagement/mitkImageStatisticsHolder.cpp
+  src/DataManagement/mitkImageVtkAccessor.cpp
+  src/DataManagement/mitkImageVtkReadAccessor.cpp
+  src/DataManagement/mitkImageVtkWriteAccessor.cpp
+  src/DataManagement/mitkImageWriteAccessor.cpp
+  src/DataManagement/mitkIntPropertyExtension.cpp
+  src/DataManagement/mitkIPersistenceService.cpp
+  src/DataManagement/mitkIPropertyAliases.cpp
+  src/DataManagement/mitkIPropertyDescriptions.cpp
+  src/DataManagement/mitkIPropertyExtensions.cpp
+  src/DataManagement/mitkIPropertyFilters.cpp
   src/DataManagement/mitkIPropertyOwner.cpp
+  src/DataManagement/mitkIPropertyPersistence.cpp
   src/DataManagement/mitkIPropertyProvider.cpp
+  src/DataManagement/mitkLandmarkProjectorBasedCurvedGeometry.cpp
+  src/DataManagement/mitkLandmarkProjector.cpp
   src/DataManagement/mitkLevelWindow.cpp
+  src/DataManagement/mitkLevelWindowManager.cpp
+  src/DataManagement/mitkLevelWindowPreset.cpp
+  src/DataManagement/mitkLevelWindowProperty.cpp
+  src/DataManagement/mitkLine.cpp
+  src/DataManagement/mitkLookupTable.cpp
+  src/DataManagement/mitkLookupTableProperty.cpp
+  src/DataManagement/mitkLookupTables.cpp # specializations of GenericLookupTable
+  src/DataManagement/mitkMaterial.cpp
+  src/DataManagement/mitkMemoryUtilities.cpp
+  src/DataManagement/mitkModalityProperty.cpp
   src/DataManagement/mitkModifiedLock.cpp
+  src/DataManagement/mitkNodePredicateAnd.cpp
+  src/DataManagement/mitkNodePredicateBase.cpp
+  src/DataManagement/mitkNodePredicateCompositeBase.cpp
+  src/DataManagement/mitkNodePredicateData.cpp
+  src/DataManagement/mitkNodePredicateDataType.cpp
+  src/DataManagement/mitkNodePredicateDataUID.cpp
+  src/DataManagement/mitkNodePredicateDimension.cpp
+  src/DataManagement/mitkNodePredicateFirstLevel.cpp
+  src/DataManagement/mitkNodePredicateFunction.cpp
+  src/DataManagement/mitkNodePredicateGeometry.cpp
+  src/DataManagement/mitkNodePredicateNot.cpp
+  src/DataManagement/mitkNodePredicateOr.cpp
+  src/DataManagement/mitkNodePredicateProperty.cpp
+  src/DataManagement/mitkNodePredicateDataProperty.cpp
+  src/DataManagement/mitkNodePredicateSource.cpp
+  src/DataManagement/mitkNodePredicateSubGeometry.cpp
   src/DataManagement/mitkNumericConstants.cpp
+  src/DataManagement/mitkPlaneGeometry.cpp
+  src/DataManagement/mitkPlaneGeometryData.cpp
+  src/DataManagement/mitkPlaneOperation.cpp
+  src/DataManagement/mitkPlaneOrientationProperty.cpp
+  src/DataManagement/mitkPointOperation.cpp
+  src/DataManagement/mitkPointSet.cpp
+  src/DataManagement/mitkPointSetShapeProperty.cpp
+  src/DataManagement/mitkProperties.cpp
+  src/DataManagement/mitkPropertyAliases.cpp
+  src/DataManagement/mitkPropertyDescriptions.cpp
+  src/DataManagement/mitkPropertyExtension.cpp
+  src/DataManagement/mitkPropertyExtensions.cpp
+  src/DataManagement/mitkPropertyFilter.cpp
+  src/DataManagement/mitkPropertyFilters.cpp
+  src/DataManagement/mitkPropertyKeyPath.cpp
   src/DataManagement/mitkPropertyList.cpp
+  src/DataManagement/mitkPropertyListReplacedObserver.cpp
+  src/DataManagement/mitkPropertyNameHelper.cpp
+  src/DataManagement/mitkPropertyObserver.cpp
+  src/DataManagement/mitkPropertyPersistence.cpp
+  src/DataManagement/mitkPropertyPersistenceInfo.cpp
+  src/DataManagement/mitkPropertyRelationRuleBase.cpp
+  src/DataManagement/mitkProportionalTimeGeometry.cpp
+  src/DataManagement/mitkRenderingModeProperty.cpp
+  src/DataManagement/mitkResliceMethodProperty.cpp
   src/DataManagement/mitkRestorePlanePositionOperation.cpp
   src/DataManagement/mitkRotationOperation.cpp
+  src/DataManagement/mitkScaleOperation.cpp
+  src/DataManagement/mitkSlicedData.cpp
+  src/DataManagement/mitkSlicedGeometry3D.cpp
+  src/DataManagement/mitkSmartPointerProperty.cpp
+  src/DataManagement/mitkStandaloneDataStorage.cpp
   src/DataManagement/mitkStringProperty.cpp
+  src/DataManagement/mitkSurface.cpp
+  src/DataManagement/mitkSurfaceOperation.cpp
+  src/DataManagement/mitkSourceImageRelationRule.cpp
+  src/DataManagement/mitkThinPlateSplineCurvedGeometry.cpp
+  src/DataManagement/mitkTimeGeometry.cpp
+  src/DataManagement/mitkTransferFunction.cpp
+  src/DataManagement/mitkTransferFunctionInitializer.cpp
+  src/DataManagement/mitkTransferFunctionProperty.cpp
+  src/DataManagement/mitkTemporoSpatialStringProperty.cpp
+  src/DataManagement/mitkUIDManipulator.cpp
   src/DataManagement/mitkVector.cpp
+  src/DataManagement/mitkVectorProperty.cpp
+  src/DataManagement/mitkVtkInterpolationProperty.cpp
+  src/DataManagement/mitkVtkRepresentationProperty.cpp
+  src/DataManagement/mitkVtkResliceInterpolationProperty.cpp
+  src/DataManagement/mitkVtkScalarModeProperty.cpp
+  src/DataManagement/mitkVtkVolumeRenderingProperty.cpp
+  src/DataManagement/mitkWeakPointerProperty.cpp
+  src/DataManagement/mitkIPropertyRelations.cpp
+  src/DataManagement/mitkPropertyRelations.cpp
 
+  src/Interactions/mitkAction.cpp
+  src/Interactions/mitkBindDispatcherInteractor.cpp
+  src/Interactions/mitkCrosshairPositionEvent.cpp
   src/Interactions/mitkDataInteractor.cpp
+  src/Interactions/mitkDispatcher.cpp
+  src/Interactions/mitkDisplayActionEventBroadcast.cpp
+  src/Interactions/mitkDisplayActionEventFunctions.cpp
+  src/Interactions/mitkDisplayActionEventHandler.cpp
+  src/Interactions/mitkDisplayActionEventHandlerDesynchronized.cpp
+  src/Interactions/mitkDisplayActionEventHandlerStd.cpp
+  src/Interactions/mitkDisplayActionEventHandlerSynchronized.cpp
+  src/Interactions/mitkDisplayCoordinateOperation.cpp
+  src/Interactions/mitkDisplayInteractor.cpp
   src/Interactions/mitkEventConfig.cpp
+  src/Interactions/mitkEventFactory.cpp
+  src/Interactions/mitkEventRecorder.cpp
   src/Interactions/mitkEventStateMachine.cpp
+  src/Interactions/mitkInteractionEventConst.cpp
+  src/Interactions/mitkInteractionEvent.cpp
   src/Interactions/mitkInteractionEventHandler.cpp
+  src/Interactions/mitkInteractionEventObserver.cpp
+  src/Interactions/mitkInteractionKeyEvent.cpp
+  src/Interactions/mitkInteractionPositionEvent.cpp
+  src/Interactions/mitkInteractionSchemeSwitcher.cpp
+  src/Interactions/mitkInternalEvent.cpp
+  src/Interactions/mitkMouseDoubleClickEvent.cpp
+  src/Interactions/mitkMouseModeSwitcher.cpp
+  src/Interactions/mitkMouseMoveEvent.cpp
+  src/Interactions/mitkMousePressEvent.cpp
+  src/Interactions/mitkMouseReleaseEvent.cpp
+  src/Interactions/mitkMouseWheelEvent.cpp
+  src/Interactions/mitkPointSetDataInteractor.cpp
+  src/Interactions/mitkSinglePointDataInteractor.cpp
+  src/Interactions/mitkStateMachineAction.cpp
   src/Interactions/mitkStateMachineCondition.cpp
   src/Interactions/mitkStateMachineContainer.cpp
   src/Interactions/mitkStateMachineState.cpp
+  src/Interactions/mitkStateMachineTransition.cpp
+  src/Interactions/mitkVtkEventAdapter.cpp
+  src/Interactions/mitkVtkInteractorStyle.cxx
+  src/Interactions/mitkXML2EventParser.cpp
 
+  src/IO/mitkAbstractFileIO.cpp
+  src/IO/mitkAbstractFileReader.cpp
+  src/IO/mitkAbstractFileWriter.cpp
+  src/IO/mitkCustomMimeType.cpp
+  src/IO/mitkFileReader.cpp
+  src/IO/mitkFileReaderRegistry.cpp
+  src/IO/mitkFileReaderSelector.cpp
+  src/IO/mitkFileReaderWriterBase.cpp
+  src/IO/mitkFileWriter.cpp
+  src/IO/mitkFileWriterRegistry.cpp
+  src/IO/mitkFileWriterSelector.cpp
+  src/IO/mitkGeometry3DToXML.cpp
+  src/IO/mitkIFileIO.cpp
+  src/IO/mitkIFileReader.cpp
+  src/IO/mitkIFileWriter.cpp
+  src/IO/mitkGeometryDataReaderService.cpp
+  src/IO/mitkGeometryDataWriterService.cpp
+  src/IO/mitkImageGenerator.cpp
+  src/IO/mitkImageVtkLegacyIO.cpp
+  src/IO/mitkImageVtkXmlIO.cpp
+  src/IO/mitkIMimeTypeProvider.cpp
+  src/IO/mitkIOConstants.cpp
+  src/IO/mitkIOMimeTypes.cpp
+  src/IO/mitkIOUtil.cpp
+  src/IO/mitkItkImageIO.cpp
+  src/IO/mitkItkLoggingAdapter.cpp
+  src/IO/mitkLegacyFileReaderService.cpp
+  src/IO/mitkLegacyFileWriterService.cpp
+  src/IO/mitkLocaleSwitch.cpp
   src/IO/mitkLog.cpp
+  src/IO/mitkMimeType.cpp
+  src/IO/mitkMimeTypeProvider.cpp
+  src/IO/mitkOperation.cpp
+  src/IO/mitkPixelType.cpp
+  src/IO/mitkPointSetReaderService.cpp
+  src/IO/mitkPointSetWriterService.cpp
+  src/IO/mitkProportionalTimeGeometryToXML.cpp
+  src/IO/mitkRawImageFileReader.cpp
+  src/IO/mitkStandardFileLocations.cpp
+  src/IO/mitkSurfaceStlIO.cpp
+  src/IO/mitkSurfaceVtkIO.cpp
+  src/IO/mitkSurfaceVtkLegacyIO.cpp
+  src/IO/mitkSurfaceVtkXmlIO.cpp
+  src/IO/mitkVtkLoggingAdapter.cpp
+  src/IO/mitkPreferenceListReaderOptionsFunctor.cpp
+  src/IO/mitkIOMetaInformationPropertyConstants.cpp
+
+  src/Rendering/mitkAbstractAnnotationRenderer.cpp
+  src/Rendering/mitkAnnotationUtils.cpp
+  src/Rendering/mitkBaseRenderer.cpp
+  #src/Rendering/mitkGLMapper.cpp Moved to deprecated LegacyGL Module
+  src/Rendering/mitkGradientBackground.cpp
+  src/Rendering/mitkImageVtkMapper2D.cpp
+  src/Rendering/mitkMapper.cpp
+  src/Rendering/mitkAnnotation.cpp
+  src/Rendering/mitkPlaneGeometryDataMapper2D.cpp
+  src/Rendering/mitkPlaneGeometryDataVtkMapper3D.cpp
+  src/Rendering/mitkPointSetVtkMapper2D.cpp
+  src/Rendering/mitkPointSetVtkMapper3D.cpp
+  src/Rendering/mitkRenderWindowBase.cpp
+  src/Rendering/mitkRenderWindow.cpp
+  src/Rendering/mitkRenderWindowFrame.cpp
+  #src/Rendering/mitkSurfaceGLMapper2D.cpp Moved to deprecated LegacyGL Module
+  src/Rendering/mitkSurfaceVtkMapper2D.cpp
+  src/Rendering/mitkSurfaceVtkMapper3D.cpp
+  src/Rendering/mitkVtkEventProvider.cpp
+  src/Rendering/mitkVtkMapper.cpp
+  src/Rendering/mitkVtkPropRenderer.cpp
+  src/Rendering/mitkVtkWidgetRendering.cpp
+  src/Rendering/vtkMitkLevelWindowFilter.cpp
+  src/Rendering/vtkMitkRectangleProp.cpp
+  src/Rendering/vtkMitkRenderProp.cpp
+  src/Rendering/vtkMitkThickSlicesFilter.cpp
+  src/Rendering/vtkNeverTranslucentTexture.cpp
 
 )
 
 set(RESOURCE_FILES
-resources/Interactions/globalConfig.xml
-resources/Interactions/DisplayInteraction.xml
-resources/Interactions/DisplayConfig.xml
-resources/Interactions/DisplayConfigPACS.xml
-resources/Interactions/DisplayConfigPACSPan.xml
-resources/Interactions/DisplayConfigPACSScroll.xml
-resources/Interactions/DisplayConfigPACSZoom.xml
-resources/Interactions/DisplayConfigPACSLevelWindow.xml
-resources/Interactions/DisplayConfigMITK.xml
-resources/Interactions/DisplayConfigMITKNoCrosshair.xml
-resources/Interactions/DisplayConfigMITKRotation.xml
-resources/Interactions/DisplayConfigMITKRotationUnCoupled.xml
-resources/Interactions/DisplayConfigMITKSwivel.xml
-resources/Interactions/DisplayConfigMITKLimited.xml
-resources/Interactions/PointSet.xml
-resources/Interactions/Legacy/StateMachine.xml
-resources/Interactions/Legacy/DisplayConfigMITKTools.xml
-resources/Interactions/PointSetConfig.xml
+resources/src/Interactions/globalConfig.xml
+resources/src/Interactions/DisplayInteraction.xml
+resources/src/Interactions/DisplayConfig.xml
+resources/src/Interactions/DisplayConfigPACS.xml
+resources/src/Interactions/DisplayConfigPACSPan.xml
+resources/src/Interactions/DisplayConfigPACSScroll.xml
+resources/src/Interactions/DisplayConfigPACSZoom.xml
+resources/src/Interactions/DisplayConfigPACSLevelWindow.xml
+resources/src/Interactions/DisplayConfigMITK.xml
+resources/src/Interactions/DisplayConfigMITKNoCrosshair.xml
+resources/src/Interactions/DisplayConfigMITKRotation.xml
+resources/src/Interactions/DisplayConfigMITKRotationUnCoupled.xml
+resources/src/Interactions/DisplayConfigMITKSwivel.xml
+resources/src/Interactions/DisplayConfigMITKLimited.xml
+resources/src/Interactions/PointSet.xml
+resources/src/Interactions/Legacy/StateMachine.xml
+resources/src/Interactions/Legacy/DisplayConfigMITKTools.xml
+resources/src/Interactions/PointSetConfig.xml
 
 resources/mitkLevelWindowPresets.xml
 resources/mitkAnatomicalStructureColorPresets.xml
