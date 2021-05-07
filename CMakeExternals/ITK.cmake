@@ -67,12 +67,45 @@ if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       -DITK_USE_TRANSFORM_IO_FACTORIES:BOOL=ON
       -DITK_LEGACY_REMOVE:BOOL=ON
       -DITK_BUILD_DEFAULT_MODULES:BOOL=OFF
-      -DITKGroup_Core:BOOL=ON
+      #-DITKGroup_Core:BOOL=ON
+      -DModule_IOImageBase:BOOL=ON
+      -DModule_SpatialObjects:BOOL=ON
+      -DModule_Statistics:BOOL=ON
+      -DModule_IOBioRad:BOOL=ON
+      -DModule_IOBMP:BOOL=ON
+      -DModule_IOBruker:BOOL=ON
+      -DModule_IOCSV:BOOL=ON
+      -DModule_IOGDCM:BOOL=ON
+      -DModule_IOGE:BOOL=ON
+      -DModule_IOGIPL:BOOL=ON
+      -DModule_IOHDF5:BOOL=ON
+      -DModule_IOIPL:BOOL=ON
+      -DModule_IOJPEG:BOOL=ON
+      -DModule_IOLSM:BOOL=ON
+      -DModule_IOMesh:BOOL=ON
+      -DModule_IOMeta:BOOL=ON
+      -DModule_IOMINC:BOOL=ON
+      -DModule_IOMRC:BOOL=ON
+      -DModule_IONIFTI:BOOL=ON
+      -DModule_IONRRD:BOOL=ON
+      -DModule_IOPNG:BOOL=ON
+      -DModule_IOSiemens:BOOL=ON
+      -DModule_IOSpatialObjects:BOOL=ON
+      -DModule_IOStimulate:BOOL=ON
+      -DModule_IOTIFF:BOOL=ON
+      -DModule_IOTransformBase:BOOL=ON
+      -DModule_IOTransformHDF5:BOOL=ON
+      -DModule_IOTransformInsightLegacy:BOOL=ON
+      -DModule_IOTransformMatlab:BOOL=ON
+      -DModule_IOVTK:BOOL=ON
+      -DModule_IOXML:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DINSTALL_GTEST:BOOL=OFF
+      #[[ These commented options might need to be activated when compilation errors arise.
       -DGDCM_HAVE_GETTIMEOFDAY:BOOL=OFF
       -DHAVE_GETTIMEOFDAY:BOOL=OFF
       -DH5_HAVE_GETRUSAGE:BOOL=OFF
+      ]]
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
