@@ -1,5 +1,9 @@
 file(GLOB_RECURSE H_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/include/*")
 
+file(GLOB_RECURSE XPM_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/include/*.xpm")
+
+list(APPEND H_FILES ${XPM_FILES})
+
 set(CPP_FILES
   src/mitkCoreActivator.cpp
   src/mitkCoreObjectFactoryBase.cpp

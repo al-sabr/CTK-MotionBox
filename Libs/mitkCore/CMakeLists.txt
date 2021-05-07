@@ -7,6 +7,7 @@ if(MSVC_VERSION)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /MP")
 endif()
 
+configure_file(${CMAKE_SOURCE_DIR}/CMake/mitkVersion.h.in ${PROJECT_BINARY_DIR}/mitkVersion.h)
 
 set(KIT_export_directive "MITK_CORE_EXPORT")
 # Target libraries - See CMake/ctkFunctionGetTargetLibraries.cmake
