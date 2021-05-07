@@ -505,6 +505,8 @@ ctk_lib_option(Scripting/Python/Widgets
 ctk_lib_option(AppUtil
                "Build the AppLib library port from MITK" ON)
 
+ctk_lib_option(mitkCore
+               "Build the AppLib library port from MITK" ON)
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
 set(_enabled_libs)
@@ -761,12 +763,6 @@ set(CTK_DEPENDENCIES
   Log4Qt
   VTK
   PythonQt
-  DCMTK
-  ZMQ
-  QtSOAP
-  qxmlrpc
-  qRestAPI
-  OpenIGTLink
   ITK
   QtTesting
   CppMicroServices

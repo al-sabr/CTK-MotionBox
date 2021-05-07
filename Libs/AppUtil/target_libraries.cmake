@@ -11,7 +11,7 @@ set(target_libraries
   ITKFoundationCommon
   CTKCore
   CTKPluginFramework
-  CTKmitk
+  CTKmitkCore
   CTKqtsingleapplication
   Poco::Util
   )
