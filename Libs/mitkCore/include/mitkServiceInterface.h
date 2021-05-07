@@ -17,13 +17,13 @@ found in the LICENSE file.
 
 #ifdef Q_DECLARE_INTERFACE
 
-#define MITK_DECLARE_SERVICE_INTERFACE(IFace, IId)                                                                     \
+#define US_DECLARE_SERVICE_INTERFACE(IFace, IId)                                                                     \
   US_DECLARE_SERVICE_INTERFACE(IFace, IId)                                                                             \
   Q_DECLARE_INTERFACE(IFace, IId)
 
 #else
 
-#define MITK_DECLARE_SERVICE_INTERFACE(IFace, IId) US_DECLARE_SERVICE_INTERFACE(IFace, IId)
+#define US_DECLARE_SERVICE_INTERFACE(IFace, IId) US_DECLARE_SERVICE_INTERFACE(IFace, IId)
 
 #endif
 

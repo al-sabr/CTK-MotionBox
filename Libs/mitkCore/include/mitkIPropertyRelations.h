@@ -90,6 +90,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyRelations, "org.mitk.IPropertyRelations")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyRelations, "org.mitk.IPropertyRelations")
 
 #endif

@@ -67,5 +67,5 @@ namespace mitk
   };
 
 } /* namespace mitk */
-MITK_DECLARE_SERVICE_INTERFACE(mitk::InteractionEventObserver, "org.mitk.InteractionEventObserver")
+US_DECLARE_SERVICE_INTERFACE(mitk::InteractionEventObserver, "org.mitk.InteractionEventObserver")
 #endif /* InteractionEventObserver_h */

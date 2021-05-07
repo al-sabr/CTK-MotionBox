@@ -126,6 +126,6 @@ namespace mitk
   void swap(CustomMimeType &l, CustomMimeType &r);
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::CustomMimeType, "org.mitk.CustomMimeType")
+US_DECLARE_SERVICE_INTERFACE(mitk::CustomMimeType, "org.mitk.CustomMimeType")
 
 #endif // MITKCUSTOMMIMETYPE_H

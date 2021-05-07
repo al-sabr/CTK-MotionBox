@@ -80,6 +80,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyFilters, "org.mitk.IPropertyFilters")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyFilters, "org.mitk.IPropertyFilters")
 
 #endif

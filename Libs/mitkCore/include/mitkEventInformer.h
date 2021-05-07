@@ -31,5 +31,5 @@ namespace mitk
   };
 
 } /* namespace mitk */
-MITK_DECLARE_SERVICE_INTERFACE(mitk::EventInformerService, "EventInformerService/1.0")
+US_DECLARE_SERVICE_INTERFACE(mitk::EventInformerService, "EventInformerService/1.0")
 #endif

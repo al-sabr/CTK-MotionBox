@@ -453,6 +453,6 @@ namespace mitk
 
 } // namespace mitk
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::Annotation, "org.mitk.services.Annotation")
+US_DECLARE_SERVICE_INTERFACE(mitk::Annotation, "org.mitk.services.Annotation")
 
 #endif // Annotation_H

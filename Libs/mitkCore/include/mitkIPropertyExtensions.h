@@ -79,6 +79,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyExtensions, "org.mitk.IPropertyExtensions")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyExtensions, "org.mitk.IPropertyExtensions")
 
 #endif

@@ -110,6 +110,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyPersistence, "org.mitk.IPropertyPersistence")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyPersistence, "org.mitk.IPropertyPersistence")
 
 #endif

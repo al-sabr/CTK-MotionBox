@@ -94,6 +94,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyDescriptions, "org.mitk.IPropertyDescriptions")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyDescriptions, "org.mitk.IPropertyDescriptions")
 
 #endif

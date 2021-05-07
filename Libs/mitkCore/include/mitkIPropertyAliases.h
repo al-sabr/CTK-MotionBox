@@ -93,6 +93,6 @@ namespace mitk
   };
 }
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPropertyAliases, "org.mitk.IPropertyAliases")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPropertyAliases, "org.mitk.IPropertyAliases")
 
 #endif

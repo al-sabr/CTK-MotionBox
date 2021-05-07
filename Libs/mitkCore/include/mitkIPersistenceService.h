@@ -365,6 +365,6 @@ private:                                                                        
   propList->Get(#PARAM8_MEMBER_NAME, PARAM8_MEMBER_NAME);                                                              \
   PERSISTENCE_MACRO_END_PART(THE_CLASS_NAME, ID_MEMBER_NAME)
 
-MITK_DECLARE_SERVICE_INTERFACE(mitk::IPersistenceService, "org.mitk.services.IPersistenceService")
+US_DECLARE_SERVICE_INTERFACE(mitk::IPersistenceService, "org.mitk.services.IPersistenceService")
 
 #endif
