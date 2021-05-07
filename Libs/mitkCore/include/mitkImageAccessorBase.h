@@ -45,7 +45,7 @@ namespace mitk
 #define MITK_USE_RECURSIVE_MUTEX_PREVENTION
 #endif
 
-  class MITKCORE_EXPORT ImageAccessorBase
+  class MITK_CORE_EXPORT ImageAccessorBase
   {
     friend class Image;
 

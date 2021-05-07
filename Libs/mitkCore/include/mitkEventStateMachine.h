@@ -108,7 +108,7 @@ namespace mitk
    * performed.
    *
    */
-  class MITKCORE_EXPORT EventStateMachine : public mitk::InteractionEventHandler
+  class MITK_CORE_EXPORT EventStateMachine : public mitk::InteractionEventHandler
   {
   public:
     mitkClassMacro(EventStateMachine, InteractionEventHandler);

@@ -44,7 +44,7 @@ namespace mitk
   //##
   //## @param manageMemory Determines if image data is removed while destruction of ImageDataItem or not.
   //## @ingroup Data
-  class MITKCORE_EXPORT ImageDataItem : public itk::LightObject
+  class MITK_CORE_EXPORT ImageDataItem : public itk::LightObject
   {
     friend class ImageAccessorBase;
     friend class ImageWriteAccessor;

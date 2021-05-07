@@ -19,7 +19,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITKCORE_EXPORT RestorePlanePositionOperation : public Operation
+  class MITK_CORE_EXPORT RestorePlanePositionOperation : public Operation
   {
   public:
     RestorePlanePositionOperation(OperationType operationType,

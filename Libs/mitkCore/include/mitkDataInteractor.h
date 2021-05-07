@@ -45,7 +45,7 @@ namespace mitk
   * Provides an interface that is relevant for the interactor to work together with the dispatcher.
   * To implement a new interactor overwrite the ConnectActionsAndFunctions to connect the actions.
   */
-  class MITKCORE_EXPORT DataInteractor : public EventStateMachine
+  class MITK_CORE_EXPORT DataInteractor : public EventStateMachine
   {
   public:
     // Predefined internal events/signals

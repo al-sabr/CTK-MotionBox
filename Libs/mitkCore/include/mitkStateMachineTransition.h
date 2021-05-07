@@ -41,7 +41,7 @@ namespace mitk
   * \ingroup Interaction
   **/
 
-  class MITKCORE_EXPORT StateMachineTransition : public itk::LightObject
+  class MITK_CORE_EXPORT StateMachineTransition : public itk::LightObject
   {
     friend class StateMachineFactory;
     friend class StateMachineContainer;

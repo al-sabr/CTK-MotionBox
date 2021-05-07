@@ -44,7 +44,7 @@ namespace mitk
    * the mitk::ColorProperty see mitkImageVtkMapper2DColorTest.cpp in
    * Core/Code/Rendering.
    */
-  class MITKCORE_EXPORT ColorProperty : public BaseProperty
+  class MITK_CORE_EXPORT ColorProperty : public BaseProperty
   {
   protected:
     mitk::Color m_Color;

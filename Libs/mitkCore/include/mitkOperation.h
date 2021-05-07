@@ -26,7 +26,7 @@ namespace mitk
   //## @brief Base class of all Operation-classes
   //##
   //## @ingroup Undo
-  class MITKCORE_EXPORT Operation
+  class MITK_CORE_EXPORT Operation
   {
   public:
     mitkClassMacroNoParent(Operation)
@@ -43,7 +43,7 @@ namespace mitk
     OperationType m_OperationType;
   };
 
-  class MITKCORE_EXPORT OperationEndEvent : public itk::EndEvent
+  class MITK_CORE_EXPORT OperationEndEvent : public itk::EndEvent
   {
   public:
     typedef OperationEndEvent Self;

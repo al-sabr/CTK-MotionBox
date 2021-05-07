@@ -143,12 +143,12 @@ namespace mitk
 
     AffineTransform3D::MatrixType::InternalMatrixType GetVnlMatrix();
   };
-  MITKCORE_EXPORT bool Equal(const mitk::GeometryTransformHolder &leftHandSide,
+  MITK_CORE_EXPORT bool Equal(const mitk::GeometryTransformHolder &leftHandSide,
                              const mitk::GeometryTransformHolder &rightHandSide,
                              ScalarType eps,
                              bool verbose);
 
-  MITKCORE_EXPORT bool Equal(const mitk::GeometryTransformHolder *leftHandSide,
+  MITK_CORE_EXPORT bool Equal(const mitk::GeometryTransformHolder *leftHandSide,
                              const mitk::GeometryTransformHolder *rightHandSide,
                              ScalarType eps,
                              bool verbose);

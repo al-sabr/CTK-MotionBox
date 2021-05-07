@@ -27,7 +27,7 @@ namespace mitk
   // StateMachine
   //## implementation
   //## @ingroup Interaction
-  class MITKCORE_EXPORT StateMachineAction : public itk::LightObject
+  class MITK_CORE_EXPORT StateMachineAction : public itk::LightObject
   {
   public:
     mitkClassMacroItkParent(StateMachineAction, itk::Object);

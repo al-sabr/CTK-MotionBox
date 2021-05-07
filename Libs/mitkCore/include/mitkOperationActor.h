@@ -38,7 +38,7 @@ namespace mitk
    *
    * \ingroup Undo
    */
-  class MITKCORE_EXPORT OperationActor
+  class MITK_CORE_EXPORT OperationActor
   {
   public:
     itkTypeMacroNoParent(OperationActor)

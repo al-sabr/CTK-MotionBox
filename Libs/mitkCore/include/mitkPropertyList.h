@@ -61,7 +61,7 @@ namespace mitk
    *
    * @ingroup DataManagement
    */
-  class MITKCORE_EXPORT PropertyList : public itk::Object, public IPropertyOwner
+  class MITK_CORE_EXPORT PropertyList : public itk::Object, public IPropertyOwner
   {
   public:
     mitkClassMacroItkParent(PropertyList, itk::Object);

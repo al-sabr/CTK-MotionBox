@@ -41,7 +41,7 @@ namespace mitk
    *
    * @ingroup Interaction
    **/
-  class MITKCORE_EXPORT EventConfig
+  class MITK_CORE_EXPORT EventConfig
   {
   public:
     typedef itk::SmartPointer<InteractionEvent> EventType;

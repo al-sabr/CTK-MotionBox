@@ -40,7 +40,7 @@ namespace mitk
   *
   * \addtogroup geometry
   */
-  class MITKCORE_EXPORT TimeGeometry : public itk::Object, public OperationActor
+  class MITK_CORE_EXPORT TimeGeometry : public itk::Object, public OperationActor
   {
   protected:
     TimeGeometry();
@@ -314,7 +314,7 @@ namespace mitk
   *
   * @return True, if all comparison are true. False in any other case.
   */
-  MITKCORE_EXPORT bool Equal(const mitk::TimeGeometry &leftHandSide,
+  MITK_CORE_EXPORT bool Equal(const mitk::TimeGeometry &leftHandSide,
                              const mitk::TimeGeometry &rightHandSide,
                              ScalarType eps,
                              bool verbose);
@@ -339,7 +339,7 @@ namespace mitk
   *
   * @return True, if all comparisons are true. False in any other case.
   */
-  MITKCORE_EXPORT bool Equal(const mitk::TimeGeometry& leftHandSide,
+  MITK_CORE_EXPORT bool Equal(const mitk::TimeGeometry& leftHandSide,
     const mitk::TimeGeometry& rightHandSide,
     ScalarType coordinateEps,
     ScalarType directionEps,

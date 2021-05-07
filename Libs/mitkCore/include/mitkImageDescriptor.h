@@ -34,7 +34,7 @@ namespace mitk
 
     \sa Image, ChannelDescriptor
     */
-  class MITKCORE_EXPORT ImageDescriptor : public itk::Object
+  class MITK_CORE_EXPORT ImageDescriptor : public itk::Object
   {
   public:
     mitkClassMacroItkParent(ImageDescriptor, itk::Object);
