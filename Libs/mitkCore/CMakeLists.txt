@@ -2,6 +2,7 @@ project(CTKmitkCore)
 
 include(files.cmake)
 
+set(KIT_export_directive "MITK_CORE_EXPORT")
 # Target libraries - See CMake/ctkFunctionGetTargetLibraries.cmake
 # The following macro will read the target libraries from the file 'target_libraries.cmake'
 
