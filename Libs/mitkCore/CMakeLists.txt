@@ -38,6 +38,7 @@ ctkMacroBuildLib(
 
 include_directories(include)
 
+add_definitions(-DBOOST_ALL_DYN_LINK -DBOOST_UUID_FORCE_AUTO_LINK -DBOOST_BIND_GLOBAL_PLACEHOLDERS)
 #target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 #target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/DataManagement)
 #target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/Interactions)

@@ -11,9 +11,16 @@ set(target_libraries
   VTK_LIBRARIES
   CTKCore
   CTKmbilog
-  Boost
+  Boost::uuid
+  Boost::preprocessor
+  Boost::property_tree
+  Boost::type_traits
   tinyxml2
 )
+
+if(MSVC)
+  list(APPEND target_libraries Boost::dynamic_linking)
+endif()
 
 if(CTK_QT_VERSION VERSION_GREATER "4")
   list(APPEND target_libraries Qt5::Core)
