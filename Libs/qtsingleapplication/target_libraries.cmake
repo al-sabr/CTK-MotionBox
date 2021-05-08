@@ -5,5 +5,5 @@
 #
 
 set(target_libraries
-  Qt5:Widgets Qt5::Network
+  CTKCore 
   )

@@ -2,6 +2,7 @@ project(CTKqtsingleapplication)
 
 include(files.cmake)
 
+find_package(Qt5 COMPONENTS Core Gui Widgets Qml Network REQUIRED)
 #
 # See CTK/CMake/ctkMacroBuildLib.cmake for details
 #
@@ -14,11 +15,15 @@ set(KIT_target_libraries)
 
 ctkFunctionGetTargetLibraries(KIT_target_libraries)
 
+if (CTK_QT_VERSION VERSION_GREATER "4")
+  list(APPEND target_libraries Qt5::Core Qt5::Gui Qt5::Network Qt5::Widgets Qt5::Qml)
+endif()
+
 ctkMacroBuildLib(
   NAME ${PROJECT_NAME}
   EXPORT_DIRECTIVE ${KIT_export_directive}
   SRCS ${KIT_SRCS}
   MOC_SRCS ${KIT_MOC_SRCS}
   TARGET_LIBRARIES ${KIT_target_libraries}
-  LIBRARY_TYPE STATIC
+  LIBRARY_TYPE ${CTK_LIBRARY_MODE}
   )
