@@ -150,19 +150,19 @@ void mitk::RGBToRGBACastImageFilter::GenerateData()
     // Check if the pixel type is supported
     if (pixelType == MakePixelType<itk::Image<UCRGBPixelType>>())
     {
-      AccessFixedPixelTypeByItk_2(image, InternalCast, (UCRGBPixelType), this, 255);
+      //AccessFixedPixelTypeByItk_2(image, InternalCast, (UCRGBPixelType), this, 255);
     }
     else if (pixelType == MakePixelType<itk::Image<USRGBPixelType>>())
     {
-      AccessFixedPixelTypeByItk_2(image, InternalCast, (USRGBPixelType), this, 65535);
+      //AccessFixedPixelTypeByItk_2(image, InternalCast, (USRGBPixelType), this, 65535);
     }
     else if (pixelType == MakePixelType<itk::Image<FloatRGBPixelType>>())
     {
-      AccessFixedPixelTypeByItk_2(image, InternalCast, (FloatRGBPixelType), this, 1.0);
+      //AccessFixedPixelTypeByItk_2(image, InternalCast, (FloatRGBPixelType), this, 1.0);
     }
     else if (pixelType == MakePixelType<itk::Image<DoubleRGBPixelType>>())
     {
-      AccessFixedPixelTypeByItk_2(image, InternalCast, (DoubleRGBPixelType), this, 1.0);
+      //AccessFixedPixelTypeByItk_2(image, InternalCast, (DoubleRGBPixelType), this, 1.0);
     }
     else
     {

@@ -286,7 +286,7 @@ void mitk::ImageStatisticsHolder::ComputeImageStatistics(int t, unsigned int com
       timeSelector->SetTimeNr(t);
       timeSelector->UpdateLargestPossibleRegion();
       const mitk::Image *image = timeSelector->GetOutput();
-      AccessByItk_2(image, _ComputeExtremaInItkImage, this, t);
+      //AccessByItk_2(image, _ComputeExtremaInItkImage, this, t);
     }
   }
   else if (pType.GetPixelType() == itk::ImageIOBase::VECTOR &&
@@ -299,7 +299,7 @@ void mitk::ImageStatisticsHolder::ComputeImageStatistics(int t, unsigned int com
       timeSelector->SetTimeNr(t);
       timeSelector->UpdateLargestPossibleRegion();
       const mitk::Image *image = timeSelector->GetOutput();
-      AccessVectorPixelTypeByItk_n(image, _ComputeExtremaInItkVectorImage, (this, t, component));
+      //AccessVectorPixelTypeByItk_n(image, _ComputeExtremaInItkVectorImage, (this, t, component));
     }
   }
   else

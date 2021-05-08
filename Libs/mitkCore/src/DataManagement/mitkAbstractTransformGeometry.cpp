@@ -98,7 +98,7 @@ bool mitk::AbstractTransformGeometry::Project(const mitk::Point3D &atPt3d_mm,
   itkExceptionMacro("not implemented yet - replace GetIndexToWorldTransform by "
                     "m_ItkVtkAbstractTransform->GetInverseVtkAbstractTransform()");
   assert(this->IsBoundingBoxNull() == false);
-
+  /*
   Vector3D vec3d_units;
   vec3d_units = GetIndexToWorldTransform()->GetInverseMatrix() * vec3d_mm;
   vec3d_units[2] = 0;
@@ -118,8 +118,8 @@ bool mitk::AbstractTransformGeometry::Project(const mitk::Point3D &atPt3d_mm,
     for (j = 0; j < 3; ++j)
       pt3d_units[i] += GetIndexToWorldTransform()->GetInverseMatrix()[i][j] * temp[j];
   }
-
-  return this->GetBoundingBox()->IsInside(pt3d_units);
+  */
+  return nullptr; //this->GetBoundingBox()->IsInside(pt3d_units);
 }
 
 bool mitk::AbstractTransformGeometry::Project(const mitk::Vector3D & /*vec3d_mm*/,

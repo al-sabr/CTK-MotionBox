@@ -762,12 +762,12 @@ void mitk::BaseGeometry::PrintSelf(std::ostream &os, itk::Indent indent) const
     os << indent << "Inverse: " << std::endl;
     for (i = 0; i < 3; i++)
     {
-      os << indent.GetNextIndent();
+      /*os << indent.GetNextIndent();
       for (j = 0; j < 3; j++)
       {
         os << this->GetIndexToWorldTransform()->GetInverseMatrix()[i][j] << " ";
       }
-      os << std::endl;
+      os << std::endl;*/
     }
 
     // from itk::ScalableAffineTransform

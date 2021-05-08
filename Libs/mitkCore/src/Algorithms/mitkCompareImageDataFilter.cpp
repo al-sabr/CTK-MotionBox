@@ -52,7 +52,7 @@ void mitk::CompareImageDataFilter::GenerateData()
   // check what number of components the inputs have
   if (input1->GetPixelType().GetNumberOfComponents() == 1 && input2->GetPixelType().GetNumberOfComponents() == 1)
   {
-    AccessByItk_1(input1, EstimateValueDifference, input2);
+    //AccessByItk_1(input1, EstimateValueDifference, input2);
   }
   else if (input1->GetPixelType().GetNumberOfComponents() > 1 && input2->GetPixelType().GetNumberOfComponents() > 1)
   {

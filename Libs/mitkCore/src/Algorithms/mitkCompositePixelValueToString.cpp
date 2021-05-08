@@ -67,8 +67,8 @@ std::string mitk::ConvertCompositePixelValueToString(Image::Pointer image, itk::
     mitkThrow() << "Image is null.";
   }
 
-  AccessFixedPixelTypeByItk_n(
-    image, ConvertCompositePixelValueToString, MITK_ACCESSBYITK_COMPOSITE_PIXEL_TYPES_SEQ, (index, string));
+  /*AccessFixedPixelTypeByItk_n(
+    image, ConvertCompositePixelValueToString, MITK_ACCESSBYITK_COMPOSITE_PIXEL_TYPES_SEQ, (index, string));*/
 
   return string;
 }

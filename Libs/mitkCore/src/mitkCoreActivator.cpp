@@ -356,10 +356,10 @@ void MitkCoreActivator::RegisterLegacyWriter()
   }
 }
 
-US_EXPORT_MODULE_ACTIVATOR(MitkCoreActivator)
+US_EXPORT_MODULE_ACTIVATOR(mitkCore, MitkCoreActivator)
 
 // Call CppMicroservices initialization code at the end of the file.
 // This especially ensures that VTK object factories have already
 // been registered (VTK initialization code is injected by implicitly
 // include VTK header files at the top of this file).
-US_INITIALIZE_MODULE
+US_INITIALIZE_MODULE("Port of Core module from MITK", "mitkCore")
