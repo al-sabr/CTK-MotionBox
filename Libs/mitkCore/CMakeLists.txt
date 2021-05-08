@@ -1,6 +1,7 @@
 project(CTKmitkCore)
 
 include(files.cmake)
+include(mitkImports.cmake)
 
 if(MSVC_VERSION)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /bigobj /MP")
