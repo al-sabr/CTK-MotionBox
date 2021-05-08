@@ -1,6 +1,7 @@
 project(CTKmitkCore)
 
 include(files.cmake)
+include(versionRestriction.cmake)
 include(mitkImports.cmake)
 
 if(MSVC_VERSION)
@@ -40,7 +41,7 @@ include_directories(include)
 
 # Check this link for more understanding : https://github.com/microsoft/vcpkg/issues/4481
 
-add_definitions(-DBOOST_ALL_DYN_LINK -DBOOST_UUID_FORCE_AUTO_LINK -DBOOST_BIND_GLOBAL_PLACEHOLDERS)
+add_definitions(-DBOOST_ALL_DYN_LINK -DBOOST_UUID_FORCE_AUTO_LINK -DBOOST_BIND_GLOBAL_PLACEHOLDERS )#-DITK_MANUAL_INSTANTIATION
 
 if(NOT TARGET ${PROJECT_NAME})
   message(SEND_ERROR "Core target ${PROJECT_NAME} does not exist")

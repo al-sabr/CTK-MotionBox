@@ -19,6 +19,7 @@ set(target_libraries
 )
 
 if(MSVC)
+  # See link for information : https://cmake.org/cmake/help/v3.10/prop_tgt/IMPORTED.html#prop_tgt:IMPORTED
   list(APPEND target_libraries Boost::dynamic_linking)
 endif()
 
