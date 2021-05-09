@@ -59,10 +59,10 @@ if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       ${ep_project_include_arg}
       -DBUILD_EXAMPLES:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=ON
-      -DITK_USE_SYSTEM_GDCM:BOOL=ON
-      -DGDCM_DIR:PATH=${GDCM_DIR}
-      -DITK_USE_SYSTEM_HDF5:BOOL=ON
-      -DHDF5_DIR:PATH=${HDF5_DIR}
+      # -DITK_USE_SYSTEM_GDCM:BOOL=ON
+      # -DGDCM_DIR:PATH=${GDCM_DIR}
+      # -DITK_USE_SYSTEM_HDF5:BOOL=ON
+      # -DHDF5_DIR:PATH=${HDF5_DIR}
       -DITK_USE_REVIEW:BOOL=ON
       -DITK_USE_REVIEW_STATISTICS:BOOL=ON
       -DITK_USE_OPTIMIZED_REGISTRATION_METHODS:BOOL=ON
@@ -105,11 +105,11 @@ if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
       -DModule_IOXML:BOOL=ON
       -DBUILD_TESTING:BOOL=OFF
       -DINSTALL_GTEST:BOOL=OFF
-      #[[ These commented options might need to be activated when compilation errors arise.
+      #[ These commented options might need to be activated when compilation errors arise.
       -DGDCM_HAVE_GETTIMEOFDAY:BOOL=OFF
       -DHAVE_GETTIMEOFDAY:BOOL=OFF
       -DH5_HAVE_GETRUSAGE:BOOL=OFF
-      ]]
+      
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
