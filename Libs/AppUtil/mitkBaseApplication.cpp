@@ -12,8 +12,8 @@ found in the LICENSE file.
 
 #include <mitkBaseApplication.h>
 
-#include <mitkExceptionMacros.h>
-#include <mitkLogMacros.h>
+#include <include/mitkExceptionMacro.h>
+#include <include/mitkLogMacros.h>
 #include <mitkProvisioningInfo.h>
 
 #include <QmitkSafeApplication.h>
