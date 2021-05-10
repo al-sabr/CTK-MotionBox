@@ -507,6 +507,17 @@ ctk_lib_option(AppUtil
 
 ctk_lib_option(mitkCore
                "Build the AppLib library port from MITK" ON)
+
+ctk_lib_option(mitkAnnotation
+               "Build the Annotation library port from MITK" ON)
+
+ctk_lib_option(mitkLegacyGL
+               "Build the Legacy OpenGL library port from MITK" ON)
+
+ctk_lib_option(mitkPlanarFigure
+               "Build the Legacy OpenGL library port from MITK" ON)
+
+
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
 set(_enabled_libs)
