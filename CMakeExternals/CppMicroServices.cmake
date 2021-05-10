@@ -57,6 +57,9 @@ if(NOT DEFINED CppMicroServices_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${p
     CMAKE_CACHE_ARGS
       ${ep_common_cache_args}
       ${ep_project_include_arg}
+      -DUS_ENABLE_AUTOLOADING_SUPPORT:BOOL=ON
+      -DUS_ENABLE_THREADING_SUPPORT:BOOL=ON
+      -DUS_NO_DOCUMENTATIONT:BOOL=ON
     DEPENDS
       ${${proj}_DEPENDENCIES}
     )
