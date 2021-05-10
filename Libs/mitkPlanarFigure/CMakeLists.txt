@@ -28,7 +28,7 @@ ctkMacroBuildLib(
   EXPORT_HEADER_NAME "MitkPlanarFigureExports"
 )
 
-include_directories(include)
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 add_subdirectory(autoload/IO)
 if(BUILD_TESTING)
