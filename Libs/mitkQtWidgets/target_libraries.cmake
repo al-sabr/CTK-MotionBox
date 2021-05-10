@@ -6,12 +6,14 @@
 
 set(target_libraries
 #VTK_LIBRARIES
+  CppMicroServices
+  CppMicroServices_LIBRARIES
   VTK::GUISupportQt
   VTK::RenderingQt
+  CTKWidgets
   CTKmitkPlanarFigure
   CTKmitkAnnotation
-  #CppMicroServices
-  #CppMicroServices_LIBRARIES
+  
   )
 
 #   MITK_CREATE_MODULE(

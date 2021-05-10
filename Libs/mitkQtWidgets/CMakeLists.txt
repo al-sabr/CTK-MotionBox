@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include(files.cmake)
 
 find_package(Qt5 COMPONENTS Core OpenGL Widgets REQUIRED)
+find_package(CppMicroServices REQUIRED)
 
 set(KIT_export_directive "MITKQTWIDGETS_EXPORT")
 # Target libraries - See CMake/ctkFunctionGetTargetLibraries.cmake

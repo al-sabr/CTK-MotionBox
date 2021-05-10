@@ -1,6 +1,5 @@
 file(GLOB_RECURSE H_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/include/*")
-file(GLOB_RECURSE CPP_FILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-#[[
+
 list(APPEND H_FILES
   resource/QmitkMemoryUsageIndicatorImagesGreen.xpm
   resource/QmitkMemoryUsageIndicatorImagesOrange.xpm
@@ -27,7 +26,7 @@ set(CPP_FILES
   src/QmitkFileReaderWriterOptionsWidget.cpp
   src/QmitkFileWriterOptionsDialog.cpp
   src/QmitkInteractionSchemeToolBar.cpp
-  #src/QmitkIOUtil.cpp
+  src/QmitkIOUtil.cpp
   src/QmitkLevelWindowPresetDefinitionDialog.cpp
   src/QmitkLevelWindowRangeChangeDialog.cpp
   src/QmitkLevelWindowWidgetContextMenu.cpp
@@ -52,15 +51,15 @@ set(CPP_FILES
   src/QmitkRenderWindow.cpp
   src/QmitkRenderWindowMenu.cpp
   src/QmitkRenderWindowWidget.cpp
-  #src/QmitkServiceListWidget.cpp
+  src/QmitkServiceListWidget.cpp
   src/QmitkSliderLevelWindowWidget.cpp
   src/QmitkStdMultiWidget.cpp
   src/QmitkMxNMultiWidget.cpp
   src/QmitkDataStorageComboBoxWithSelectNone.cpp
   src/QmitkDataStorageFilterProxyModel.cpp
   src/QmitkPropertyItem.cpp
-  #src/QmitkPropertyItemDelegate.cpp
-  #src/QmitkPropertyItemModel.cpp
+  src/QmitkPropertyItemDelegate.cpp
+  src/QmitkPropertyItemModel.cpp
   src/QmitkStyleManager.cpp
   src/QmitkAbstractDataStorageInspector.cpp
   src/QmitkDataStorageFavoriteNodesInspector.cpp
@@ -75,7 +74,6 @@ set(CPP_FILES
   src/QmitkSimpleTextOverlayWidget.cpp
   src/QmitkNodeDetailsDialog.cpp
 )
-]]
 
 set(MOC_H_FILES
   include/QmitkAbstractDataStorageModel.h
@@ -151,8 +149,6 @@ set(QRC_FILES
 set(KIT_MOC_SRCS ${H_FILES})
 
 set(KIT_SRCS ${CPP_FILES})
-
-set(KIT_GENERATED_MOC_SRCS ${MOC_H_FILES})
 
 set(KIT_RESOURCEFILES ${RESOURCEFILES})
 
