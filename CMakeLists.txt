@@ -523,6 +523,12 @@ ctk_lib_option(mitkQtWidgets
 ctk_lib_option(mitkQtWidgetsExt
                "Build the Extended Qt Widgets library port from MITK" ON)
 
+ctk_lib_option(mitkDataTypesExt
+               "Build the Extended Data Types library port from MITK" ON)
+
+ctk_lib_option(mitkAlgorithmsExt
+               "Build the Extended Algorithms library port from MITK" ON)
+
 
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
