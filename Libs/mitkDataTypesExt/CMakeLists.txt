@@ -25,4 +25,6 @@ ctkMacroBuildLib(
 
 include_directories(include)
 include_directories(src)
+
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 #add_subdirectory(test)
