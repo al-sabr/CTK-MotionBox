@@ -36,4 +36,4 @@ void MitkQtWidgetsActivator::Unload(us::ModuleContext *)
 {
 }
 
-US_EXPORT_MODULE_ACTIVATOR(MitkQtWidgets, MitkQtWidgetsActivator)
+US_EXPORT_MODULE_ACTIVATOR(CTKmitkQtWidgets, MitkQtWidgetsActivator)
