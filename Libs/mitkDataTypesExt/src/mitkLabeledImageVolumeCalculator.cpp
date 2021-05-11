@@ -64,7 +64,7 @@ namespace mitk
     m_InputTimeSelector->SetTimeNr(0);
     m_InputTimeSelector->UpdateLargestPossibleRegion();
 
-    AccessByItk_2(m_InputTimeSelector->GetOutput(), _InternalCalculateVolumes, this, m_Image->GetGeometry(0));
+    //AccessByItk_2(m_InputTimeSelector->GetOutput(), _InternalCalculateVolumes, this, m_Image->GetGeometry(0));
     //}
   }
 
