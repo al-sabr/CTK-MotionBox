@@ -5,11 +5,12 @@
 #
 
 set(target_libraries
+  ann
   VTK::ImagingGeneral
+  CTKmitkCore
   CTKmitkLegacyGL
   CTKmitkDataTypesExt
   ZLib
-  ANN
   )
 
 #[[
