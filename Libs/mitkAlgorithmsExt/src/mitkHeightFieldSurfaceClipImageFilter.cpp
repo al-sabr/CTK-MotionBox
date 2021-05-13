@@ -391,17 +391,17 @@ namespace mitk
         MITK_INFO << "Accessing ITK function...\n";
         if (i == 1)
         {
-          AccessByItk_3(m_InputTimeSelector->GetOutput(),
+          /*AccessByItk_3(m_InputTimeSelector->GetOutput(),
                         _InternalComputeClippedImage,
                         this,
                         inputSurface->GetVtkPolyData(t),
-                        imageToPlaneTransform);
+                        imageToPlaneTransform);*/
         }
         else
         {
           mitk::Image::Pointer extensionImage = m_OutputTimeSelector->GetOutput()->Clone();
-          AccessByItk_3(
-            extensionImage, _InternalComputeClippedImage, this, inputSurface->GetVtkPolyData(t), imageToPlaneTransform);
+          /*AccessByItk_3(
+            extensionImage, _InternalComputeClippedImage, this, inputSurface->GetVtkPolyData(t), imageToPlaneTransform);*/
         }
         if (m_ClippingMode == CLIPPING_MODE_MULTIPLANE)
           m_MultiPlaneValue = m_MultiPlaneValue * 2;

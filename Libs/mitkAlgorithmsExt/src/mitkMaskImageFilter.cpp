@@ -234,7 +234,7 @@ void mitk::MaskImageFilter::GenerateData()
     m_MaskTimeSelector->SetTimeNr(timestep);
     m_MaskTimeSelector->UpdateLargestPossibleRegion();
 
-    AccessByItk(m_InputTimeSelector->GetOutput(), InternalComputeMask);
+    //AccessByItk(m_InputTimeSelector->GetOutput(), InternalComputeMask);
   }
 
   m_TimeOfHeaderInitialization.Modified();

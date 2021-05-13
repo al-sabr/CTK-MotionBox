@@ -45,7 +45,7 @@ void mitk::ImageToUnstructuredGridFilter::GenerateData()
 
   m_NumberOfExtractedPoints = 0;
 
-  AccessByItk(image, ExtractPoints)
+  //AccessByItk(image, ExtractPoints)
 }
 
 void mitk::ImageToUnstructuredGridFilter::SetInput(const mitk::Image *image)

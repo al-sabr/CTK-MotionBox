@@ -253,8 +253,8 @@ void mitk::GeometryClipImageFilter::GenerateData()
         dynamic_cast<const PlaneGeometry *>(m_TimeClippingGeometry->GetGeometryForTimeStep(timestep).GetPointer());
     }
 
-    AccessByItk_2(
-      m_InputTimeSelector->GetOutput(), _InternalComputeClippedImage, this, clippingGeometryOfCurrentTimeStep);
+    /*AccessByItk_2(
+      m_InputTimeSelector->GetOutput(), _InternalComputeClippedImage, this, clippingGeometryOfCurrentTimeStep);*/
   }
 
   m_TimeOfHeaderInitialization.Modified();
