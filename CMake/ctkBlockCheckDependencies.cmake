@@ -117,6 +117,11 @@ set(${CppMicroServices_enabling_variable}_LIBRARY_DIRS CppMicroServices_LIBRARY_
 set(${CppMicroServices_enabling_variable}_INCLUDE_DIRS CppMicroServices_INCLUDE_DIRS)
 set(${CppMicroServices_enabling_variable}_FIND_PACKAGE_CMD CppMicroServices)
 
+set(ANN_enabling_variable ANN_LIBRARIES)
+set(${ANN_enabling_variable}_LIBRARY_DIRS ANN_LIBRARY_DIRS)
+set(${ANN_enabling_variable}_INCLUDE_DIRS ANN_INCLUDE_DIRS)
+set(${ANN_enabling_variable}_FIND_PACKAGE_CMD ANN)
+
 macro(superbuild_is_external_project_includable possible_proj output_var)
   if(DEFINED ${possible_proj}_enabling_variable)
     ctkMacroShouldAddExternalProject(${${possible_proj}_enabling_variable} ${output_var})

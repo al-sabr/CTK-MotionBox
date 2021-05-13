@@ -789,6 +789,7 @@ set(CTK_DEPENDENCIES
   ITK
   QtTesting
   CppMicroServices
+  ANN
   )
 
 if(BUILD_TESTING)
