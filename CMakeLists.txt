@@ -1004,3 +1004,4 @@ add_subdirectory( Documentation )
 # This directory is typically the last SUBDIRS in the main CMakeLists.txt.
 add_subdirectory(CMake/LastConfigureStep)
 
+add_subdirectory(Utilities/ANN)
