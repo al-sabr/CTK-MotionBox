@@ -607,6 +607,9 @@ ctk_lib_option(mitkDataTypesExt
 ctk_lib_option(mitkAlgorithmsExt
                "Build the Extended Algorithms library port from MITK" ON)
 
+ctk_lib_option(mitkSceneSerializationBase
+               "Build the Scene Serialzation library port from MITK" ON)
+
 
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
