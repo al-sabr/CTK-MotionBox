@@ -385,6 +385,9 @@ endif()
 #
 option(CTK_USE_BLUEBERRY "Build the BlueBerry platform" ON)
 
+#
+option(CTK_USE_MITK_PLUGINS "Build the MITK OSGi plugins" ON)
+
 #-----------------------------------------------------------------------------
 # QtTesting
 #
@@ -660,6 +663,17 @@ if(CTK_USE_BLUEBERRY)
     org.blueberry.ui.qt.help
     org.blueberry.ui.qt.log
     org.blueberry.ui.qt.objectinspector
+  )
+endif()
+
+if(CTK_USE_MITK_PLUGINS)
+  list(APPEND plugin_list
+    org.mitk.core.services
+    org.mitk.gui.common
+    org.mitk.gui.qt.application
+    org.mitk.gui.qt.ext
+    org.mitk.gui.qt.extapplication
+    
   )
 endif()
 
