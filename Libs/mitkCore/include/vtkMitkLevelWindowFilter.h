@@ -30,7 +30,7 @@ class vtkPiecewiseFunction;
 *
 * \ingroup Renderer
 */
-class MITK_CORE_EXPORT vtkMitkLevelWindowFilter : public vtkThreadedImageAlgorithm
+class MITKCORE_EXPORT vtkMitkLevelWindowFilter : public vtkThreadedImageAlgorithm
 {
 public:
   vtkTypeMacro(vtkMitkLevelWindowFilter, vtkThreadedImageAlgorithm);

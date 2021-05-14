@@ -33,7 +33,7 @@ namespace mitk
    * automatically.
    * In all other cases you should use mitk::MimeType when working with mime-types.
    */
-  class MITK_CORE_EXPORT MimeType
+  class MITKCORE_EXPORT MimeType
   {
   public:
     MimeType();
@@ -81,9 +81,9 @@ namespace mitk
     us::SharedDataPointer<const Impl> m_Data;
   };
 
-  MITK_CORE_EXPORT void swap(MimeType &m1, MimeType &m2);
+  MITKCORE_EXPORT void swap(MimeType &m1, MimeType &m2);
 
-  MITK_CORE_EXPORT std::ostream &operator<<(std::ostream &os, const MimeType &mimeType);
+  MITKCORE_EXPORT std::ostream &operator<<(std::ostream &os, const MimeType &mimeType);
 }
 
 #endif // MITKMIMETYPE_H

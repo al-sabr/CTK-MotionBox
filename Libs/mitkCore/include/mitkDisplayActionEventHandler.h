@@ -30,7 +30,7 @@ namespace mitk
   *        Such an observer consists of a DisplayActionEvent (an itkEventObject) and a StdFunctionCommand (an itkCommand).
   *        The StdFunctionCommand is created inside the function by the given two std::functions.
   */
-  class MITK_CORE_EXPORT DisplayActionEventHandler
+  class MITKCORE_EXPORT DisplayActionEventHandler
   {
   public:
 

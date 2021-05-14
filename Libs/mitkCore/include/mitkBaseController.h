@@ -34,7 +34,7 @@ namespace mitk
   //## there is 3D+t data.
   //## @note not yet implemented
   //## @ingroup NavigationControl
-  class MITK_CORE_EXPORT BaseController : public OperationActor, public itk::Object
+  class MITKCORE_EXPORT BaseController : public OperationActor, public itk::Object
   {
   public:
     /** Standard class typedefs. */

@@ -21,7 +21,7 @@ found in the LICENSE file.
 namespace mitk
 {
   //## @ingroup Undo
-  class MITK_CORE_EXPORT UndoController
+  class MITKCORE_EXPORT UndoController
   {
   public:
     // different UndoModels:

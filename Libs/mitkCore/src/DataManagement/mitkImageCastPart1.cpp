@@ -17,7 +17,7 @@ found in the LICENSE file.
 namespace mitk
 {
 #define InstantiateAccessFunction__CastToItkImage2Access(type1, type2)                                                 \
-  template MITK_CORE_EXPORT void _CastToItkImage2Access(                                                                \
+  template MITKCORE_EXPORT void _CastToItkImage2Access(                                                                \
     const ImageTypeTrait<BOOST_PP_TUPLE_REM(2) type1>::ImageType *,                                                     \
     itk::SmartPointer<ImageTypeTrait<BOOST_PP_TUPLE_REM(2) type2>::ImageType> &);
 

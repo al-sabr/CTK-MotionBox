@@ -25,7 +25,7 @@ found in the LICENSE file.
 
 #include "vtkThreadedImageAlgorithm.h"
 
-class MITK_CORE_EXPORT vtkMitkThickSlicesFilter : public vtkThreadedImageAlgorithm
+class MITKCORE_EXPORT vtkMitkThickSlicesFilter : public vtkThreadedImageAlgorithm
 {
 public:
   static vtkMitkThickSlicesFilter *New();

@@ -46,7 +46,7 @@ namespace mitk
   * \todo Should Mapper be a subclass of ImageSource?
   * \ingroup Mapper
   */
-  class MITK_CORE_EXPORT Mapper : public itk::Object
+  class MITKCORE_EXPORT Mapper : public itk::Object
   {
   public:
     mitkClassMacroItkParent(Mapper, itk::Object);
@@ -190,7 +190,7 @@ namespace mitk
   public:
     /** \brief Base class for mapper specific rendering ressources.
      */
-    class MITK_CORE_EXPORT BaseLocalStorage
+    class MITKCORE_EXPORT BaseLocalStorage
     {
     public:
       BaseLocalStorage() = default;

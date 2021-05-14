@@ -70,7 +70,7 @@ namespace mitk
     * For more information, see \ref MitkImagePage .
     * @ingroup Data
     */
-  class MITK_CORE_EXPORT Image : public SlicedData
+  class MITKCORE_EXPORT Image : public SlicedData
   {
     friend class SubImageSelector;
 
@@ -768,7 +768,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return true, if all subsequent comparisons are true, false otherwise
   */
-  DEPRECATED(MITK_CORE_EXPORT bool Equal(
+  DEPRECATED(MITKCORE_EXPORT bool Equal(
     const mitk::Image *leftHandSide, const mitk::Image *rightHandSide, ScalarType eps, bool verbose));
 
   /**
@@ -789,7 +789,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return true, if all subsequent comparisons are true, false otherwise
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::Image &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::Image &leftHandSide,
                              const mitk::Image &rightHandSide,
                              ScalarType eps,
                              bool verbose);

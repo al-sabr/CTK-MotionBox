@@ -26,7 +26,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT DisplayActionEvent : public itk::AnyEvent
+  class MITKCORE_EXPORT DisplayActionEvent : public itk::AnyEvent
   {
   public:
     typedef DisplayActionEvent Self;
@@ -51,7 +51,7 @@ namespace mitk
     void operator=(const Self &);
   };
 
-  class MITK_CORE_EXPORT DisplayMoveEvent : public DisplayActionEvent
+  class MITKCORE_EXPORT DisplayMoveEvent : public DisplayActionEvent
   {
   public:
     typedef DisplayMoveEvent Self;
@@ -75,7 +75,7 @@ namespace mitk
     Vector2D m_MoveVector;
   };
 
-  class MITK_CORE_EXPORT DisplaySetCrosshairEvent : public DisplayActionEvent
+  class MITKCORE_EXPORT DisplaySetCrosshairEvent : public DisplayActionEvent
   {
   public:
     typedef DisplaySetCrosshairEvent Self;
@@ -99,7 +99,7 @@ namespace mitk
     Point3D m_Position;
   };
 
-  class MITK_CORE_EXPORT DisplayZoomEvent : public DisplayActionEvent
+  class MITKCORE_EXPORT DisplayZoomEvent : public DisplayActionEvent
   {
   public:
     typedef DisplayZoomEvent Self;
@@ -126,7 +126,7 @@ namespace mitk
     Point2D m_StartCoordinate;
   };
 
-  class MITK_CORE_EXPORT DisplayScrollEvent : public DisplayActionEvent
+  class MITKCORE_EXPORT DisplayScrollEvent : public DisplayActionEvent
   {
   public:
     typedef DisplayScrollEvent Self;
@@ -150,7 +150,7 @@ namespace mitk
     int m_SliceDelta;
   };
 
-  class MITK_CORE_EXPORT DisplaySetLevelWindowEvent : public DisplayActionEvent
+  class MITKCORE_EXPORT DisplaySetLevelWindowEvent : public DisplayActionEvent
   {
   public:
     typedef DisplaySetLevelWindowEvent Self;

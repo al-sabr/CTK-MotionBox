@@ -43,7 +43,7 @@ namespace mitk
    * @ingroup SurfaceFilters
    * @ingroup Process
    */
-  class MITK_CORE_EXPORT SurfaceToImageFilter : public ImageSource
+  class MITKCORE_EXPORT SurfaceToImageFilter : public ImageSource
   {
   public:
     mitkClassMacro(SurfaceToImageFilter, ImageSource);

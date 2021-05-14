@@ -29,7 +29,7 @@ namespace mitk
   *   Any instance that wants to react on the invoked events can call 'AddObserver' on a specific broadcast instance,
   *   given an itkEventObject and an itkCommand.
   */
-  class MITK_CORE_EXPORT DisplayActionEventBroadcast : public EventStateMachine, public InteractionEventObserver
+  class MITKCORE_EXPORT DisplayActionEventBroadcast : public EventStateMachine, public InteractionEventObserver
   {
   public:
     mitkClassMacro(DisplayActionEventBroadcast, EventStateMachine);

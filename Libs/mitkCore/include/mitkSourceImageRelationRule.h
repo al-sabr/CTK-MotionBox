@@ -41,7 +41,7 @@ namespace mitk
   are used (display name: "<purposeTag> relation", source role name: "derived data",
   destination role name: "source image")
   */
-  class MITK_CORE_EXPORT SourceImageRelationRule : public mitk::PropertyRelationRuleBase
+  class MITKCORE_EXPORT SourceImageRelationRule : public mitk::PropertyRelationRuleBase
   {
   public:
     mitkClassMacro(SourceImageRelationRule, PropertyRelationRuleBase);

@@ -73,7 +73,7 @@ namespace mitk
    * can be used in tests etc.
    *
    */
-  class MITK_CORE_EXPORT RenderingManager : public itk::Object
+  class MITKCORE_EXPORT RenderingManager : public itk::Object
   {
   public:
     mitkClassMacroItkParent(RenderingManager, itk::Object);
@@ -385,7 +385,7 @@ namespace mitk
     * RenderingManagerFactory is instantiated explicitly thereafter.
     * (see mitkRenderingManager.cpp)
     */
-  class MITK_CORE_EXPORT TestingRenderingManager : public RenderingManager
+  class MITKCORE_EXPORT TestingRenderingManager : public RenderingManager
   {
   public:
     mitkClassMacro(TestingRenderingManager, RenderingManager);

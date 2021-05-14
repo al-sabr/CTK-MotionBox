@@ -30,7 +30,7 @@ namespace mitk
   *
   * @ingroup Geometry
   */
-  class MITK_CORE_EXPORT Convert2Dto3DImageFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT Convert2Dto3DImageFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(Convert2Dto3DImageFilter, ImageToImageFilter);

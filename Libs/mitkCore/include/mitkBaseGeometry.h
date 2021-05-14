@@ -94,7 +94,7 @@ namespace mitk
   //##
   //## Rule: everything is in mm (ms) if not stated otherwise.
   //## @ingroup Geometry
-  class MITK_CORE_EXPORT BaseGeometry : public itk::Object, public OperationActor
+  class MITKCORE_EXPORT BaseGeometry : public itk::Object, public OperationActor
   {
   public:
     mitkClassMacroItkParent(BaseGeometry, itk::Object);
@@ -642,7 +642,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparison are true. False in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::BaseGeometry& leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::BaseGeometry& leftHandSide,
     const mitk::BaseGeometry& rightHandSide,
     ScalarType coordinateEps,
     ScalarType directionEps,
@@ -662,7 +662,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparison are true. False in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::BaseGeometry &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::BaseGeometry &leftHandSide,
                              const mitk::BaseGeometry &rightHandSide,
                              ScalarType eps = mitk::eps,
                              bool verbose = false);
@@ -681,7 +681,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparison are true. False in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::BaseGeometry::TransformType &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::BaseGeometry::TransformType &leftHandSide,
                              const mitk::BaseGeometry::TransformType &rightHandSide,
                              ScalarType eps,
                              bool verbose);
@@ -700,7 +700,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparison are true. False in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::BaseGeometry::BoundingBoxType &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::BaseGeometry::BoundingBoxType &leftHandSide,
                              const mitk::BaseGeometry::BoundingBoxType &rightHandSide,
                              ScalarType eps,
                              bool verbose);
@@ -726,7 +726,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparisons are true. False otherwise.
   */
-  MITK_CORE_EXPORT bool IsSubGeometry(const mitk::BaseGeometry& testGeo,
+  MITKCORE_EXPORT bool IsSubGeometry(const mitk::BaseGeometry& testGeo,
     const mitk::BaseGeometry& referenceGeo,
     ScalarType coordinateEps,
     ScalarType directionEps,
@@ -745,7 +745,7 @@ namespace mitk
   * @param verbose Flag indicating if the user wants detailed console output or not.
   * @return True, if all comparison are true. False otherwise.
   */
-  MITK_CORE_EXPORT bool IsSubGeometry(const mitk::BaseGeometry& testGeo,
+  MITKCORE_EXPORT bool IsSubGeometry(const mitk::BaseGeometry& testGeo,
     const mitk::BaseGeometry& referenceGeo,
     ScalarType eps = mitk::eps,
     bool verbose = false);

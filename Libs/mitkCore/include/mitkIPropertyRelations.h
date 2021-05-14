@@ -25,7 +25,7 @@ namespace mitk
     * Property relations are managed by rule classes derived from PropertyRelationRuleBase.
     *
     */
-  class MITK_CORE_EXPORT IPropertyRelations
+  class MITKCORE_EXPORT IPropertyRelations
   {
   public:
     virtual ~IPropertyRelations();

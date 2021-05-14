@@ -48,7 +48,7 @@ namespace mitk
    * GetComponentTypeAsString, GetPixelType, GetPixelTypeAsString.
    * @ingroup Data
    */
-  class MITK_CORE_EXPORT PixelType
+  class MITKCORE_EXPORT PixelType
   {
   public:
     typedef itk::ImageIOBase::IOPixelType ItkIOPixelType;
@@ -162,7 +162,7 @@ namespace mitk
    * @param vtkimagedata the image the PixelType shall be deducted from
    * @return the mitk::PixelType
    */
-  MITK_CORE_EXPORT mitk::PixelType MakePixelType(vtkImageData *vtkimagedata);
+  MITKCORE_EXPORT mitk::PixelType MakePixelType(vtkImageData *vtkimagedata);
 
   /**
    * \brief A template method for creating a pixel type.

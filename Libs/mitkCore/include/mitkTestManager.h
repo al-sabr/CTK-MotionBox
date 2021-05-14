@@ -17,7 +17,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT TestManager
+  class MITKCORE_EXPORT TestManager
   {
   public:
     TestManager() : m_FailedTests(0), m_PassedTests(0) {}

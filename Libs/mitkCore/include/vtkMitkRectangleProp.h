@@ -24,7 +24,7 @@ class vtkViewport;
 /**
  * @brief The vtkMitkRectangleProp class renders a rectangle into a renderwindow as a frame.
  */
-class MITK_CORE_EXPORT vtkMitkRectangleProp : public vtkActor2D
+class MITKCORE_EXPORT vtkMitkRectangleProp : public vtkActor2D
 {
 public:
   static vtkMitkRectangleProp *New();

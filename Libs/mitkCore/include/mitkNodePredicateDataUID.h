@@ -24,7 +24,7 @@ namespace mitk
    *
    * \ingroup DataStorage
    */
-  class MITK_CORE_EXPORT NodePredicateDataUID : public NodePredicateBase
+  class MITKCORE_EXPORT NodePredicateDataUID : public NodePredicateBase
   {
   public:
     mitkClassMacro(NodePredicateDataUID, NodePredicateBase)

@@ -71,7 +71,7 @@ namespace mitk
   automaticaly be this base class.
   - <data-layer-specific>: Information needed by the Data-layer (so derived classes) to find the relationUID
   */
-  class MITK_CORE_EXPORT PropertyRelationRuleBase : public itk::Object
+  class MITKCORE_EXPORT PropertyRelationRuleBase : public itk::Object
   {
   public:
     mitkClassMacroItkParent(PropertyRelationRuleBase, itk::Object);

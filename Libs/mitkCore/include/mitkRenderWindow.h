@@ -28,7 +28,7 @@ namespace mitk
    *
    * \ingroup Renderer
    */
-  class MITK_CORE_EXPORT RenderWindow : public mitk::RenderWindowBase, public itk::Object
+  class MITKCORE_EXPORT RenderWindow : public mitk::RenderWindowBase, public itk::Object
   {
   public:
     mitkClassMacroItkParent(RenderWindow, itk::Object);

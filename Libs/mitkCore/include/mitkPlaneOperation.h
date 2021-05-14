@@ -24,7 +24,7 @@ namespace mitk
    *
    * @ingroup Undo
    */
-  class MITK_CORE_EXPORT PlaneOperation : public PointOperation
+  class MITKCORE_EXPORT PlaneOperation : public PointOperation
   {
   public:
     PlaneOperation(OperationType operationType, Point3D point, Vector3D normal);

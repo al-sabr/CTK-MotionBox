@@ -21,7 +21,7 @@ namespace mitk
   /**
    * @brief Constants to describe Mouse Events and special Key Events.
    */
-  struct MITK_CORE_EXPORT InteractionEventConst
+  struct MITKCORE_EXPORT InteractionEventConst
   {
     static const std::string xmlHead(); // = "<?xml version='1.0'?>";
 

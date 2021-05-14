@@ -26,7 +26,7 @@ namespace mitk
   *
   * The comparison is channel- / pixel-wise.
   */
-  class MITK_CORE_EXPORT MultiComponentImageDataComparisonFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT MultiComponentImageDataComparisonFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(MultiComponentImageDataComparisonFilter, ImageToImageFilter);

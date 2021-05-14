@@ -26,7 +26,7 @@ namespace mitk
   //## Subclass of BaseController. Controls the camera used by the associated
   //## BaseRenderer.
   //## @ingroup NavigationControl
-  class MITK_CORE_EXPORT CameraController : public BaseController
+  class MITKCORE_EXPORT CameraController : public BaseController
   {
   public:
     enum StandardView

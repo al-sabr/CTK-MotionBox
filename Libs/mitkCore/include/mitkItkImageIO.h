@@ -30,7 +30,7 @@ namespace mitk
    * (e.g. nrrd or mhd) the ItkImageIO ensures the serialization
    * of Identification UID.
    */
-  class MITK_CORE_EXPORT ItkImageIO : public AbstractFileIO
+  class MITKCORE_EXPORT ItkImageIO : public AbstractFileIO
   {
   public:
     ItkImageIO(itk::ImageIOBase::Pointer imageIO);
@@ -69,13 +69,13 @@ namespace mitk
 
   /**Helper function that converts the content of a meta data into a time point vector.
    * If MetaData is not valid or cannot be converted an empty vector is returned.*/
-  MITK_CORE_EXPORT std::vector<TimePointType> ConvertMetaDataObjectToTimePointList(const itk::MetaDataObjectBase* data);
+  MITKCORE_EXPORT std::vector<TimePointType> ConvertMetaDataObjectToTimePointList(const itk::MetaDataObjectBase* data);
 
 
   /**Helper function that converts the time points of a passed time geometry to a time point list
    and stores it in a itk::MetaDataObject. Use ConvertMetaDataObjectToTimePointList() to convert it back
    to a time point list.*/
-  MITK_CORE_EXPORT itk::MetaDataObjectBase::Pointer ConvertTimePointListToMetaDataObject(const mitk::TimeGeometry* timeGeometry);
+  MITKCORE_EXPORT itk::MetaDataObjectBase::Pointer ConvertTimePointListToMetaDataObject(const mitk::TimeGeometry* timeGeometry);
 
 } // namespace mitk
 

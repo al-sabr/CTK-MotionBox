@@ -48,13 +48,13 @@ namespace mitk
    * or the inline version
    * propKeyPath.AddElement("first").AddAnyElement().AddSelection("third",3);
    */
-  class MITK_CORE_EXPORT PropertyKeyPath final
+  class MITKCORE_EXPORT PropertyKeyPath final
   {
   public:
     using ItemSelectionIndex = std::size_t;
     using ElementNameType = std::string;
 
-    struct MITK_CORE_EXPORT NodeInfo
+    struct MITKCORE_EXPORT NodeInfo
     {
       enum class NodeType
       {
@@ -181,36 +181,36 @@ namespace mitk
     static bool PropertyKeyPathsMatch(const PropertyKeyPath &left, const PropertyKeyPath &right);
   };
 
-  class MITK_CORE_EXPORT InvalidPathNodeException : public mitk::Exception
+  class MITKCORE_EXPORT InvalidPathNodeException : public mitk::Exception
   {
   public:
     mitkExceptionClassMacro(InvalidPathNodeException, mitk::Exception);
   };
 
-  MITK_CORE_EXPORT std::ostream &operator<<(std::ostream &os, const PropertyKeyPath &path);
+  MITKCORE_EXPORT std::ostream &operator<<(std::ostream &os, const PropertyKeyPath &path);
 
   /**Helper function that converts a path PropertyKeyPath into a regex string that can be used
    to search for property keys (using std::regex) that are matched by the PropertyKeyPath.
   This function is used in context of the property persistence service.*/
-  MITK_CORE_EXPORT std::string PropertyKeyPathToPropertyRegEx(const PropertyKeyPath &tagPath);
+  MITKCORE_EXPORT std::string PropertyKeyPathToPropertyRegEx(const PropertyKeyPath &tagPath);
   /**Helper function that converts a path PropertyKeyPath into a regex string that can be used
   to search for property persistence keys (using std::regex) that are matched by the PropertyKeyPath.
   This function is used in context of the property persistence service.*/
-  MITK_CORE_EXPORT std::string PropertyKeyPathToPersistenceKeyRegEx(const PropertyKeyPath &tagPath);
+  MITKCORE_EXPORT std::string PropertyKeyPathToPersistenceKeyRegEx(const PropertyKeyPath &tagPath);
   /**Helper function that converts a path PropertyKeyPath into a regex that can be used as key template
   in a PropertyPersistanceInfo.
   This function is used in context of the property persistence service.*/
-  MITK_CORE_EXPORT std::string PropertyKeyPathToPersistenceKeyTemplate(const PropertyKeyPath &tagPath);
+  MITKCORE_EXPORT std::string PropertyKeyPathToPersistenceKeyTemplate(const PropertyKeyPath &tagPath);
   /**Helper function that converts a path PropertyKeyPath into a regex that can be used as name template
   in a PropertyPersistanceInfo.
   This function is used in context of the property persistence service.*/
-  MITK_CORE_EXPORT std::string PropertyKeyPathToPersistenceNameTemplate(const PropertyKeyPath &tagPath);
+  MITKCORE_EXPORT std::string PropertyKeyPathToPersistenceNameTemplate(const PropertyKeyPath &tagPath);
 
   /** Converts the passed property name into a tag path. If the property name cannot be converted
    into a valid path, the returned path is empty.*/
-  MITK_CORE_EXPORT PropertyKeyPath PropertyNameToPropertyKeyPath(const std::string &propertyName);
+  MITKCORE_EXPORT PropertyKeyPath PropertyNameToPropertyKeyPath(const std::string &propertyName);
   /** returns the correct property name for a given PropertyKeyPath instance. */
-  MITK_CORE_EXPORT std::string PropertyKeyPathToPropertyName(const PropertyKeyPath &tagPath);
+  MITKCORE_EXPORT std::string PropertyKeyPathToPropertyName(const PropertyKeyPath &tagPath);
 } // namespace mitk
 
 #endif

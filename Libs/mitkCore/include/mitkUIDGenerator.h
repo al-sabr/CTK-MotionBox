@@ -28,7 +28,7 @@ namespace mitk
     One may define a prefix for the UID string. But it is not needed to guarantee uniquness. It is
     just a human readable addition, e.g. to see for which purpose the UID was generated.
   */
-  class MITK_CORE_EXPORT UIDGenerator
+  class MITKCORE_EXPORT UIDGenerator
   {
   public:
     explicit UIDGenerator(const char * prefix = "");

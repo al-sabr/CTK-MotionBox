@@ -28,7 +28,7 @@ namespace mitk
   *
   * \ingroup DataStorage
   */
-  class MITK_CORE_EXPORT NodePredicateFunction : public NodePredicateBase
+  class MITKCORE_EXPORT NodePredicateFunction : public NodePredicateBase
   {
   public:
     using FunctionType = std::function<bool (const mitk::DataNode *)>;

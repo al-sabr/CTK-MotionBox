@@ -20,7 +20,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT LevelWindowPreset : public vtkXMLParser
+  class MITKCORE_EXPORT LevelWindowPreset : public vtkXMLParser
   {
   public:
     static LevelWindowPreset *New();

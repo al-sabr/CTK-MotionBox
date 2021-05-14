@@ -33,7 +33,7 @@ namespace mitk
   /// python wrapping process since global functions cannnot be wrapped. Static method
   /// can be wrapped though.
   ///
-  class MITK_CORE_EXPORT ImageCaster
+  class MITKCORE_EXPORT ImageCaster
   {
   public:
     BOOST_PP_SEQ_FOR_EACH(DeclareMitkImageCasterMethods, _, MITK_ACCESSBYITK_TYPES_DIMN_SEQ(2))
@@ -42,13 +42,13 @@ namespace mitk
     static void CastBaseData(mitk::BaseData *const, itk::SmartPointer<mitk::Image> &);
   };
 
-  class MITK_CORE_EXPORT Caster
+  class MITKCORE_EXPORT Caster
   {
   public:
     static void Cast(BaseData *dat, Surface *surface);
   };
 
-  class MITK_CORE_EXPORT RendererAccess
+  class MITKCORE_EXPORT RendererAccess
   {
   public:
     static void Set3DRenderer(vtkRenderer *renderer);

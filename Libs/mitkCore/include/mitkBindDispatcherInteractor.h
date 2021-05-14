@@ -32,7 +32,7 @@ namespace mitk
    *
    * \ingroup Interaction
    */
-  class MITK_CORE_EXPORT BindDispatcherInteractor
+  class MITKCORE_EXPORT BindDispatcherInteractor
   {
   public:
     BindDispatcherInteractor(const std::string &);

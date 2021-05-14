@@ -40,7 +40,7 @@ namespace mitk
   //##
   //##
   //## \ingroup DataStorage
-  class MITK_CORE_EXPORT DataStorage : public itk::Object
+  class MITKCORE_EXPORT DataStorage : public itk::Object
   {
   public:
     mitkClassMacroItkParent(DataStorage, itk::Object);
@@ -433,7 +433,7 @@ namespace mitk
   //## The property list, which is used to find the visibility- and layer-property is is specified by the
   //## given base renderer.
   //##
-  MITK_CORE_EXPORT DataNode::Pointer FindTopmostVisibleNode(const DataStorage::SetOfObjects::ConstPointer nodes,
+  MITKCORE_EXPORT DataNode::Pointer FindTopmostVisibleNode(const DataStorage::SetOfObjects::ConstPointer nodes,
                                                            const Point3D worldPosition,
                                                            const TimePointType timePoint,
                                                            const BaseRenderer* baseRender);

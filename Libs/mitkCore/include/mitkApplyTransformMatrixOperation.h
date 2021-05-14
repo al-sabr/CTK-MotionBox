@@ -21,7 +21,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT ApplyTransformMatrixOperation : public Operation
+  class MITKCORE_EXPORT ApplyTransformMatrixOperation : public Operation
   {
   public:
     /** @brief Operation that applies a new vtk transform matrix.

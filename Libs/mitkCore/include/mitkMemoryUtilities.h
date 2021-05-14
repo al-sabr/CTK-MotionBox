@@ -18,7 +18,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT MemoryUtilities
+  class MITKCORE_EXPORT MemoryUtilities
   {
   public:
     /**

@@ -39,7 +39,7 @@ namespace mitk
    * computed-tomography-presets is also provided by this class, but will likely
    * be separated into a specific initializer class.
    */
-  class MITK_CORE_EXPORT TransferFunctionInitializer : public itk::Object
+  class MITKCORE_EXPORT TransferFunctionInitializer : public itk::Object
   {
   public:
     mitkClassMacroItkParent(TransferFunctionInitializer, itk::Object);

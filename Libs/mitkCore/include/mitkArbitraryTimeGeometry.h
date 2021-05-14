@@ -41,7 +41,7 @@ namespace mitk
   *
   * \addtogroup geometry
   */
-  class MITK_CORE_EXPORT ArbitraryTimeGeometry : public TimeGeometry
+  class MITKCORE_EXPORT ArbitraryTimeGeometry : public TimeGeometry
   {
   public:
     mitkClassMacro(ArbitraryTimeGeometry, TimeGeometry);

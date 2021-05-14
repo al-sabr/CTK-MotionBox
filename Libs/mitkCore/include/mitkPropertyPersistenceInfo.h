@@ -29,7 +29,7 @@ namespace mitk
     Additionally the functions for deserialization and serialization of the property can be defined.
     As default
     */
-  class MITK_CORE_EXPORT PropertyPersistenceInfo : public itk::LightObject
+  class MITKCORE_EXPORT PropertyPersistenceInfo : public itk::LightObject
   {
   public:
     /** Signature specification for functions that can be provided for deserialization of the property.
@@ -106,18 +106,18 @@ namespace mitk
     Impl *m_Impl;
   };
 
-  MITK_CORE_EXPORT std::ostream &operator<<(std::ostream &os, const PropertyPersistenceInfo &info);
+  MITKCORE_EXPORT std::ostream &operator<<(std::ostream &os, const PropertyPersistenceInfo &info);
 
   namespace PropertyPersistenceSerialization
   {
     /** Simple default serialization that uses prop->GetValueAsString for the serialization.*/
-    MITK_CORE_EXPORT::std::string serializeByGetValueAsString(const mitk::BaseProperty *prop);
+    MITKCORE_EXPORT::std::string serializeByGetValueAsString(const mitk::BaseProperty *prop);
   }
 
   namespace PropertyPersistenceDeserialization
   {
     /** Simple default functions that puts the passed string into a string property.*/
-    MITK_CORE_EXPORT mitk::BaseProperty::Pointer deserializeToStringProperty(const std::string &value);
+    MITKCORE_EXPORT mitk::BaseProperty::Pointer deserializeToStringProperty(const std::string &value);
   }
 }
 

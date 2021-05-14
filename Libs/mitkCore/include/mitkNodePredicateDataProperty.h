@@ -21,7 +21,7 @@ namespace mitk
   /** @brief Predicate that evaluates if the data of a given DataNode has a specific property.
    If the second parameter is nullptr, it will only be checked whether there is a property with the specified name
    for the data instance of the node.*/
-  class MITK_CORE_EXPORT NodePredicateDataProperty : public NodePredicateBase
+  class MITKCORE_EXPORT NodePredicateDataProperty : public NodePredicateBase
   {
   public:
     mitkClassMacro(NodePredicateDataProperty, NodePredicateBase);

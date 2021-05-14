@@ -25,7 +25,7 @@ namespace mitk
    * The scale factor is expressed as a factor relative to the current size.
    * For doubling the size, you would use a factor of 1.0 == 100% plus.
    */
-  class MITK_CORE_EXPORT ScaleOperation : public Operation
+  class MITKCORE_EXPORT ScaleOperation : public Operation
   {
   public:
     /**

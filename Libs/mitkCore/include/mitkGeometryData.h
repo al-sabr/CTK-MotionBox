@@ -23,7 +23,7 @@ namespace mitk
   //##
   //## Only implements pipeline methods which are abstract in BaseData.
   //## @ingroup Geometry
-  class MITK_CORE_EXPORT GeometryData : public BaseData
+  class MITKCORE_EXPORT GeometryData : public BaseData
   {
   public:
     mitkClassMacro(GeometryData, BaseData);
@@ -59,7 +59,7 @@ namespace mitk
   * @param verbose Flag indicating if the method should give a detailed console output.
   * @return True if every comparison is true, false in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::GeometryData &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::GeometryData &leftHandSide,
                              const mitk::GeometryData &rightHandSide,
                              mitk::ScalarType eps,
                              bool verbose);

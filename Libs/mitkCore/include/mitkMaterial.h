@@ -31,7 +31,7 @@ namespace mitk
    *
    * @see vtkProperty
   */
-  class MITK_CORE_EXPORT Material : public itk::Object
+  class MITKCORE_EXPORT Material : public itk::Object
   {
   public:
     mitkClassMacroItkParent(Material, itk::Object);

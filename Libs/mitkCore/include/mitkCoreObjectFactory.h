@@ -25,7 +25,7 @@ namespace mitk
   class LegacyFileWriterService;
   class LegacyImageWriterService;
 
-  class MITK_CORE_EXPORT CoreObjectFactory : public CoreObjectFactoryBase
+  class MITKCORE_EXPORT CoreObjectFactory : public CoreObjectFactoryBase
   {
   public:
     mitkClassMacro(CoreObjectFactory, CoreObjectFactoryBase);

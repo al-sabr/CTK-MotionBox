@@ -46,7 +46,7 @@ found in the LICENSE file.
 */
 /* NOT exported, this is a 2D image mapper helper */
 
-class MITK_CORE_EXPORT vtkNeverTranslucentTexture : public vtkOpenGLTexture
+class MITKCORE_EXPORT vtkNeverTranslucentTexture : public vtkOpenGLTexture
 {
 public:
   static vtkNeverTranslucentTexture *New();

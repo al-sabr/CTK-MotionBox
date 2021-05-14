@@ -44,7 +44,7 @@ namespace mitk
    *
    * \ingroup NavigationControl
    */
-  class MITK_CORE_EXPORT Stepper : public itk::Object
+  class MITKCORE_EXPORT Stepper : public itk::Object
   {
   public:
     mitkClassMacroItkParent(Stepper, itk::Object);

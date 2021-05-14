@@ -30,7 +30,7 @@ namespace mitk
    * for mitk::SurfaceSource.
    * @ingroup Process
    */
-  class MITK_CORE_EXPORT SurfaceSource : public BaseDataSource
+  class MITKCORE_EXPORT SurfaceSource : public BaseDataSource
   {
   public:
     mitkClassMacro(SurfaceSource, BaseDataSource);

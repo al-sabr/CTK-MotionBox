@@ -87,7 +87,7 @@ namespace mitk
   *
   * @ingroup Mapper
   */
-  class MITK_CORE_EXPORT PointSetVtkMapper3D : public VtkMapper
+  class MITKCORE_EXPORT PointSetVtkMapper3D : public VtkMapper
   {
   public:
     mitkClassMacro(PointSetVtkMapper3D, VtkMapper);

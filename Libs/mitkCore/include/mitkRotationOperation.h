@@ -22,7 +22,7 @@ namespace mitk
   //## @brief Operation, that holds everything necessary for an rotation operation on mitk::BaseData.
   //##
   //## @ingroup Undo
-  class MITK_CORE_EXPORT RotationOperation : public Operation
+  class MITKCORE_EXPORT RotationOperation : public Operation
   {
   public:
     /**

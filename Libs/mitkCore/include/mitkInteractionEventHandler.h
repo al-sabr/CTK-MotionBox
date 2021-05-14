@@ -37,7 +37,7 @@ namespace mitk
    *  It provides an interface to load configuration objects map of events to variant names.
    */
   class InteractionEvent;
-  class MITK_CORE_EXPORT InteractionEventHandler : public itk::Object
+  class MITKCORE_EXPORT InteractionEventHandler : public itk::Object
   {
   public:
     mitkClassMacroItkParent(InteractionEventHandler, itk::Object);

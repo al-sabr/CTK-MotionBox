@@ -35,7 +35,7 @@ namespace mitk
 
       \sa QmitkSegmentationView.cpp
     */
-  class MITK_CORE_EXPORT PlanePositionManagerService
+  class MITKCORE_EXPORT PlanePositionManagerService
   {
   public:
     PlanePositionManagerService();

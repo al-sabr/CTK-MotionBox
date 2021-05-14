@@ -21,7 +21,7 @@ found in the LICENSE file.
 
 namespace mitk {
 
-class MITK_CORE_EXPORT AnatomicalStructureColorPresets : public vtkXMLParser
+class MITKCORE_EXPORT AnatomicalStructureColorPresets : public vtkXMLParser
 {
 public:
   struct Category

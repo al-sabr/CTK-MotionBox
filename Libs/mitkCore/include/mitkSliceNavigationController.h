@@ -30,7 +30,7 @@ namespace mitk
 {
 
 #define mitkTimeGeometryEventMacro(classname, super)                                                                   \
-  class MITK_CORE_EXPORT classname : public super                                                                       \
+  class MITKCORE_EXPORT classname : public super                                                                       \
   {                                                                                                                    \
   public:                                                                                                              \
     typedef classname Self;                                                                                            \
@@ -129,7 +129,7 @@ namespace mitk
    * \todo implement for non-evenly-timed geometry!
    * \ingroup NavigationControl
    */
-  class MITK_CORE_EXPORT SliceNavigationController : public BaseController
+  class MITKCORE_EXPORT SliceNavigationController : public BaseController
   {
   public:
     mitkClassMacro(SliceNavigationController, BaseController);
@@ -244,7 +244,7 @@ namespace mitk
     itkEventMacro(UpdateEvent, itk::AnyEvent);
 #pragma GCC visibility pop
 
-    class MITK_CORE_EXPORT TimeGeometryEvent : public itk::AnyEvent
+    class MITKCORE_EXPORT TimeGeometryEvent : public itk::AnyEvent
     {
     public:
       typedef TimeGeometryEvent Self;

@@ -23,7 +23,7 @@ namespace mitk
    * @ingroup IO
    * @brief The IOMetaInformationPropertyConstants struct
    */
-  struct MITK_CORE_EXPORT IOMetaInformationPropertyConstants
+  struct MITKCORE_EXPORT IOMetaInformationPropertyConstants
   {
     //Path to the property containing the name of the reader used
     static PropertyKeyPath READER_DESCRIPTION();

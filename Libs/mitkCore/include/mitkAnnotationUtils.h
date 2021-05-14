@@ -30,7 +30,7 @@ namespace mitk
    * @brief The AnnotationUtils class provides static functions for accsessing registered AnnotationRenderers and
    * Annotations
    */
-  class MITK_CORE_EXPORT AnnotationUtils
+  class MITKCORE_EXPORT AnnotationUtils
   {
   public:
     typedef std::vector<std::unique_ptr<AbstractAnnotationRenderer>> AnnotationRendererServices;

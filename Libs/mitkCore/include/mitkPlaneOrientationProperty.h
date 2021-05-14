@@ -35,7 +35,7 @@ namespace mitk
    *
    * See also mitk::PlaneGeometryDataMapper2D::DrawOrientationArrow()
    */
-  class MITK_CORE_EXPORT PlaneOrientationProperty : public EnumerationProperty
+  class MITKCORE_EXPORT PlaneOrientationProperty : public EnumerationProperty
   {
   public:
     mitkClassMacro(PlaneOrientationProperty, EnumerationProperty);

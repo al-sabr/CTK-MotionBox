@@ -28,7 +28,7 @@ namespace mitk
    * An AbstractAnnotationRenderer can be implemented to control a set of Annotation by means of position and size.
    * @ingroup Annotation
   */
-  class MITK_CORE_EXPORT AbstractAnnotationRenderer : public us::ServiceTracker<Annotation>
+  class MITKCORE_EXPORT AbstractAnnotationRenderer : public us::ServiceTracker<Annotation>
   {
   public:
     typedef us::ServiceTracker<Annotation> Superclass;

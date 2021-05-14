@@ -61,7 +61,7 @@ namespace mitk
    * to find differences. The filter expects two images as input, provide them by using the SetInput( int, mitk::Image)
    * method.
    */
-  class MITK_CORE_EXPORT CompareImageDataFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT CompareImageDataFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(CompareImageDataFilter, ImageToImageFilter);

@@ -25,7 +25,7 @@ namespace mitk
    *
    * Think twice before doing this. Intended for data readers.
    */
-  class MITK_CORE_EXPORT UIDManipulator final
+  class MITKCORE_EXPORT UIDManipulator final
   {
   public:
     explicit UIDManipulator(Identifiable *identifiable);

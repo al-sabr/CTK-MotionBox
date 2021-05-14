@@ -28,7 +28,7 @@ namespace mitk
   //## DataObject. This is also true for subclasses of mitk::BaseProcess and thus
   //## for mitk::mitkSurfaceToSurfaceFilter.
   //## @ingroup Process
-  class MITK_CORE_EXPORT SurfaceToSurfaceFilter : public mitk::SurfaceSource
+  class MITKCORE_EXPORT SurfaceToSurfaceFilter : public mitk::SurfaceSource
   {
   public:
     mitkClassMacro(SurfaceToSurfaceFilter, mitk::SurfaceSource);

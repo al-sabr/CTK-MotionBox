@@ -23,7 +23,7 @@ namespace mitk
     * Stores everything for Adding, Moving and Deleting a Point.
     * @ingroup Undo
     */
-  class MITK_CORE_EXPORT PointOperation : public Operation
+  class MITKCORE_EXPORT PointOperation : public Operation
   {
   public:
     /** @brief Operation that handles all actions on one Point.

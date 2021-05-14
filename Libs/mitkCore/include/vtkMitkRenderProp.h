@@ -26,7 +26,7 @@ It redirects VTK's various Render..Geometry() calls to mitk::VtkPropRenderer, wh
 \sa rendering
 \ingroup rendering
 */
-class MITK_CORE_EXPORT vtkMitkRenderProp : public vtkProp
+class MITKCORE_EXPORT vtkMitkRenderProp : public vtkProp
 {
 public:
   static vtkMitkRenderProp *New();

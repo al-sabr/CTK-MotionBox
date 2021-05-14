@@ -25,7 +25,7 @@ namespace mitk
   /// process
   /// \see IPersistenceService::AddPropertyListReplacedObserver()
   ///
-  class MITK_CORE_EXPORT PropertyListReplacedObserver
+  class MITKCORE_EXPORT PropertyListReplacedObserver
   {
   public:
     ///

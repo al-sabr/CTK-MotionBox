@@ -41,7 +41,7 @@ namespace mitk
    *
    */
 
-  class MITK_CORE_EXPORT PointSetShapeProperty : public EnumerationProperty
+  class MITKCORE_EXPORT PointSetShapeProperty : public EnumerationProperty
   {
   public:
     mitkClassMacro(PointSetShapeProperty, EnumerationProperty);

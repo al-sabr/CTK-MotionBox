@@ -40,14 +40,14 @@ namespace mitk
    *
    * \see QmitkIOUtil
    */
-  class MITK_CORE_EXPORT IOUtil
+  class MITKCORE_EXPORT IOUtil
   {
   public:
     /**Struct that containes information regarding the current loading process. (e.g. Path that should be loaded,
     all found readers for the load path,...). It is set be IOUtil and used to pass information via the option callback
     in load operations.
     */
-    struct MITK_CORE_EXPORT LoadInfo
+    struct MITKCORE_EXPORT LoadInfo
     {
       LoadInfo(const std::string &path);
 
@@ -62,12 +62,12 @@ namespace mitk
     more than one suitable reader was found or the a reader containes options that can be set. The callback allows to
     change option settings and select the reader that should be used (via loadInfo).
     */
-    struct MITK_CORE_EXPORT ReaderOptionsFunctorBase
+    struct MITKCORE_EXPORT ReaderOptionsFunctorBase
     {
       virtual bool operator()(LoadInfo &loadInfo) const = 0;
     };
 
-    struct MITK_CORE_EXPORT SaveInfo
+    struct MITKCORE_EXPORT SaveInfo
     {
       SaveInfo(const BaseData *baseData, const MimeType &mimeType, const std::string &path);
 
@@ -90,7 +90,7 @@ namespace mitk
     more than one suitable writer was found or the a writer containes options that can be set. The callback allows to
     change option settings and select the writer that should be used (via saveInfo).
     */
-    struct MITK_CORE_EXPORT WriterOptionsFunctorBase
+    struct MITKCORE_EXPORT WriterOptionsFunctorBase
     {
       virtual bool operator()(SaveInfo &saveInfo) const = 0;
     };

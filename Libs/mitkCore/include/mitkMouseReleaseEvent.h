@@ -25,7 +25,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT MouseReleaseEvent : public InteractionPositionEvent
+  class MITKCORE_EXPORT MouseReleaseEvent : public InteractionPositionEvent
   {
   public:
     mitkClassMacro(MouseReleaseEvent, InteractionPositionEvent)

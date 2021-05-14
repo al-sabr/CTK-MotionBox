@@ -24,7 +24,7 @@ found in the LICENSE file.
 namespace mitk
 {
   // define custom command to accept std::functions as "filter" and as "action"
-  class MITK_CORE_EXPORT StdFunctionCommand : public itk::Command
+  class MITKCORE_EXPORT StdFunctionCommand : public itk::Command
   {
   public:
     using Self    =   StdFunctionCommand;

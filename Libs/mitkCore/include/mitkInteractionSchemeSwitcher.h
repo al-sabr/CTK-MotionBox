@@ -57,7 +57,7 @@ namespace mitk
   * interaction .xml-files for a given interaction event handler.
   *
   ***********************************************************************/
-  class MITK_CORE_EXPORT InteractionSchemeSwitcher : public itk::Object
+  class MITKCORE_EXPORT InteractionSchemeSwitcher : public itk::Object
   {
   public:
 #pragma GCC visibility push(default)

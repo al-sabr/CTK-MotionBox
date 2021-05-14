@@ -56,7 +56,7 @@ namespace mitk
   };
 
   /**Creates an unmanaged (!) instance of PropertyRelations for testing purposes.*/
-  MITK_CORE_EXPORT IPropertyRelations *CreateTestInstancePropertyRelations();
+  MITKCORE_EXPORT IPropertyRelations *CreateTestInstancePropertyRelations();
 }
 
 #endif

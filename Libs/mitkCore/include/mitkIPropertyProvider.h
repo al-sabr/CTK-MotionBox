@@ -21,7 +21,7 @@ namespace mitk
   /** Interface implemented by classes that provide access to property information.
    @remark: This classes may not be the owner of the property, thus only grants const access to it.
    See IPropertyOwner for ownership.*/
-  class MITK_CORE_EXPORT IPropertyProvider
+  class MITKCORE_EXPORT IPropertyProvider
   {
   public:
     virtual ~IPropertyProvider();

@@ -19,7 +19,7 @@ found in the LICENSE file.
 namespace mitk
 {
   /** Interface implemented by classes that provide write/read access to property information.*/
-  class MITK_CORE_EXPORT IPropertyOwner : public IPropertyProvider
+  class MITKCORE_EXPORT IPropertyOwner : public IPropertyProvider
   {
   public:
     ~IPropertyOwner() override;

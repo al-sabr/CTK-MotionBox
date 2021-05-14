@@ -11,7 +11,7 @@ endif()
 
 configure_file(${CMAKE_SOURCE_DIR}/CMake/mitkVersion.h.in ${PROJECT_BINARY_DIR}/mitkVersion.h)
 
-set(KIT_export_directive "MITK_CORE_EXPORT")
+set(KIT_export_directive "MITKCORE_EXPORT")
 # Target libraries - See CMake/ctkFunctionGetTargetLibraries.cmake
 # The following macro will read the target libraries from the file 'target_libraries.cmake'
 

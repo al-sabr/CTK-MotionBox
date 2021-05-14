@@ -49,7 +49,7 @@ namespace mitk
    impactful for coordinates than for direction values. Therefore we can relax coordinate checks
    more then direction checks.
    @ingroup DataStorage */
-  class MITK_CORE_EXPORT NodePredicateSubGeometry : public NodePredicateBase
+  class MITKCORE_EXPORT NodePredicateSubGeometry : public NodePredicateBase
   {
   public:
     mitkClassMacro(NodePredicateSubGeometry, NodePredicateBase);

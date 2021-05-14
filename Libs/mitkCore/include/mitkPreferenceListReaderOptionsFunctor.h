@@ -41,7 +41,7 @@ namespace mitk
    *
    * \see IOUtil
    */
-  struct MITK_CORE_EXPORT PreferenceListReaderOptionsFunctor : public IOUtil::ReaderOptionsFunctorBase
+  struct MITKCORE_EXPORT PreferenceListReaderOptionsFunctor : public IOUtil::ReaderOptionsFunctorBase
   {
     using ListType = std::vector<std::string>;
 

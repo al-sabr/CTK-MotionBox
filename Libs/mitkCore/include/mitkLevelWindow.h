@@ -41,7 +41,7 @@ namespace mitk
   * code example how to use the mitk::LevelWindowProperty check the
   * mitkImageVtkMapper2DLevelWindowTest.cpp in Core/Code/Testing.
   */
-  class MITK_CORE_EXPORT LevelWindow
+  class MITKCORE_EXPORT LevelWindow
   {
   public:
     LevelWindow(ScalarType level = 127.5, ScalarType window = 255.0);

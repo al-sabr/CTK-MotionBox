@@ -33,7 +33,7 @@ namespace mitk
 
     Minimum or maximum might by infinite values. 2nd minimum and maximum are guaranteed to be finite values.
     */
-  class MITK_CORE_EXPORT ImageStatisticsHolder
+  class MITKCORE_EXPORT ImageStatisticsHolder
   {
   public:
     /** Constructor */

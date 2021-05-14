@@ -24,7 +24,7 @@ namespace mitk
    * logging instead.
    * @ingroup IO
    */
-  class MITK_CORE_EXPORT VtkLoggingAdapter : public vtkOutputWindow
+  class MITKCORE_EXPORT VtkLoggingAdapter : public vtkOutputWindow
   {
   public:
     static VtkLoggingAdapter *New();

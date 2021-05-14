@@ -54,7 +54,7 @@ namespace mitk
    * \warning Change in semantics of SetProperty() since Aug 25th 2006. Check your usage of this method if you do
    *          more with properties than just call <tt>SetProperty( "key", new SomeProperty("value") )</tt>.
    */
-  class MITK_CORE_EXPORT DataNode : public itk::DataObject, public IPropertyOwner
+  class MITKCORE_EXPORT DataNode : public itk::DataObject, public IPropertyOwner
   {
   public:
     typedef mitk::Geometry3D::Pointer Geometry3DPointer;
@@ -590,8 +590,8 @@ namespace mitk
     unsigned long m_PropertyListModifiedObserverTag;
   };
 
-  MITK_CORE_EXPORT std::istream &operator>>(std::istream &i, DataNode::Pointer &dtn);
-  MITK_CORE_EXPORT std::ostream &operator<<(std::ostream &o, DataNode::Pointer &dtn);
+  MITKCORE_EXPORT std::istream &operator>>(std::istream &i, DataNode::Pointer &dtn);
+  MITKCORE_EXPORT std::ostream &operator<<(std::ostream &o, DataNode::Pointer &dtn);
 } // namespace mitk
 
 #endif /* DATATREENODE_H_HEADER_INCLUDED_C1E14338 */

@@ -24,7 +24,7 @@ namespace mitk
    * @brief ImageReadAccessor class to get locked read access for a particular image part
    * @ingroup Data
    */
-  class MITK_CORE_EXPORT ImageReadAccessor : public ImageAccessorBase
+  class MITKCORE_EXPORT ImageReadAccessor : public ImageAccessorBase
   {
     friend class Image;
 

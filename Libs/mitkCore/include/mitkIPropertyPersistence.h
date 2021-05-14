@@ -30,7 +30,7 @@ namespace mitk
     * (GetInfo and GetInfoByKey) will always ensure that the return containes no regex, thus name and key in the results
     * can directly be used.
     */
-  class MITK_CORE_EXPORT IPropertyPersistence
+  class MITKCORE_EXPORT IPropertyPersistence
   {
   public:
     virtual ~IPropertyPersistence();

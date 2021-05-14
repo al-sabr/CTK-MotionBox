@@ -21,7 +21,7 @@ namespace mitk
 {
   /** \brief Base class for all property extensions.
     */
-  class MITK_CORE_EXPORT PropertyExtension : public itk::LightObject
+  class MITKCORE_EXPORT PropertyExtension : public itk::LightObject
   {
   public:
     mitkClassMacroItkParent(PropertyExtension, itk::LightObject);

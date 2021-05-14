@@ -29,7 +29,7 @@ namespace mitk
    * for mitk::DataNodeSource.
    * @ingroup Process
    */
-  class MITK_CORE_EXPORT DataNodeSource : public itk::ProcessObject
+  class MITKCORE_EXPORT DataNodeSource : public itk::ProcessObject
   {
   public:
     mitkClassMacroItkParent(DataNodeSource, itk::ProcessObject);

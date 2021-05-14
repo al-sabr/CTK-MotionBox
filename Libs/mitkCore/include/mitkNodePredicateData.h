@@ -31,7 +31,7 @@ namespace mitk
   // result, do not reuse p later.
   //##
   //## @ingroup DataStorage
-  class MITK_CORE_EXPORT NodePredicateData : public NodePredicateBase
+  class MITKCORE_EXPORT NodePredicateData : public NodePredicateBase
   {
   public:
     mitkClassMacro(NodePredicateData, NodePredicateBase);

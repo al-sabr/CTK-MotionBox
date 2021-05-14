@@ -22,17 +22,17 @@ namespace mitk
   typedef itk::Image<itk::DiffusionTensor3D<float>, 2> itkImageDTIF2;
   typedef itk::Image<itk::DiffusionTensor3D<double>, 2> itkImageDTID2;
 
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageRGBUC2 *, itk::SmartPointer<itkImageRGBUC2> &);
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageDTIF2 *, itk::SmartPointer<itkImageDTIF2> &);
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageDTID2 *, itk::SmartPointer<itkImageDTID2> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageRGBUC2 *, itk::SmartPointer<itkImageRGBUC2> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageDTIF2 *, itk::SmartPointer<itkImageDTIF2> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageDTID2 *, itk::SmartPointer<itkImageDTID2> &);
 
   typedef itk::Image<itk::RGBPixel<unsigned char>, 3> itkImageRGBUC3;
   typedef itk::Image<itk::DiffusionTensor3D<float>, 3> itkImageDTIF3;
   typedef itk::Image<itk::DiffusionTensor3D<double>, 3> itkImageDTID3;
 
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageRGBUC3 *, itk::SmartPointer<itkImageRGBUC3> &);
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageDTIF3 *, itk::SmartPointer<itkImageDTIF3> &);
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(const itkImageDTID3 *, itk::SmartPointer<itkImageDTID3> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageRGBUC3 *, itk::SmartPointer<itkImageRGBUC3> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageDTIF3 *, itk::SmartPointer<itkImageDTIF3> &);
+  template void MITKCORE_EXPORT _CastToItkImage2Access(const itkImageDTID3 *, itk::SmartPointer<itkImageDTID3> &);
 
 #define CAST_HUNDRED_VECS(HUN)                                                                                         \
   CAST_TEN_VECS(HUN)                                                                                                   \
@@ -64,10 +64,10 @@ namespace mitk
   _CAST_N_VEC(N_DIRS, short)
 
 #define _CAST_N_VEC(N_DIRS, PIXTYPE)                                                                                   \
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(                                                                \
+  template void MITKCORE_EXPORT _CastToItkImage2Access(                                                                \
     const itk::Image<itk::Vector<PIXTYPE, N_DIRS>, 2> *,                                                               \
     itk::SmartPointer<itk::Image<itk::Vector<PIXTYPE, N_DIRS>, 2>> &);                                                 \
-  template void MITK_CORE_EXPORT _CastToItkImage2Access(                                                                \
+  template void MITKCORE_EXPORT _CastToItkImage2Access(                                                                \
     const itk::Image<itk::Vector<PIXTYPE, N_DIRS>, 3> *,                                                               \
     itk::SmartPointer<itk::Image<itk::Vector<PIXTYPE, N_DIRS>, 3>> &);
 

@@ -52,7 +52,7 @@ namespace mitk
   };
 
   /**Creates an unmanaged (!) instance of PropertyPersistence for testing purposes.*/
-  MITK_CORE_EXPORT IPropertyPersistence *CreateTestInstancePropertyPersistence();
+  MITKCORE_EXPORT IPropertyPersistence *CreateTestInstancePropertyPersistence();
 }
 
 #endif

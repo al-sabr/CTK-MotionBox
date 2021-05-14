@@ -51,7 +51,7 @@ namespace mitk
     be registered with mitk::CallbackFromGUIThread. See the (very simple) implmentation of
     QmitkCallbackFromGUIThread for an example.
   */
-  class MITK_CORE_EXPORT CallbackFromGUIThreadImplementation
+  class MITKCORE_EXPORT CallbackFromGUIThreadImplementation
   {
   public:
     /// Change the current application cursor
@@ -150,7 +150,7 @@ namespace mitk
 
   \todo Create a set of "normal" parameter-event-objects that people might want to use.
   */
-  class MITK_CORE_EXPORT CallbackFromGUIThread
+  class MITKCORE_EXPORT CallbackFromGUIThread
   {
   public:
     /// This class is a singleton.

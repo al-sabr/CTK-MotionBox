@@ -38,7 +38,7 @@ namespace mitk
    * Such an axis is most easily determined from the "other slices", which are
    * not known by a SliceNavigationController.
    */
-  class MITK_CORE_EXPORT SlicesCoordinator : public itk::Object
+  class MITKCORE_EXPORT SlicesCoordinator : public itk::Object
   {
   public:
     mitkClassMacroItkParent(SlicesCoordinator, itk::Object);

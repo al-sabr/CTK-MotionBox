@@ -42,7 +42,7 @@ namespace mitk
    * to ensure that you think twice before doing this. It is intended to be
    * used by data readers if necessary at all.
    */
-  class MITK_CORE_EXPORT Identifiable
+  class MITKCORE_EXPORT Identifiable
   {
   public:
     using UIDType = std::string;

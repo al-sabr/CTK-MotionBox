@@ -28,7 +28,7 @@ found in the LICENSE file.
 #include "MitkCoreExports.h"
 #include <vtkInteractorStyleUser.h>
 
-class MITK_CORE_EXPORT mitkVtkInteractorStyle : public vtkInteractorStyleUser
+class MITKCORE_EXPORT mitkVtkInteractorStyle : public vtkInteractorStyleUser
 {
 public:
   // default VTK c'tor

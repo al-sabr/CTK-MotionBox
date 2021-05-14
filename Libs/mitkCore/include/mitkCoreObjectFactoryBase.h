@@ -34,7 +34,7 @@ namespace mitk
   //## This interface can be implemented by factories which add new mapper classes or extend the
   //## data tree deserialization mechanism.
 
-  class MITK_CORE_EXPORT CoreObjectFactoryBase : public itk::Object
+  class MITKCORE_EXPORT CoreObjectFactoryBase : public itk::Object
   {
   public:
     typedef std::list<mitk::FileWriterWithInformation::Pointer> FileWriterList;

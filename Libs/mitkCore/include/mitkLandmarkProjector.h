@@ -28,7 +28,7 @@ namespace mitk
   //## to create source landmarks.
   //##
   //## @ingroup Geometry
-  class MITK_CORE_EXPORT LandmarkProjector : public itk::Object
+  class MITKCORE_EXPORT LandmarkProjector : public itk::Object
   {
   public:
     mitkClassMacroItkParent(LandmarkProjector, itk::Object);

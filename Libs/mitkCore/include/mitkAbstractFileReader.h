@@ -39,7 +39,7 @@ namespace mitk
    * @brief Base class for creating mitk::BaseData objects from files or streams.
    * @ingroup IO
    */
-  class MITK_CORE_EXPORT AbstractFileReader : public mitk::IFileReader
+  class MITKCORE_EXPORT AbstractFileReader : public mitk::IFileReader
   {
   public:
     void SetInput(const std::string &location) override;
@@ -104,7 +104,7 @@ namespace mitk
      * create a new input stream based on the input location in the
      * file system.
      */
-    class MITK_CORE_EXPORT InputStream : public std::istream
+    class MITKCORE_EXPORT InputStream : public std::istream
     {
     public:
       InputStream(IFileReader *writer, std::ios_base::openmode mode = std::ios_base::in);

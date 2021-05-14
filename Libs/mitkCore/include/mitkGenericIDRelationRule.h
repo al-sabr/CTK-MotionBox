@@ -29,7 +29,7 @@ namespace mitk
   are used (display name: "<ruleIDTag> relation", source role name: "source of <ruleIDTag> relation",
   destination role name: "destination <ruleIDTag> of relation")
   */
-  class MITK_CORE_EXPORT GenericIDRelationRule : public mitk::PropertyRelationRuleBase
+  class MITKCORE_EXPORT GenericIDRelationRule : public mitk::PropertyRelationRuleBase
   {
   public:
     mitkClassMacro(GenericIDRelationRule, PropertyRelationRuleBase);

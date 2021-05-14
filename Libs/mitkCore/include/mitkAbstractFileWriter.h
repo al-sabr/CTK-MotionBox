@@ -47,7 +47,7 @@ namespace mitk
    *
    * @ingroup IO
    */
-  class MITK_CORE_EXPORT AbstractFileWriter : public mitk::IFileWriter
+  class MITKCORE_EXPORT AbstractFileWriter : public mitk::IFileWriter
   {
   public:
     void SetInput(const BaseData *data) override;
@@ -103,7 +103,7 @@ namespace mitk
      * to the specified output stream or the original output location
      * if no output stream was set.
      */
-    class MITK_CORE_EXPORT LocalFile
+    class MITKCORE_EXPORT LocalFile
     {
     public:
       LocalFile(IFileWriter *writer);
@@ -132,7 +132,7 @@ namespace mitk
      * create a new output stream based on the output location in the
      * file system.
      */
-    class MITK_CORE_EXPORT OutputStream : public std::ostream
+    class MITKCORE_EXPORT OutputStream : public std::ostream
     {
     public:
       OutputStream(IFileWriter *writer, std::ios_base::openmode mode = std::ios_base::trunc | std::ios_base::out);

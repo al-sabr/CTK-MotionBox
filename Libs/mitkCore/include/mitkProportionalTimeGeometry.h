@@ -35,7 +35,7 @@ namespace mitk
   *
   * \addtogroup geometry
   */
-  class MITK_CORE_EXPORT ProportionalTimeGeometry : public TimeGeometry
+  class MITKCORE_EXPORT ProportionalTimeGeometry : public TimeGeometry
   {
   public:
     mitkClassMacro(ProportionalTimeGeometry, TimeGeometry);
@@ -251,7 +251,7 @@ namespace mitk
   *
   * @return True, if all comparison are true. False in any other case.
   */
-  MITK_CORE_EXPORT bool Equal(const mitk::ProportionalTimeGeometry &leftHandSide,
+  MITKCORE_EXPORT bool Equal(const mitk::ProportionalTimeGeometry &leftHandSide,
                              const mitk::ProportionalTimeGeometry &rightHandSide,
                              ScalarType eps,
                              bool verbose);

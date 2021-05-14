@@ -30,7 +30,7 @@ namespace mitk
   //##Documentation
   //## @brief
   //## @ingroup Process
-  class MITK_CORE_EXPORT RGBToRGBACastImageFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT RGBToRGBACastImageFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(RGBToRGBACastImageFilter, ImageToImageFilter);

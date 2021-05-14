@@ -36,7 +36,7 @@ found in the LICENSE file.
 
 namespace mitk
 {
-  class MITK_CORE_EXPORT ClippedSurfaceBoundsCalculator
+  class MITKCORE_EXPORT ClippedSurfaceBoundsCalculator
   {
   public:
     typedef std::vector<mitk::Point3D> PointListType;

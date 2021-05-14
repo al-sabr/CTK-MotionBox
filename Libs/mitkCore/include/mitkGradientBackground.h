@@ -33,7 +33,7 @@ namespace mitk
    * activated by calling Enable()
    * @deprecatedSince{2015_05} not used in renderwindows
    */
-  class MITK_CORE_EXPORT GradientBackground : public itk::Object
+  class MITKCORE_EXPORT GradientBackground : public itk::Object
   {
   public:
     mitkClassMacroItkParent(GradientBackground, itk::Object);

@@ -60,7 +60,7 @@ namespace mitk
   - component 0.
   - resample by geometry false (Corresponds to input image).
   */
-  class MITK_CORE_EXPORT ExtractSliceFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT ExtractSliceFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(ExtractSliceFilter, ImageToImageFilter);

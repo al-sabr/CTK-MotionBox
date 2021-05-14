@@ -21,7 +21,7 @@ namespace mitk
 {
   /** returns the correct property name for a simple DICOM tag. The tag is defined
    * by the passed group and element number (both in hex). */
-  std::string MITK_CORE_EXPORT GeneratePropertyNameForDICOMTag(unsigned int group, unsigned int element);
+  std::string MITKCORE_EXPORT GeneratePropertyNameForDICOMTag(unsigned int group, unsigned int element);
 
   /** Simple helper function that can be used on most occasions where deprecated naming styles
    * are used and it should be switched to the standardized naming (see GeneratePropertyNameForDICOMTag()),
@@ -36,7 +36,7 @@ namespace mitk
    *@param propertyValue [out] Value of the found property. Only valid if function returns true.
    *@return indicating if the property was found and the variable propertyValue contains a valid value.*/
 
-  bool MITK_CORE_EXPORT GetBackwardsCompatibleDICOMProperty(unsigned int group,
+  bool MITKCORE_EXPORT GetBackwardsCompatibleDICOMProperty(unsigned int group,
                                                            unsigned int element,
                                                            std::string const &backwardsCompatiblePropertyName,
                                                            PropertyList const *propertyList,

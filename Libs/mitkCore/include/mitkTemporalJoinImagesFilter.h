@@ -26,7 +26,7 @@ namespace mitk
   The sequence of frames in the output image is the same then the sequence of inputs.
   It no time bounds are defined the dynamic image will start at 0 ms and each time step has a duration
   of 1 ms.*/
-  class MITK_CORE_EXPORT TemporalJoinImagesFilter : public ImageToImageFilter
+  class MITKCORE_EXPORT TemporalJoinImagesFilter : public ImageToImageFilter
   {
   public:
     mitkClassMacro(TemporalJoinImagesFilter, ImageToImageFilter);

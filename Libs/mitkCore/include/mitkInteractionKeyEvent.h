@@ -33,7 +33,7 @@ namespace mitk
     * Takes a std::string for pressed key or special key description, mitk::ModifierKeys for modifiers
     * \ingroup Interaction
     */
-  class MITK_CORE_EXPORT InteractionKeyEvent : public InteractionEvent
+  class MITKCORE_EXPORT InteractionKeyEvent : public InteractionEvent
   {
   public:
     mitkClassMacro(InteractionKeyEvent, InteractionEvent)

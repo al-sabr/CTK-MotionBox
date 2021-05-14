@@ -41,7 +41,7 @@ namespace mitk
    * memory-managed
    * way of interacting with Mimetypes.
    */
-  class MITK_CORE_EXPORT CustomMimeType
+  class MITKCORE_EXPORT CustomMimeType
   {
   public:
     CustomMimeType();

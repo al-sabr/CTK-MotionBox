@@ -20,7 +20,7 @@ namespace mitk
 {
   /** A special mitk::Event thrown by the SliceNavigationController on mouse scroll
     */
-  class MITK_CORE_EXPORT CrosshairPositionEvent : public mitk::InteractionEvent
+  class MITKCORE_EXPORT CrosshairPositionEvent : public mitk::InteractionEvent
   {
   public:
     CrosshairPositionEvent(BaseRenderer *sender);

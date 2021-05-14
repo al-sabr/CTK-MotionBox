@@ -37,7 +37,7 @@ namespace mitk
    * an mitk::Image with valid geometry. Generally it is not as fast as
    * mitk::ExtractSliceFilter, though.
    */
-  class MITK_CORE_EXPORT ExtractSliceFilter2 final : public ImageToImageFilter
+  class MITKCORE_EXPORT ExtractSliceFilter2 final : public ImageToImageFilter
   {
   public:
     enum Interpolator

@@ -33,7 +33,7 @@ namespace mitk
 {
   class BaseRenderer;
 
-  class MITK_CORE_EXPORT VtkEventAdapter
+  class MITKCORE_EXPORT VtkEventAdapter
   {
   public:
     /** New events compatible with the revised interaction scheme */

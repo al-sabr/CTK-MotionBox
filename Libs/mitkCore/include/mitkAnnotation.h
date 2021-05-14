@@ -24,7 +24,7 @@ namespace mitk
   /** \brief Base class for all Annotation
    * This class is to be implemented in order to create Annotation which are managed by a AbstractAnnotationRenderer.
    * This class contains an internal Propertylist for configuring the appearance of the implemented Overlay. */
-  class MITK_CORE_EXPORT Annotation : public itk::Object
+  class MITKCORE_EXPORT Annotation : public itk::Object
   {
   public:
     /** \brief Container for position and size on the display.*/
@@ -36,7 +36,7 @@ namespace mitk
 
     /** \brief Base class for mapper specific rendering ressources.
      */
-    class MITK_CORE_EXPORT BaseLocalStorage
+    class MITKCORE_EXPORT BaseLocalStorage
     {
     public:
       bool IsGenerateDataRequired(mitk::BaseRenderer *renderer, mitk::Annotation *Annotation);

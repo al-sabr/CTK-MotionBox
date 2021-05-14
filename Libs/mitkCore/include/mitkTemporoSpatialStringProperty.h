@@ -33,7 +33,7 @@ namespace mitk
    * @brief Property for time and space resolved string values
    * @ingroup DataManagement
    */
-  class MITK_CORE_EXPORT TemporoSpatialStringProperty : public BaseProperty
+  class MITKCORE_EXPORT TemporoSpatialStringProperty : public BaseProperty
   {
   public:
     typedef ::itk::IndexValueType IndexValueType;
@@ -118,13 +118,13 @@ namespace mitk
   namespace PropertyPersistenceSerialization
   {
     /** Serialization of a TemporoSpatialStringProperty into a JSON string.*/
-    MITK_CORE_EXPORT::std::string serializeTemporoSpatialStringPropertyToJSON(const mitk::BaseProperty *prop);
+    MITKCORE_EXPORT::std::string serializeTemporoSpatialStringPropertyToJSON(const mitk::BaseProperty *prop);
   }
 
   namespace PropertyPersistenceDeserialization
   {
     /**Deserialize a passed JSON string into a TemporoSpatialStringProperty.*/
-    MITK_CORE_EXPORT mitk::BaseProperty::Pointer deserializeJSONToTemporoSpatialStringProperty(const std::string &value);
+    MITKCORE_EXPORT mitk::BaseProperty::Pointer deserializeJSONToTemporoSpatialStringProperty(const std::string &value);
   }
 
 #ifdef _MSC_VER

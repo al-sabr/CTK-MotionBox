@@ -42,7 +42,7 @@ namespace mitk
   *
   *                 mitkThrowException(MyException) << "optional exception message";
   */
-  class MITK_CORE_EXPORT Exception : public itk::ExceptionObject
+  class MITKCORE_EXPORT Exception : public itk::ExceptionObject
   {
   public:
     Exception(const char *file, unsigned int lineNumber = 0, const char *desc = "None", const char *loc = "Unknown")
@@ -109,7 +109,7 @@ namespace mitk
     std::vector<ReThrowData> m_RethrowData;
   };
 
-  MITK_CORE_EXPORT std::ostream &operator<<(std::ostream &os, const mitk::Exception &e);
+  MITKCORE_EXPORT std::ostream &operator<<(std::ostream &os, const mitk::Exception &e);
 } // namespace mitk
 
 #endif

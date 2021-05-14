@@ -49,7 +49,7 @@ namespace mitk
     comments in code).
   */
   template <typename DATATYPE>
-  class MITK_CORE_EXPORT VectorProperty : public BaseProperty
+  class MITKCORE_EXPORT VectorProperty : public BaseProperty
   {
   public:
     typedef std::vector<DATATYPE> VectorType;

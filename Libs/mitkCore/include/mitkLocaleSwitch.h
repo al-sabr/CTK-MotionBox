@@ -54,7 +54,7 @@ namespace mitk
     \endcode
   */
 
-  struct MITK_CORE_EXPORT LocaleSwitch
+  struct MITKCORE_EXPORT LocaleSwitch
   {
     explicit LocaleSwitch(const char *newLocale);
 
