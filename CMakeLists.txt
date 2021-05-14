@@ -54,6 +54,76 @@ endif()
 project(CTK)
 #-----------------------------------------------------------------------------
 
+# =====================================
+# =====================================
+# START OF BLUEBERRY FRAMEWORK MACROS
+# =====================================
+# =====================================
+include(mitkFunctionCreateBlueBerryApplication)
+
+option(BLUEBERRY_DEBUG_SMARTPOINTER "Enable code for debugging smart pointers" OFF)
+mark_as_advanced(BLUEBERRY_DEBUG_SMARTPOINTER)
+
+if(CTK_USE_BLUEBERRY)
+
+  find_package(Poco CONFIG REQUIRED Foundation)
+  
+  option(BLUEBERRY_USE_QT_HELP "Enable support for integrating plugin documentation into Qt Help" ${DOXYGEN_FOUND})
+  mark_as_advanced(BLUEBERRY_USE_QT_HELP)
+
+  # Sanity checks for in-application BlueBerry plug-in help generation
+  if(BLUEBERRY_USE_QT_HELP)
+    set(_force_blueberry_use_qt_help_to_off 0)
+    if(NOT DOXYGEN_FOUND)
+      message("> Forcing BLUEBERRY_USE_QT_HELP to OFF because Doxygen was not found.")
+      set(_force_blueberry_use_qt_help_to_off 1)
+    endif()
+    if(DOXYGEN_FOUND AND DOXYGEN_VERSION VERSION_LESS 1.8.7)
+      message("> Forcing BLUEBERRY_USE_QT_HELP to OFF because Doxygen version 1.8.7 or newer not found.")
+      set(_force_blueberry_use_qt_help_to_off 1)
+    endif()
+
+    if(NOT QT_HELPGENERATOR_EXECUTABLE)
+      message("> Forcing BLUEBERRY_USE_QT_HELP to OFF because QT_HELPGENERATOR_EXECUTABLE is empty.")
+      set(_force_blueberry_use_qt_help_to_off 1)
+    endif()
+
+    if(NOT USE_Qt5)
+      message("> Forcing BLUEBERRY_USE_QT_HELP to OFF because MITK_USE_Qt5 is OFF.")
+      set(_force_blueberry_use_qt_help_to_off 1)
+    endif()
+
+    if(NOT QT_XMLPATTERNS_EXECUTABLE)
+      message("You have enabled Qt Help support, but QT_XMLPATTERNS_EXECUTABLE is empty")
+      set(_force_blueberry_use_qt_help_to_off 1)
+    endif()
+
+    if(_force_blueberry_use_qt_help_to_off)
+      set(BLUEBERRY_USE_QT_HELP OFF CACHE BOOL "Enable support for integrating plugin documentation into Qt Help" FORCE)
+    endif()
+  endif()
+
+  if(BLUEBERRY_QT_HELP_REQUIRED AND NOT BLUEBERRY_USE_QT_HELP)
+    message(FATAL_ERROR "BLUEBERRY_USE_QT_HELP is required to be set to ON")
+  endif()
+endif()
+
+if(CTK_USE_BLUEBERRY)
+
+  set(BLUEBERRY_XPDOC_OUTPUT_DIR "${DOXYGEN_OUTPUT_DIR}/html/extension-points/html/")
+  execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${BLUEBERRY_XPDOC_OUTPUT_DIR})
+
+  # Specify which plug-ins belong to this project
+  macro(GetMyTargetLibraries all_target_libraries varname)
+
+    set(re_ctkplugin_bb "^org_blueberry_[a-zA-Z0-9_]+$")
+    set(_tmp_list)
+    list(APPEND _tmp_list ${all_target_libraries})
+    ctkMacroListFilter(_tmp_list re_ctkplugin_blueberry re_ctkplugin_bb PLUGIN_REGEX_LIST OUTPUT_VARIABLE ${varname})
+  endmacro()
+
+endif()
+
 #-----------------------------------------------------------------------------
 # Set defaults
 #
@@ -309,6 +379,11 @@ if(BUILD_TESTING)
         }
       ")
 endif()
+
+#-----------------------------------------------------------------------------
+# BLUEBERRY FRAMEWORK
+#
+option(CTK_USE_BLUEBERRY "Build the BlueBerry platform" ON)
 
 #-----------------------------------------------------------------------------
 # QtTesting
@@ -574,6 +649,19 @@ set(plugin_list
   # Optional plug-ins implementings interfaces in PluginFramework/service/
 
   )
+
+if(CTK_USE_BLUEBERRY)
+  list(APPEND plugin_list
+    org.blueberry.core.runtime
+    org.blueberry.core.jobs
+    org.blueberry.core.commands
+    org.blueberry.core.expressions
+    org.blueberry.ui.qt
+    org.blueberry.ui.qt.help
+    org.blueberry.ui.qt.log
+    org.blueberry.ui.qt.objectinspector
+  )
+endif()
 
 if(CTK_QT_VERSION VERSION_LESS "5")
   list(APPEND plugin_list org.commontk.log4qt)
