@@ -37,7 +37,7 @@ ctkMacroBuildLib(
   EXPORT_HEADER_NAME "MitkCoreExports"
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include") 
+target_include_directories(${PROJECT_NAME} PUBLIC include) 
 #include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 #target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:include>)  # <prefix>/include/mylib)
