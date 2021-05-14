@@ -1,4 +1,4 @@
-project(CTKmitAlgorithmsExt)
+project(CTKmitkAlgorithmsExt)
 
 include(files.cmake)
 
