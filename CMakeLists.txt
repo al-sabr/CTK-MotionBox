@@ -608,9 +608,11 @@ ctk_lib_option(mitkAlgorithmsExt
                "Build the Extended Algorithms library port from MITK" ON)
 
 ctk_lib_option(mitkSceneSerializationBase
+               "Build the Scene Serialzation Base library port from MITK" ON)
+
+ctk_lib_option(mitkSceneSerialization
                "Build the Scene Serialzation library port from MITK" ON)
-
-
+               
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
 set(_enabled_libs)
@@ -671,6 +673,7 @@ endif()
 
 if(CTK_USE_MITK_PLUGINS)
   list(APPEND plugin_list
+    org.mitk.core.ext
     org.mitk.core.services
     org.mitk.gui.common
     org.mitk.gui.qt.application
@@ -1109,3 +1112,4 @@ add_subdirectory( Documentation )
 add_subdirectory(CMake/LastConfigureStep)
 
 add_subdirectory(Utilities/ANN)
+add_subdirectory(Utilities/Qwt)
