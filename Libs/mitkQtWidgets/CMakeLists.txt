@@ -41,12 +41,11 @@ ctkMacroBuildLib(
   EXPORT_HEADER_NAME "MitkQtWidgetsExports"
 )
 
-
-
 target_link_libraries(${PROJECT_NAME} ${CppMicroServices_LIBRARIES})
 
 include_directories(include)
 include_directories(resource)
 
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 #add_subdirectory(test)
