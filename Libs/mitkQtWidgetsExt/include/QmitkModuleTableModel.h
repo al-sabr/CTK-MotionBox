@@ -17,6 +17,9 @@ found in the LICENSE file.
 #include <QList>
 
 #include <MitkQtWidgetsExtExports.h>
+#include <usGetModuleContext.h>
+#include <usModule.h>
+#include <usModuleContext.h>
 
 namespace us
 {

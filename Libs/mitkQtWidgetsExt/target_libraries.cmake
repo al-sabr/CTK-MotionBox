@@ -8,12 +8,8 @@ set(target_libraries
   #VTK_LIBRARIES
   VTK::IOImage
   CTKWidgets
+  CTKmitkCore
   CTKmitkQtWidgets
+  CTKmitkAlgorithmsExt
+  CTKmitkSceneSerializationBase
   )
-
-# MITK_CREATE_MODULE(
-#   DEPENDS MitkAlgorithmsExt MitkQtWidgets PRIVATE MitkSceneSerializationBase
-#   PACKAGE_DEPENDS
-#     PUBLIC Qwt CTK|CTKWidgets
-#     PRIVATE Qt5|Concurrent+Svg+Xml VTK|IOImage
-# )

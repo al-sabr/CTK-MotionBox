@@ -11,7 +11,7 @@ found in the LICENSE file.
 ============================================================================*/
 
 #include "QmitkPropertyListPopup.h"
-#include "QmitkMaterialEditor.h"
+//#include "QmitkMaterialEditor.h"
 #include "QmitkNumberPropertySlider.h"
 
 #include "mitkColorProperty.h"

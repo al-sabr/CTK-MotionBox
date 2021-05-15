@@ -12,10 +12,6 @@ found in the LICENSE file.
 
 #include "QmitkModuleTableModel.h"
 
-#include <usGetModuleContext.h>
-#include <usModule.h>
-#include <usModuleContext.h>
-
 #include <QBrush>
 
 class QmitkModuleTableModelPrivate

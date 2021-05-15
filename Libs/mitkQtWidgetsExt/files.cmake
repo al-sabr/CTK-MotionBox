@@ -32,6 +32,7 @@ set(CPP_FILES
   src/QmitkPointListWidget.cpp
   src/QmitkPrimitiveMovieNavigatorWidget.cpp
   src/QmitkPropertyViewFactory.cpp
+  #src/QmitkPropertyListPopup.cpp
   src/QmitkSelectableGLWidget.cpp
   src/QmitkSliceWidget.cpp
   src/QmitkSliderNavigatorWidget.cpp
@@ -75,6 +76,7 @@ set(MOC_H_FILES
   include/QmitkPointListViewWidget.h
   include/QmitkPointListWidget.h
   include/QmitkPrimitiveMovieNavigatorWidget.h
+  #include/QmitkPropertyListPopup.h
   include/QmitkSelectableGLWidget.h
   include/QmitkSliceWidget.h
   include/QmitkSliderNavigatorWidget.h
@@ -105,9 +107,11 @@ set(QRC_FILES
   resource/QtWidgetsExt.qrc
 )
 
+list(REMOVE_ITEM H_FILES include/QmitkPropertyListPopup.h)
+
 set(KIT_MOC_SRCS ${H_FILES})
 
-set(KIT_SRCS ${CPP_FILES})
+set(KIT_SRCS ${CPP_FILES} ${KIT_MOC_SRCS})
 
 set(KIT_RESOURCEFILES ${RESOURCEFILES})
 
