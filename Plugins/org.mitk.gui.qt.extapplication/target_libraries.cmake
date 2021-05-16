@@ -5,5 +5,5 @@
 #
 
 set(target_libraries
-
+  org_mitk_gui_qt_ext
 )

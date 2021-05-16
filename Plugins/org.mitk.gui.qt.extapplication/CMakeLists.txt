@@ -20,3 +20,5 @@ ctkMacroBuildPlugin(
   EXPORTED_INCLUDE_SUFFIXES
     src
 )
+
+include_directories(src/internal)

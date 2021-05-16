@@ -10,12 +10,13 @@ set(INTERNAL_CPP_FILES
   perspectives/QmitkVisualizationPerspective.cpp
 )
 
-set(PLUGIN_MOC_SRCS
-  src/internal/QmitkExtApplication.h
-  src/internal/QmitkExtApplicationPlugin.h
-  src/internal/perspectives/QmitkEditorPerspective.h
-  src/internal/perspectives/QmitkExtDefaultPerspective.h
-  src/internal/perspectives/QmitkVisualizationPerspective.h
+set(INTERNAL_HEADERS
+  QmitkExtApplication.h
+  QmitkExtApplicationPlugin.h
+  QmitkExtAppWorkbenchAdvisor.h
+  perspectives/QmitkEditorPerspective.h
+  perspectives/QmitkExtDefaultPerspective.h
+  perspectives/QmitkVisualizationPerspective.h
 )
 
 set(UI_FILES
@@ -37,6 +38,7 @@ resources/QmitkExtApplication.qrc
 )
 
 set(CPP_FILES )
+set(PLUGIN_MOC_SRCS )
 
 foreach(file ${SRC_CPP_FILES})
   set(CPP_FILES ${CPP_FILES} src/${file})
@@ -46,4 +48,9 @@ foreach(file ${INTERNAL_CPP_FILES})
   set(CPP_FILES ${CPP_FILES} src/internal/${file})
 endforeach(file ${INTERNAL_CPP_FILES})
 
-set(PLUGIN_SRCS ${CPP_FILES})
+foreach(file ${INTERNAL_HEADERS})
+  set(PLUGIN_MOC_SRCS ${PLUGIN_MOC_SRCS} src/internal/${file})
+endforeach(file ${INTERNAL_HEADERS})
+
+
+set(PLUGIN_SRCS ${CPP_FILES} ${PLUGIN_MOC_SRCS})
