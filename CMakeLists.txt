@@ -40,6 +40,10 @@ include(ExternalProject)
 include(ctkMacroCheckExternalProjectDependency)
 
 #-----------------------------------------------------------------------------
+# Integration of MITK variables used by scripts located at CMake/mitkFunction....cmake files
+#
+set(MITK_ROOT_FOLDER {CMAKE_CURRENT_SOURCE_DIR})
+#-----------------------------------------------------------------------------
 if(APPLE)
   # Note: By setting CMAKE_OSX_* variables before any enable_language() or project() calls,
   #       we ensure that the bitness will be properly detected.
@@ -319,6 +323,8 @@ foreach(file
   CMake/ctkFunctionCompileSnippets.cmake
   
   CMake/mitkFunctionCreateBlueBerryApplication.cmake
+  CMake/mitkFunctionCreateProvisioningFile.cmake
+  CMake/mitkFunctionCreateWindowsBatchScript.cmake
   CMake/mitkFunctionUseModules.cmake
 
   )
