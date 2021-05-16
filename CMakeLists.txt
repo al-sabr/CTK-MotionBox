@@ -317,6 +317,10 @@ foreach(file
   CMake/ctkFunctionGetGccVersion.cmake
   CMake/ctkFunctionGetCompilerVisibilityFlags.cmake
   CMake/ctkFunctionCompileSnippets.cmake
+  
+  CMake/mitkFunctionCreateBlueBerryApplication.cmake
+  CMake/mitkFunctionUseModules.cmake
+
   )
   include(${file})
   install(FILES ${file} DESTINATION ${CTK_INSTALL_CMAKE_DIR} COMPONENT Development)
@@ -639,6 +643,10 @@ if(CTK_APP_ctkCommandLineModuleExplorer)
   endforeach()
 endif()
 
+ctk_app_option(ctkBismillah
+               "Build the Bismillah OSGi container" OFF
+               CTK_BUILD_EXAMPLES)
+
 # Save the set of enabled apps in a cache file
 set(_enabled_apps)
 foreach(_app ${CTK_APPS})
@@ -713,6 +721,7 @@ ctk_enable_option(PluginFramework "Enable Plugin Framework" OFF
 # The CTK Python Wrapping
 ctk_enable_option(Python_Wrapping "Wrap CTK classes using Qt meta-object system into Python language" OFF
                   CTK_LIB_Scripting/Python/Core)
+
 mark_as_superbuild(CTK_ENABLE_Python_Wrapping)
 
 # Build examples
