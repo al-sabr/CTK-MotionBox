@@ -29,3 +29,6 @@ ctkMacroBuildPlugin(
 
 include_directories(include/internal)
 include_directories(include)
+
+target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC include/internal)
