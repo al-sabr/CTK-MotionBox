@@ -100,7 +100,7 @@ else()
   set_property(TARGET ${_APP_NAME} PROPERTY FOLDER "${MITK_ROOT_FOLDER}/Applications")
 endif()
 
-mitk_use_modules(TARGET ${_APP_NAME} MODULES MitkAppUtil)
+mitk_use_modules(TARGET ${_APP_NAME} MODULES ctkAppUtil)
 
 set_target_properties(${_APP_NAME} PROPERTIES
                       COMPILE_FLAGS "${_app_compile_flags}")
