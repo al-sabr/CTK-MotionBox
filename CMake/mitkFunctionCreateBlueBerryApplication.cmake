@@ -28,7 +28,12 @@
 #! \endcode
 #!
 function(mitkFunctionCreateBlueBerryApplication)
-
+# ------------------------------------------------------
+# Fix configuration build errors
+include(ctkFunctionGetAllPluginTargets)
+include(ctkFunctionGetPluginDependencies)
+include(ctkFunctionGetTargetDependencies)
+# ------------------------------------------------------
 cmake_parse_arguments(_APP "NO_PROVISIONING;NO_INSTALL" "NAME;DESCRIPTION" "SOURCES;PLUGINS;EXCLUDE_PLUGINS;LINK_LIBRARIES;LIBRARY_DIRS" ${ARGN})
 
 if(NOT _APP_NAME)
