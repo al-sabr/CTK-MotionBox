@@ -325,6 +325,15 @@ foreach(file
   CMake/mitkFunctionCreateBlueBerryApplication.cmake
   CMake/mitkFunctionCreateProvisioningFile.cmake
   CMake/mitkFunctionCreateWindowsBatchScript.cmake
+  CMake/mitkFunctionGetLibrarySearchPaths.cmake
+  CMake/mitkFunctionConfigureVisualStudioUserProjectFile.cmake
+  CMake/mitkFunctionInstallCTKPlugin.cmake
+  CMake/mitkMacroInstall.cmake
+  CMake/mitkMacroInstallTargets.cmake
+  CMake/mitkFunctionInstallProvisioningFiles.cmake
+  CMake/mitkFunctionInstallThirdPartyCTKPlugins.cmake
+  CMake/mitkFunctionGetMSVCVersion.cmake
+  CMake/mitkMacroGenerateToolsLibrary.cmake
   CMake/mitkFunctionUseModules.cmake
 
   )
@@ -649,6 +658,10 @@ if(CTK_APP_ctkCommandLineModuleExplorer)
   endforeach()
 endif()
 
+ctk_app_option(bismillah
+               "Build the Bismillah OSGi container" OFF
+               CTK_BUILD_EXAMPLES)
+               
 ctk_app_option(ctkBismillah
                "Build the Bismillah OSGi container" OFF
                CTK_BUILD_EXAMPLES)
@@ -669,7 +682,9 @@ set(CTK_ENABLED_APPS ${_enabled_apps} CACHE INTERNAL "" FORCE)
 # Plugins in the list below are not build by default
 set(plugin_list
   # Optional plug-ins implementings interfaces in PluginFramework/service/
-
+  #mbilog
+  org.commontk.configadmin
+  org.commontk.eventadmin
   )
 
 if(CTK_USE_BLUEBERRY)
