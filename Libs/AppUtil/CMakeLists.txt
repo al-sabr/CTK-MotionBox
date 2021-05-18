@@ -23,3 +23,6 @@ ctkMacroBuildLib(
   TARGET_LIBRARIES ${KIT_target_libraries}
   LIBRARY_TYPE ${CTK_LIBRARY_MODE}
   )
+
+target_include_directories(${PROJECT_NAME} PUBLIC .)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
