@@ -6,4 +6,6 @@
 
 set(target_libraries
   CTKmitkQtWidgets
+  org_blueberry_ui_qt
+  org_mitk_core_services
 )
