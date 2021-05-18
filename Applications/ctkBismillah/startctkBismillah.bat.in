@@ -1,0 +1,2 @@
+PATH=@CTK_RUNTIME_PATH@;%PATH%
+@VS_BUILD_TYPE@\ctkBismillah.exe
