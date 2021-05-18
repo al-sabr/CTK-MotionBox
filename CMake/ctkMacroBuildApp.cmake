@@ -39,8 +39,8 @@ macro(ctkMacroBuildApp)
   endif()
 
   # Make sure either the source or the binary directory associated with the application
-  # contains a file named ${MY_NAME}Main.cpp
-  set(expected_mainfile ${MY_NAME}Main.cpp)
+  # contains a file named ${MY_NAME}.cpp
+  set(expected_mainfile ${MY_NAME}.cpp)
   if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${expected_mainfile} AND
       NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${expected_mainfile}.in AND
       NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/${expected_mainfile})
