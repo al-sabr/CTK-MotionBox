@@ -57,6 +57,13 @@ endif()
 #-----------------------------------------------------------------------------
 project(CTK)
 #-----------------------------------------------------------------------------
+# =====================================
+# =====================================
+# START OF BISMILLAH CONFIGS
+# =====================================
+# =====================================
+option(CTK_USE_BISMILLAH_PLUGINS "Enable the BISMILLAH and the projects it depends on." ON)
+mark_as_advanced(CTK_USE_BISMILLAH_PLUGINS)
 
 # =====================================
 # =====================================
@@ -322,6 +329,10 @@ foreach(file
   CMake/ctkFunctionGetCompilerVisibilityFlags.cmake
   CMake/ctkFunctionCompileSnippets.cmake
   
+  # MITK imported macros and functions.
+  CMake/mitkFunctionOrganizeSources.cmake
+  CMake/mitkFunctionCheckModuleDependencies.cmake
+  CMake/mitkFunctionCreatePlugin.cmake
   CMake/mitkFunctionCreateBlueBerryApplication.cmake
   CMake/mitkFunctionCreateProvisioningFile.cmake
   CMake/mitkFunctionCreateWindowsBatchScript.cmake
@@ -666,6 +677,9 @@ ctk_app_option(ctkBismillah
                "Build the Bismillah OSGi container" OFF
                CTK_BUILD_EXAMPLES)
 
+ctk_app_option(bismillahApplicationLauncher
+               "Build the Bismillah OSGi container" OFF
+               CTK_BUILD_EXAMPLES)
 # Save the set of enabled apps in a cache file
 set(_enabled_apps)
 foreach(_app ${CTK_APPS})
@@ -708,6 +722,13 @@ if(CTK_USE_MITK_PLUGINS)
     org.mitk.gui.qt.application
     org.mitk.gui.qt.ext
     org.mitk.gui.qt.extapplication
+    
+  )
+endif()
+
+if(CTK_USE_BISMILLAH_PLUGINS)
+  list(APPEND plugin_list
+    bismillah.fractal.core
     
   )
 endif()
@@ -927,6 +948,7 @@ set(CTK_DEPENDENCIES
   ITK
   QtTesting
   CppMicroServices
+  SkyFramework
   )
 
 if(BUILD_TESTING)
