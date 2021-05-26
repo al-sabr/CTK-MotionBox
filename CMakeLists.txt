@@ -65,6 +65,8 @@ project(CTK)
 option(CTK_USE_BISMILLAH_PLUGINS "Enable the BISMILLAH and the projects it depends on." ON)
 mark_as_advanced(CTK_USE_BISMILLAH_PLUGINS)
 
+find_package(LibVLC REQUIRED)
+
 # =====================================
 # =====================================
 # START OF BLUEBERRY FRAMEWORK MACROS
@@ -643,6 +645,9 @@ ctk_lib_option(mitkSceneSerializationBase
 ctk_lib_option(mitkSceneSerialization
                "Build the Scene Serialzation library port from MITK" ON)
                
+ctk_lib_option(MotionBox
+               "Build the MotionBox media player" ON)
+               
 # Save enabled CTK libraries in the cache to ensure expected player and translator
 # are enabled in "Libs/QtTesting".
 set(_enabled_libs)
@@ -680,6 +685,7 @@ ctk_app_option(ctkBismillah
 ctk_app_option(bismillahApplicationLauncher
                "Build the Bismillah OSGi container" OFF
                CTK_BUILD_EXAMPLES)
+               
 # Save the set of enabled apps in a cache file
 set(_enabled_apps)
 foreach(_app ${CTK_APPS})
@@ -726,12 +732,14 @@ if(CTK_USE_MITK_PLUGINS)
   )
 endif()
 
+
 if(CTK_USE_BISMILLAH_PLUGINS)
   list(APPEND plugin_list
     bismillah.fractal.core
-    
+    bismillah.multimedia.motionbox
   )
 endif()
+
 
 if(CTK_QT_VERSION VERSION_LESS "5")
   list(APPEND plugin_list org.commontk.log4qt)
