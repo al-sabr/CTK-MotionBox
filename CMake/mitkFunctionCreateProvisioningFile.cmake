@@ -150,7 +150,7 @@ function(mitkFunctionCreateProvisioningFile)
         endif()
       endif()
 
-      set(plugin_url "${file_url}${_plugin_location}/lib${_plugin_target}${CMAKE_SHARED_LIBRARY_SUFFIX}")
+      set(plugin_url "${file_url}${_plugin_location}/Debug/lib${_plugin_target}${CMAKE_SHARED_LIBRARY_SUFFIX}")
       set(plugin_url_install "${file_url}@EXECUTABLE_DIR/plugins/lib${_plugin_target}${CMAKE_SHARED_LIBRARY_SUFFIX}")
 
       set(out_var "${out_var}START ${plugin_url}\n")
