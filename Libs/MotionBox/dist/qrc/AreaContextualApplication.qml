@@ -1,0 +1,924 @@
+//=================================================================================================
+/*
+    Copyright (C) 2015-2020 MotionBox authors united with omega. <http://omega.gg/about>
+
+    Author: Benjamin Arnaud. <http://bunjee.me> <bunjee@omega.gg>
+
+    This file is part of MotionBox.
+
+    - GNU General Public License Usage:
+    This file may be used under the terms of the GNU General Public License version 3 as published
+    by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging
+    of this file. Please review the following information to ensure the GNU General Public License
+    requirements will be met: https://www.gnu.org/licenses/gpl.html.
+
+    - Private License Usage:
+    MotionBox licensees holding valid private licenses may use this file in accordance with the
+    private license agreement provided with the Software or, alternatively, in accordance with the
+    terms contained in written agreement between you and MotionBox authors. For further information
+    contact us at contact@omega.gg.
+*/
+//=================================================================================================
+
+import QtQuick 2.14
+import Sky 1.0
+
+AreaContextual
+{
+    id: areaContextual
+
+    //---------------------------------------------------------------------------------------------
+    // Properties
+    //---------------------------------------------------------------------------------------------
+
+    /* read */ property int currentId: -1
+    // 0: Folder
+    // 1: Track
+    // 2: Tracks
+    // 3: Tab
+    // 4: Browse
+
+    /* read */ property variant item: null
+
+    //---------------------------------------------------------------------------------------------
+    // Private
+
+    property variant pItem : null
+    property int     pIndex: -1
+
+    property variant pData: null
+
+    property string pSource
+    property string pAuthor
+    property string pFeed
+
+    property bool pButtonsVisible: (currentId == 1 || currentId == 3) // Track or Tab
+
+    //---------------------------------------------------------------------------------------------
+    // Aliases
+    //---------------------------------------------------------------------------------------------
+
+    property alias currentPage: listContextual.currentPage
+
+    //---------------------------------------------------------------------------------------------
+
+    property alias panelContextual: panelContextual
+    property alias panelAdd       : panelAdd
+
+    //---------------------------------------------------------------------------------------------
+    // Settings
+    //---------------------------------------------------------------------------------------------
+
+    anchors.fill: parent
+
+    z: 1
+
+    //---------------------------------------------------------------------------------------------
+    // Functions
+    //---------------------------------------------------------------------------------------------
+
+    function showPanelSettings(item, marginY, settings, currentIndex, activeIndex)
+    {
+        // NOTE: We don't want to show the same panel twice.
+        if (checkPanel(panelContextual, item)) return;
+
+        areaContextual.item = item;
+
+        var array = new Array;
+
+        for (var i = 0; i < settings.length; i++)
+        {
+            var data = settings[i];
+
+            var icon = data.icon;
+
+            // NOTE: We make sure id(s) are equivalent to index(es).
+            if (icon)
+            {
+                 array.push({ "id": i, "title": data.title, "icon": icon,
+                              "iconSize": data.iconSize });
+            }
+            else array.push({ "id": i, "title": data.title });
+        }
+
+        page.values = array;
+
+        // NOTE: We make sure id(s) are equivalent to index(es).
+        page.selectedId = currentIndex;
+        page.currentId  = activeIndex;
+
+        currentId = -1;
+
+        var panel = pGetPanel();
+
+        if (panel.height < panelContextual.preferredHeight)
+        {
+             showPanelPositionMargins(panelContextual, panel,
+                                      Sk.TopLeftCorner, st.border_size, st.border_size);
+        }
+        else showPanelPositionMargins(panelContextual, item,
+                                      Sk.BottomLeftCorner, 0, marginY - st.border_size);
+    }
+
+    //---------------------------------------------------------------------------------------------
+    // Private
+
+    function pShowPanelAdd()
+    {
+        areaContextual.showPanel(panelAdd, panelContextual.item,
+                                           panelContextual.position,
+                                           panelContextual.posX,
+                                           panelContextual.posY,
+                                           panelContextual.marginX,
+                                           panelContextual.marginY,
+                                           panelContextual.isCursorChild);
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    function pCheckPlay(folder, index)
+    {
+        if (folder.currentIndex != index)
+        {
+            return false;
+        }
+
+        var item = folder.currentItem;
+
+        return (item.isPlaylist && item.count)
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    function pSearchMore(source, title)
+    {
+        gui.restore();
+
+        panelBrowse.searchMore(source, title);
+    }
+
+    //---------------------------------------------------------------------------------------------
+
+    function pGetPanel()
+    {
+        if (panelGet.active) return panelGet;
+        else                 return panelSettings;
+    }
+
+    //---------------------------------------------------------------------------------------------
+    // Childs
+    //---------------------------------------------------------------------------------------------
+
+    PanelContextual
+    {
+        id: panelContextual
+
+        //-----------------------------------------------------------------------------------------
+        // Settings
+        //-----------------------------------------------------------------------------------------
+
+        minimumWidth : st.dp160
+        minimumHeight: st.list_itemHeight
+
+        preferredWidth : st.dp160
+        preferredHeight: pGetPreferredHeight()
+
+        //-----------------------------------------------------------------------------------------
+        // Events
+        //-----------------------------------------------------------------------------------------
+
+        onIsActiveChanged:
+        {
+            if (isActive)
+            {
+                listContextual.focus();
+
+                return;
+            }
+
+            currentPage.clearItems();
+
+            areaContextual.currentId = -1;
+
+            areaContextual.item = null;
+        }
+
+        //-----------------------------------------------------------------------------------------
+        // Functions
+        //-----------------------------------------------------------------------------------------
+
+        function loadPageFolder(list, index)
+        {
+            pItem  = list;
+            pIndex = index;
+
+            var array = new Array;
+
+            var folder = list.folder;
+
+            var type = core.itemType(folder, index);
+
+            if (folder.isFolderBase)
+            {
+                if (type == LibraryItem.Playlist)
+                {
+                    array.push({ "type": ContextualPage.Category, "title": qsTr("Playlist") });
+
+                    if (pCheckPlay(folder, index))
+                    {
+                        array.push({ "id": 0, "icon": st.icon16x16_play, "iconSize": st.size16x16,
+                                     "title": qsTr("Play") });
+                    }
+
+                    if (folder.itemIsLocal(index))
+                    {
+                        if (folder != feeds)
+                        {
+                            array.push
+                            (
+                                { "id": 4, "title": qsTr("Rename")      },
+                                { "id": 5, "title": qsTr("Move to ...") }
+                            );
+                        }
+                        else array.push({ "id": 6, "type": ContextualPage.ItemConfirm,
+                                          "title": qsTr("Clear everything") });
+
+                        array.push({ "id": 7, "type": ContextualPage.ItemConfirm,
+                                     "title": qsTr("Delete Playlist") });
+                    }
+                    else
+                    {
+                        if (folder == feeds)
+                        {
+                            array.push
+                            (
+                                { "id": 1, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                                  "title": qsTr("Add to ...") },
+
+                                { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                                  "title": qsTr("Open link") },
+
+                                { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                                  "title": qsTr("Copy link") },
+
+                                { "id": 6, "type": ContextualPage.ItemConfirm,
+                                  "title": qsTr("Clear everything") }
+                            );
+                        }
+                        else
+                        {
+                            array.push
+                            (
+                                { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                                  "title": qsTr("Open link") },
+
+                                { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                                  "title": qsTr("Copy link") },
+
+                                { "id": 7, "type": ContextualPage.ItemConfirm,
+                                  "title": qsTr("Remove Playlist") }
+                            );
+                        }
+                    }
+                }
+                else if (type == LibraryItem.PlaylistFeed)
+                {
+                    array.push({ "type": ContextualPage.Category, "title": qsTr("Feed") });
+
+                    if (pCheckPlay(folder, index))
+                    {
+                        array.push({ "id": 0, "icon": st.icon16x16_play, "iconSize": st.size16x16,
+                                     "title": qsTr("Play") });
+                    }
+
+                    if (folder.itemIsLocal(index))
+                    {
+                        if (folder != feeds)
+                        {
+                            array.push
+                            (
+                                { "id": 4, "title": qsTr("Rename")      },
+                                { "id": 5, "title": qsTr("Move to ...") }
+                            );
+                        }
+                        else array.push({ "id": 6, "type": ContextualPage.ItemConfirm,
+                                          "title": qsTr("Clear everything") });
+
+                        array.push({ "id": 7, "type": ContextualPage.ItemConfirm,
+                                     "title": qsTr("Delete Feed") });
+                    }
+                    else
+                    {
+                        if (folder == feeds)
+                        {
+                            array.push
+                            (
+                                { "id": 1, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                                  "title": qsTr("Add to ...") },
+
+                                { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                                  "title": qsTr("Open link") },
+
+                                { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                                  "title": qsTr("Copy link") },
+
+                                { "id": 6, "type": ContextualPage.ItemConfirm,
+                                  "title": qsTr("Clear everything") }
+                            );
+                        }
+                        else
+                        {
+                            array.push
+                            (
+                                { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                                  "title": qsTr("Open link") },
+
+                                { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                                  "title": qsTr("Copy link") },
+
+                                { "id": 5, "title": qsTr("Move to ...") }
+                            );
+                        }
+
+                        array.push({ "id": 7, "type": ContextualPage.ItemConfirm,
+                                     "title": qsTr("Remove Feed") });
+                    }
+                }
+                else
+                {
+                    array.push
+                    (
+                        { "type": ContextualPage.Category, "title": qsTr("Folder") },
+
+                        { "id": 4, "title": qsTr("Rename") },
+
+                        { "id": 7, "type": ContextualPage.ItemConfirm,
+                          "title": qsTr("Delete Folder") }
+                    );
+                }
+            }
+            else
+            {
+                if (type == LibraryItem.Playlist)
+                {
+                    array.push({ "type": ContextualPage.Category, "title": qsTr("Playlist") });
+
+                    if (pCheckPlay(folder, index))
+                    {
+                        array.push({ "id": 0, "icon": st.icon16x16_play, "iconSize": st.size16x16,
+                                     "title": qsTr("Play") });
+                    }
+
+                    array.push({ "id": 1, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                                 "title": qsTr("Add to ...") });
+                }
+                else if (type == LibraryItem.PlaylistFeed)
+                {
+                    array.push({ "type": ContextualPage.Category, "title": qsTr("Feed") });
+
+                    if (pCheckPlay(folder, index))
+                    {
+                        array.push({ "id": 0, "icon": st.icon16x16_play, "iconSize": st.size16x16,
+                                     "title": qsTr("Play") });
+                    }
+
+                    array.push({ "id": 1, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                                 "title": qsTr("Add to ...") });
+                }
+                else array.push({ "type": ContextualPage.Category, "title": qsTr("Folder") });
+
+                if (folder.itemIsLocal(index))
+                {
+                    array.push
+                    (
+                        { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                          "title": qsTr("Open link") },
+
+                        { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                          "title": qsTr("Copy link") }
+                    );
+                }
+            }
+
+            page.values = array;
+
+            currentId = 0;
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function loadPageTrack(list, index)
+        {
+            pItem  = list;
+            pIndex = index;
+
+            var array = new Array;
+
+            var playlist = list.playlist;
+
+            var selectedCount = playlist.selectedCount;
+
+            if (selectedCount > 1 && playlist.indexSelected(index))
+            {
+                var title = selectedCount + " " + qsTr("Tracks");
+
+                array.push
+                (
+                    { "type": ContextualPage.Category, "title": title },
+
+                    { "id": 0, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                      "title": qsTr("Add to ...") }
+                );
+
+                if (gui.listPlaylist == list)
+                {
+                    title = qsTr("Remove") + " " + title;
+
+                    array.push({ "id": 1, "type" : ContextualPage.ItemConfirm, "title": title });
+                }
+
+                page.values = array;
+
+                currentId = 2;
+            }
+            else
+            {
+                pData = playlist.trackData(index);
+
+                pSource = pData.source;
+                pFeed   = pData.feed;
+
+                pAuthor = gui.getTrackAuthor(pData.author, pFeed);
+
+                array.push
+                (
+                    { "type": ContextualPage.Category, "title": qsTr("Track") },
+
+                    { "id": 0, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                      "title": qsTr("Add to ...") },
+
+                    { "id": 1, "icon": st.icon16x16_addBold, "iconSize": st.size16x16,
+                      "title": qsTr("More like this") },
+
+                    { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                      "title": qsTr("Open link") },
+
+                    { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                      "title": qsTr("Copy link") }
+                );
+
+                if (playlist.isLocal)
+                {
+                    array.push
+                    (
+                        { "id": 4, "title": qsTr("Set as Cover") },
+                        { "id": 5, "title": qsTr("Remove Track") }
+                    );
+                }
+
+                page.values = array;
+
+                if (pData.title == "")
+                {
+                    page.setItemEnabled(2, false);
+                }
+
+                if (pSource == "")
+                {
+                    page.setItemEnabled(3, false);
+                    page.setItemEnabled(4, false);
+                }
+
+                currentId = 1;
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function loadPageTab(tab)
+        {
+            pItem = tab;
+
+            var array = new Array;
+
+            array.push
+            (
+                { "type": ContextualPage.Category, "title": qsTr("Tab") },
+
+                { "id": 0, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                  "title": qsTr("Add to ...") },
+
+                { "id": 1, "icon": st.icon16x16_addBold, "iconSize": st.size16x16,
+                  "title": qsTr("More like this") },
+
+                { "id": 2, "icon": st.icon16x16_external, "iconSize": st.size16x16,
+                  "title": qsTr("Open link") },
+
+                { "id": 3, "icon": st.icon16x16_link, "iconSize": st.size16x16,
+                  "title": qsTr("Copy link") },
+
+                { "id": 4, "title": qsTr("Close other Tabs") },
+
+                { "id": 5, "title": qsTr("Close all Tabs") }
+            );
+
+            page.values = array;
+
+            if (tab.isValid)
+            {
+                pData = tab.trackData;
+
+                pSource = pData.source;
+                pFeed   = pData.feed;
+
+                pAuthor = gui.getTrackAuthor(pData.author, pFeed);
+
+                if (tab.title == "")
+                {
+                    page.setItemEnabled(2, false);
+                }
+
+                if (pSource == "")
+                {
+                    page.setItemEnabled(3, false);
+                    page.setItemEnabled(4, false);
+                }
+            }
+            else
+            {
+                pSource = "";
+                pAuthor = "";
+                pFeed   = "";
+
+                page.setItemEnabled(1, false);
+                page.setItemEnabled(2, false);
+                page.setItemEnabled(3, false);
+                page.setItemEnabled(4, false);
+                page.setItemEnabled(5, false);
+
+                if (tabs.count == 1)
+                {
+                    page.setItemEnabled(6, false);
+                }
+            }
+
+            currentId = 3;
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function loadPageBrowse()
+        {
+            var array = new Array;
+
+            array.push
+            (
+                { "id": 0, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                  "title": qsTr("Open File") },
+
+                { "id": 1, "icon": st.icon18x18_addIn, "iconSize": st.size18x18,
+                  "title": qsTr("Open Folder") },
+
+                { "id": 2, "icon": st.icon16x16_refresh, "iconSize": st.size16x16,
+                  "title": qsTr("Update Backends") },
+
+                { "id": 3, "title": qsTr("Reset Backends") }
+            );
+
+            page.values = array;
+
+            currentId = 4;
+        }
+
+        //-----------------------------------------------------------------------------------------
+        // Events
+
+        function onFolderClicked(id)
+        {
+            if (id == 0) // Play
+            {
+                gui.playItem(pItem.folder, pIndex);
+            }
+            else if (id == 1) // Add to ...
+            {
+                panelAdd.setSource(1, pItem.folder, pIndex);
+
+                pShowPanelAdd();
+
+                return false;
+            }
+            else if (id == 2) // Open link
+            {
+                var source = pItem.folder.itemSource(pIndex);
+
+                gui.openSource(source);
+            }
+            else if (id == 3) // Copy link
+            {
+                /* var */ source = pItem.folder.itemSource(pIndex);
+
+                sk.setClipboardText(source);
+            }
+            else if (id == 4) // Rename
+            {
+                pItem.renameItem(pIndex);
+            }
+            else if (id == 5) // Move to ...
+            {
+                panelAdd.setSource(2, pItem.folder, pIndex);
+
+                pShowPanelAdd();
+
+                return false;
+            }
+            else if (id == 6) // Clear
+            {
+                pItem.folder.clearItems();
+            }
+            else if (id == 7) // Remove
+            {
+                pItem.removeItem(pIndex, true);
+
+                if (pItem.folder == feeds && pIndex == 0 && playlistTracks)
+                {
+                    playlistTracks.tryDelete();
+
+                    playlistTracks = null;
+                }
+            }
+
+            return true;
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function onTrackClicked(id)
+        {
+            if (id == 0) // Add to ...
+            {
+                var playlist = pItem.playlist;
+
+                if (playlist.indexSelected(pIndex))
+                {
+                     panelAdd.setSource(0, playlist, -1);
+                }
+                else panelAdd.setSource(0, playlist, pIndex);
+
+                pShowPanelAdd();
+
+                return false;
+            }
+            else if (id == 1) // More like this
+            {
+                /* var */ playlist = pItem.playlist;
+
+                pSearchMore(playlist.trackSource(pIndex), playlist.trackTitle(pIndex));
+            }
+            else if (id == 2) // Open link
+            {
+                var source = pItem.playlist.trackSource(pIndex);
+
+                gui.openSource(source);
+            }
+            else if (id == 3) // Copy link
+            {
+                /* var */ source = pItem.playlist.trackSource(pIndex);
+
+                sk.setClipboardText(source);
+            }
+            else if (id == 4) // Set as Cover
+            {
+                /* var */ playlist = pItem.playlist;
+
+                var cover = playlist.trackCover(pIndex);
+
+                if (cover != "")
+                {
+                    playlist.cover = cover;
+                }
+
+            }
+            else if (id == 5) // Remove
+            {
+                pItem.removeTrack(pIndex, true);
+            }
+
+            return true;
+        }
+
+        function onTracksClicked(id)
+        {
+            if (id == 0) // Add to ...
+            {
+                panelAdd.setSource(0, pItem.playlist, -1);
+
+                pShowPanelAdd();
+
+                return false;
+            }
+            else if (id == 1) // Remove selected
+            {
+                pItem.removeSelected(true);
+            }
+
+            return true;
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function onTabClicked(id)
+        {
+            if (id == 0) // Add to ...
+            {
+                var playlist = pItem.playlist;
+
+                if (playlist == null)
+                {
+                    playlistTemp.clearTracks();
+
+                    pItem.copyTrackTo(playlistTemp);
+
+                    panelAdd.setSource(0, playlistTemp, 0);
+                }
+                else panelAdd.setSource(0, playlist, pItem.trackIndex);
+
+                pShowPanelAdd();
+
+                return false;
+            }
+            else if (id == 1) // More like this
+            {
+                /* var */ playlist = pItem.playlist;
+
+                pSearchMore(playlist.trackSource(pIndex), playlist.trackTitle(pIndex));
+            }
+            else if (id == 2) // Open link
+            {
+                gui.openSource(pItem.source);
+            }
+            else if (id == 3) // Copy link
+            {
+                sk.setClipboardText(pItem.source);
+            }
+            else if (id == 4) // Close other tabs
+            {
+                wall.enableAnimation = false;
+
+                tabs.closeOtherTabs(pItem);
+
+                wall.enableAnimation = true;
+            }
+            else if (id == 5) // Close all tabs
+            {
+                wall.enableAnimation = false;
+
+                tabs.closeTabs();
+
+                wall.enableAnimation = true;
+            }
+
+            return true;
+        }
+
+        //-----------------------------------------------------------------------------------------
+
+        function onBrowseClicked(id)
+        {
+            if (id == 0) // Open File
+            {
+                listContextual.setSelectedId(0);
+
+                var path = core.openFile(qsTr("Select File"));
+
+                panelBrowse.browse(path);
+            }
+            else if (id == 1) // Open Folder
+            {
+                listContextual.setSelectedId(1);
+
+                /* var */ path = core.openFolder(qsTr("Select Folder"));
+
+                panelBrowse.browse(path);
+            }
+            else if (id == 2) // Update Backends
+            {
+                core.updateBackends();
+            }
+            else if (id == 3) // Reset Backends
+            {
+                core.resetBackends();
+            }
+
+            return true;
+        }
+
+        //-----------------------------------------------------------------------------------------
+        // Private
+
+        function pGetPreferredHeight()
+        {
+            if (pButtonsVisible)
+            {
+                 return listContextual.height + borderSizeHeight + buttonFeed.height;
+            }
+            else return listContextual.height + borderSizeHeight - borderBottom;
+        }
+
+        //-----------------------------------------------------------------------------------------
+        // Childs
+        //-----------------------------------------------------------------------------------------
+
+        ListContextual
+        {
+            id: listContextual
+
+            //-------------------------------------------------------------------------------------
+            // Settings
+            //-------------------------------------------------------------------------------------
+
+            anchors.left : parent.left
+            anchors.right: parent.right
+
+            currentPage: ContextualPage { id: page }
+
+            //-------------------------------------------------------------------------------------
+            // Events
+            //-------------------------------------------------------------------------------------
+
+            onItemClicked:
+            {
+                var clear;
+
+                if (currentId == -1)
+                {
+                    var item = areaContextual.item;
+
+                    if (item) item.onClick(id);
+
+                    areaContextual.hidePanels();
+                }
+
+                if      (currentId == 0) clear = panelContextual.onFolderClicked(id);
+                else if (currentId == 1) clear = panelContextual.onTrackClicked (id);
+                else if (currentId == 2) clear = panelContextual.onTracksClicked(id);
+                else if (currentId == 3) clear = panelContextual.onTabClicked   (id);
+                else if (currentId == 4) clear = panelContextual.onBrowseClicked(id);
+                else                     clear = true;
+
+                if (clear) areaContextual.hidePanels();
+            }
+        }
+
+        ButtonPianoIcon
+        {
+            anchors.right: parent.right
+
+            width : st.barTitle_height + borderSizeWidth
+            height: st.barTitle_height
+
+            borderLeft : borderSize
+            borderRight: 0
+
+            visible: (panelContextual.posX != -1 || panelContextual.posY != -1)
+
+            enabled: (areaContextual.currentPanel != null)
+
+            icon          : st.icon12x12_close
+            iconSourceSize: st.size12x12
+
+            onClicked: areaContextual.hidePanels()
+        }
+
+        ButtonPiano
+        {
+            id: buttonFeed
+
+            anchors.left  : parent.left
+            anchors.right : parent.right
+            anchors.bottom: parent.bottom
+
+            borderRight: 0
+
+            visible: pButtonsVisible
+
+            enabled: (pFeed != "")
+
+            text: pAuthor
+
+            itemText.horizontalAlignment: Text.AlignLeft
+
+            onClicked:
+            {
+                if (currentId == 3) // Tab
+                {
+                     gui.browseFeed(pItem);
+                }
+                else gui.browseFeedTrack(pFeed, pSource);
+
+                areaContextual.hidePanels();
+            }
+        }
+    }
+
+    PanelAdd { id: panelAdd }
+}

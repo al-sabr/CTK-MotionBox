@@ -1,0 +1,74 @@
+//=================================================================================================
+/*
+    Copyright (C) 2015-2020 Sky kit authors. <http://omega.gg/Sky>
+
+    Author: Benjamin Arnaud. <http://bunjee.me> <bunjee@omega.gg>
+
+    This file is part of SkyComponents.
+
+    - GNU Lesser General Public License Usage:
+    This file may be used under the terms of the GNU Lesser General Public License version 3 as
+    published by the Free Software Foundation and appearing in the LICENSE.md file included in the
+    packaging of this file. Please review the following information to ensure the GNU Lesser
+    General Public License requirements will be met: https://www.gnu.org/licenses/lgpl.html.
+
+    - Private License Usage:
+    Sky kit licensees holding valid private licenses may use this file in accordance with the
+    private license agreement provided with the Software or, alternatively, in accordance with the
+    terms contained in written agreement between you and Sky kit authors. For further information
+    contact us at contact@omega.gg.
+*/
+//=================================================================================================
+
+import QtQuick 2.14
+import Sky 1.0
+
+ItemWall
+{
+    id: componentWall
+
+    //---------------------------------------------------------------------------------------------
+    // Settings
+    //---------------------------------------------------------------------------------------------
+
+    width : parent.getItemWidth (index)
+    height: parent.getItemHeight(index)
+
+    x: parent.getItemX(index)
+    y: parent.getItemY(index)
+
+    z:
+    {
+        if (index == parent.indexTop) return 1;
+        else if (opacity == 1.0) return  0;
+        else                     return -1;
+    }
+
+    visible: parent.getItemVisible(index)
+
+    opacity: (index != parent.indexRemove)
+
+    isHovered: (index == parent.indexHover)
+
+    isCurrent: (componentWall == currentItem)
+
+    image: sourceImage
+
+    icon       : sourceIcon
+    iconDefault: sourceIconDefault
+
+    iconAsynchronous: parent.asynchronous
+
+    text: title
+
+    textMargin: parent.getItemBarMargin(index)
+
+    itemImage.asynchronous: parent.asynchronous
+
+    //---------------------------------------------------------------------------------------------
+    // Events
+    //---------------------------------------------------------------------------------------------
+
+    onEntered: parent.setItemHovered  (componentWall)
+    onExited : parent.clearItemHovered()
+}
