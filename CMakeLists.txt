@@ -736,7 +736,8 @@ endif()
 if(CTK_USE_BISMILLAH_PLUGINS)
   list(APPEND plugin_list
     bismillah.fractal.core
-    bismillah.multimedia.motionbox
+    bismillah.dummy.plugin
+    #bismillah.multimedia.motionbox
   )
 endif()
 
