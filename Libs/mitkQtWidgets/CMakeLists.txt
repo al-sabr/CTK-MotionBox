@@ -1,12 +1,8 @@
 project(CTKmitkQtWidgets)
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 include(files.cmake)
 
-find_package(Qt5 COMPONENTS Core OpenGL Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core OpenGL Quick Widgets Network Xml XmlPatterns REQUIRED)
 
 find_package(CppMicroServices NO_MODULE REQUIRED)
 include_directories(${CppMicroServices_INCLUDE_DIRS})
@@ -25,7 +21,7 @@ set(KIT_target_libraries)
 ctkFunctionGetTargetLibraries(KIT_target_libraries)
 
 if(CTK_QT_VERSION VERSION_GREATER "4")
-  list(APPEND KIT_target_libraries Qt5::Core Qt5::OpenGL Qt5::Widgets CppMicroServices)
+  list(APPEND KIT_target_libraries Qt5::Core Qt5::OpenGL Qt5::Widgets Qt5::Quick Qt5::Network Qt5::Xml Qt5::XmlPatterns)
 endif()
 
 ctkMacroBuildLib(
