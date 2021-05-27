@@ -117,13 +117,6 @@ set(CMAKE_CXX_EXTENSIONS 0)
 set(CMAKE_CXX_STANDARD ${MITK_CXX_STANDARD})
 set(CMAKE_CXX_STANDARD_REQUIRED 1)
 
-# This is necessary to avoid problems with compile feature checks.
-# CMAKE_CXX_STANDARD seems to only set the -std=c++14 flag for targets.
-# However, compile flag checks also need to be done with -std=c++14.
-# The MITK_CXX14_FLAG variable is also used for external projects
-# build during the MITK super-build.
-mitkFunctionCheckCompilerFlags("-std=c++14" MITK_CXX14_FLAG)
-
 #-----------------------------------------------------------------------------
 # Warn if source or build path is too long
 #-----------------------------------------------------------------------------
