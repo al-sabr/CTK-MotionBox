@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension id="bismillah.fractal.core.application" point="org.blueberry.osgi.applications">
+    <application>
+      <run class="FractalCoreApplication"/>
+    </application>
+  </extension>
+
+  <extension point="org.blueberry.ui.perspectives">
+    <perspective
+      id="bismillah.fractal.core.prespective"
+      name="Fractal Core Perspective"
+      icon="resources/perspectiveIcon1.png"
+      class="FractalCorPerspective">
+    </perspective>
+  </extension>
+
+  <extension point="org.blueberry.ui.views">
+    <view
+      id="bismillah.fractal.core.emptyview1"
+      name="Empty View 1"
+      icon="resources/viewIcon1.png"
+      class="EmptyView1">
+    </view>
+  </extension>
+
+</plugin>
