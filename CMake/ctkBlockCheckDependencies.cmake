@@ -122,7 +122,13 @@ set(${ANN_enabling_variable}_LIBRARY_DIRS ANN_LIBRARY_DIRS)
 set(${ANN_enabling_variable}_INCLUDE_DIRS ANN_INCLUDE_DIRS)
 set(${ANN_enabling_variable}_FIND_PACKAGE_CMD ANN)
 
+set(SkyFramework_enabling_variable SkyFramework_LIBRARIES)
+set(${SkyFramework_enabling_variable}_LIBRARY_DIRS SkyFramework_LIBRARY_DIRS)
+set(${SkyFramework_enabling_variable}_INCLUDE_DIRS SkyFramework_INCLUDE_DIRS)
+set(${SkyFramework_enabling_variable}_FIND_PACKAGE_CMD SkyFramework)
+
 macro(superbuild_is_external_project_includable possible_proj output_var)
+
   if(DEFINED ${possible_proj}_enabling_variable)
     ctkMacroShouldAddExternalProject(${${possible_proj}_enabling_variable} ${output_var})
     if(NOT ${${output_var}})
