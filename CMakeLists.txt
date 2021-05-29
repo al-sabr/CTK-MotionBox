@@ -65,8 +65,6 @@ project(CTK)
 option(CTK_USE_BISMILLAH_PLUGINS "Enable the BISMILLAH and the projects it depends on." ON)
 mark_as_advanced(CTK_USE_BISMILLAH_PLUGINS)
 
-find_package(LibVLC REQUIRED)
-
 # =====================================
 # =====================================
 # START OF BLUEBERRY FRAMEWORK MACROS
@@ -298,6 +296,7 @@ set(CTK_CMAKE_UTILITIES_DIR ${CTK_SOURCE_DIR}/Utilities/CMake)
 #-----------------------------------------------------------------------------
 # CMake function(s) and macro(s)
 #
+message("ROOT INCLUDE LINE 335")
 foreach(file
   CMake/ctkListToString.cmake
   CMake/ctkMacroParseArguments.cmake
@@ -331,6 +330,9 @@ foreach(file
   CMake/ctkFunctionGetCompilerVisibilityFlags.cmake
   CMake/ctkFunctionCompileSnippets.cmake
   
+  # Integrate LibVLC.
+  CMake/FindLIBVLC.cmake
+
   # MITK imported macros and functions.
   CMake/mitkFunctionOrganizeSources.cmake
   CMake/mitkFunctionCheckModuleDependencies.cmake
@@ -350,9 +352,12 @@ foreach(file
   CMake/mitkFunctionUseModules.cmake
 
   )
+  
   include(${file})
   install(FILES ${file} DESTINATION ${CTK_INSTALL_CMAKE_DIR} COMPONENT Development)
 endforeach()
+
+find_package(LIBVLC REQUIRED)
 
 foreach(file
   Libs/ctkExport.h.in

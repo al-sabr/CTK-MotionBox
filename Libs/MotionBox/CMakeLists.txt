@@ -3,7 +3,7 @@ project(CTKMotionBox)
 set(CMAKE_AUTOMOC TRUE)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(LibVLC COMPONENTS libvlc libvlccore REQUIRED)
+find_package(LIBVLC REQUIRED)
 
 find_package(Qt5 COMPONENTS Core Qml Quick REQUIRED)
 
@@ -34,7 +34,7 @@ if(CTK_QT_VERSION VERSION_GREATER "4")
 endif()
 
 list(APPEND KIT_target_libraries
-  SkyFramework::SkyBackend
+	SkyFramework::SkyBackend
 	SkyFramework::SkyTorrent
 	SkyFramework::SkyCore
 	SkyFramework::SkyGui
